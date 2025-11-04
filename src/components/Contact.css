@@ -1,0 +1,114 @@
+.contact-section {
+  /* Mobile/Tablet: Normal scroll */
+  @apply relative w-full pt-[6rem];
+  z-index: 1;
+  background-color: #FFFBF5;
+}
+
+/* Desktop: Fixed positioning */
+@media (min-width: 1024px) {
+  .contact-section {
+    @apply fixed top-0 left-0 right-0 h-screen pt-[12rem];
+    z-index: 1;
+    background-color: #FFFBF5;
+  }
+}
+
+.contact-wrapper {
+  @apply relative w-full flex flex-col items-center;
+  z-index: 10;
+}
+
+/* Desktop: Full height to enable footer at bottom */
+@media (min-width: 1024px) {
+  .contact-wrapper {
+    @apply h-full justify-between;
+  }
+}
+
+.contact-container {
+  @apply max-w-[1000px] mx-auto w-full px-[1.75rem];
+}
+
+.contact-header-wrapper {
+  @apply flex flex-col tb900:flex-row tb900:gap-[3rem] items-center;
+}
+
+.contact-header-left {
+  @apply flex flex-col items-center tb900:items-start gap-[1rem] mb-[3rem] tb900:w-[50%];
+}
+
+.contact-heading {
+  @apply flex items-center gap-[1rem];
+}
+
+.contact-icon {
+  @apply transform rotate-90 w-[25px] h-[25px];
+}
+
+.contact-subheading {
+  @apply  flex gap-[1rem] items-center justify-center tb900:text-left text-center;
+}
+
+.contact-info-wrapper {
+  @apply flex flex-col gap-[1rem] mb-[3rem] tb900:items-start tb900:w-[50%] tb900:gap-[2rem];
+}
+
+.contact-info-item {
+  @apply flex flex-col items-center justify-center gap-[1rem] tb900:flex-row tb900:justify-start;
+}
+
+.contact-info-text-wrapper {
+  @apply flex flex-col items-center justify-center gap-[1rem] tb900:items-start;
+}
+
+.contact-info-label {
+  @apply font-Rubik font-bold text-[#292524] text-[1.1rem];
+}
+
+.contact-email {
+  @apply font-Mulish text-gray-500 text-[.9rem] hover:text-[#78716C] cursor-pointer dk:text-[1rem];
+}
+
+.contact-form-container {
+  /* This class is already defined in the original, so we'll keep it as-is */
+}
+
+.contact-input {
+  /* This class is already defined in the original, so we'll keep it as-is */
+}
+
+.contact-textarea {
+  /* This class is already defined in the original, so we'll keep it as-is */
+}
+
+.contact-error {
+  /* This class is already defined in the original, so we'll keep it as-is */
+}
+
+.contact-form-inputs-wrapper {
+  @apply flex flex-col gap-[2rem] tb900:gap-[3rem] tb900:w-[50%];
+}
+
+.contact-input-group {
+  @apply flex flex-col relative;
+}
+
+.contact-textarea-wrapper {
+  @apply flex flex-col relative min-h-[200px] tb900:w-[50%];
+}
+
+.contact-submit-wrapper {
+  @apply flex gap-[2rem] items-center;
+}
+
+.contact-submit-btn {
+
+  background-color: #78716C !important;
+  color: white !important;
+  border: 1px solid #78716C !important;
+}
+
+.contact-success-message {
+  @apply text-green-500 font-bold;
+}

@@ -1,0 +1,56 @@
+.about-section {
+  @apply  flex items-center justify-center px-[1.75rem] relative bg-gradient-to-b from-slate-100 to-slate-100;
+  z-index: 10;
+}
+
+.about-container {
+  @apply max-w-[1000px] mx-auto;
+}
+
+.about-content-wrapper {
+  @apply mx-auto flex flex-col px-4 tb900:flex-row tb900:gap-[3rem] items-center justify-center bg-white border-2 rounded py-[4rem];
+}
+
+.about-swiper-container {
+  @apply max-w-[350px] px-4 mb-[3rem] tb900:mb-0 tb500:w-[410px] tb900:w-[50%];
+}
+
+.about-swiper {
+  @apply w-[250px] h-[225px] overflow-hidden tb900:w-[340px] tb900:h-[340px] border-2 rounded-lg shadow-md;
+}
+
+.about-swiper-slide {
+  @apply w-full h-full cursor-grab overflow-hidden;
+}
+
+.about-swiper-image {
+  @apply h-full w-full rounded-lg;
+}
+
+.about-swiper-caption {
+  @apply text-center mt-[1rem] text-gray-500 text-[.8rem] font-Rubik uppercase font-bold;
+}
+
+.about-text-container {
+  @apply text-center tb900:text-left flex flex-col gap-[1rem] h-full tb500:max-w-[410px] px-[1rem] tb900:max-w-[40%];
+}
+
+.about-heading {
+  @apply section-heading flex justify-center tb900:justify-start gap-[1rem] items-center;
+}
+
+.about-icon {
+  @apply w-[30px] h-[30px];
+}
+
+.about-description {
+  @apply body-text;
+}
+
+.about-resume-btn {
+  @apply btn-primary mt-[2rem] tb900:mt-[1rem] mx-auto tb900:mx-0 w-max tb900:w-full;
+}
+
+.about-divider {
+  @apply w-[100px] h-[3px] bg-slate-200 my-[4rem] mx-auto;
+}

@@ -1,34 +1,50 @@
 import React from "react";
-import Briefcase from "../../public/assets/briefcase.png";
-import vapesterData from "../../public/assets/vapester.json";
-import kanbanData from "../../public/assets/kanban.json";
-import trailerviewData from "../../public/assets/trailerview.json";
-import photosnapData from "../../public/assets/photosnap.json"
+import vapesterData from "../data/vapester.json";
+import kanbanData from "../data/kanban.json";
+import trailerviewData from "../data/trailerview.json";
+import photosnapData from "../data/photosnap.json";
 
 import SingleProject from "./SingleProject";
+import "./Projects.css";
 
 
 const Projects = () => {
   return (
-    <section id="portfolio" className="page-width min-h-screen px-[1.75rem] ">
+    <section id="portfolio" className="projects-section  ">
 
-      <div className="max-w-[1000px] mx-auto">
+      <div className="projects-container ">
 
-        <div className="mb-[3rem] flex flex-col gap-[1rem]">
-          <h3 className="section-heading flex items-center justify-center tb900:justify-start gap-[1rem]">
+        <div className="projects-header">
+          <h3 className="projects-heading section-heading">
             PORTFOLIO
             <img
-              src={Briefcase}
+              src="/assets/briefcase.png"
               alt="briefcase icon"
-              className="w-[30px] h-[30px]"
+              className="projects-icon"
             />
           </h3>
-          <h4 className="section-subheading text-center tb900:text-left">
+          <h4 className="projects-subheading section-subheading ">
             Featured projects
           </h4>
         </div>
 
 
+        {/* trailerview */}
+        {trailerviewData.map((data, index) => (
+          <SingleProject
+            name={data.name}
+            nameIcon={data.nameIcon}
+            nameIconAlt={data.nameIconAlt}
+            tech={data.tech}
+            tags={data.tags}
+            blurb={data.blurb}
+            github={data.github}
+            livelink={data.livelink}
+            key={data.id}
+            images={data.images}
+            align={data.align}
+          />
+        ))}
 
 
         {/* vapestore */}
@@ -67,22 +83,6 @@ const Projects = () => {
         ))}
 
 
-        {/* trailerview */}
-        {trailerviewData.map((data, index) => (
-          <SingleProject
-            name={data.name}
-            nameIcon={data.nameIcon}
-            nameIconAlt={data.nameIconAlt}
-            tech={data.tech}
-            tags={data.tags}
-            blurb={data.blurb}
-            github={data.github}
-            livelink={data.livelink}
-            key={data.id}
-            images={data.images}
-            align={data.align}
-          />
-        ))}
 
 
         {/* photosnap */}
@@ -103,7 +103,7 @@ const Projects = () => {
         ))}
 
       </div>
-      <div className="w-[100px] h-[3px] bg-slate-200 my-[4rem] mx-auto"></div>
+      <div className="projects-divider"></div>
     </section>
   );
 };

@@ -1,13 +1,12 @@
 import React from "react";
-import iconLink from "../../public/assets/icon-link.svg";
 import Iconghub from "../icons/Iconghub";
-import shopify from "../../public/assets/icon-shopify.svg";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import "./SingleProject.css";
 
 const SingleProject = ({
   blurb,
@@ -36,27 +35,25 @@ const SingleProject = ({
 
 
   return (
-    <div className={align === "right" ? 'project-container-kanban mb-[4rem]' : 'project-container mb-[4rem]'}>
-      <div className="swiper-container border-1">
+    <div className={align === "right" ? 'single-project-container-kanban' : 'single-project-container'}>
+      <div className="single-project-swiper-container border-1">
         <Swiper
-          className="w-full h-full "
-          pagination={
-            {
-              type: "bullets",
-            }
-          }
+          className="single-project-swiper"
+          pagination={{
+            type: "bullets",
+          }}
           modules={[Navigation, Pagination]}
           spaceBetween={16}
           navigation={true}
           slidesPerView={1}
         >
           {images.map((image, index) => (
-            <SwiperSlide   
-              key={index} 
-              className="swiper-slide w-min h-auto">
+            <SwiperSlide
+              key={index}
+              className="single-project-swiper-slide">
               <img
                 key={index}
-                className="object-cover cursor-grab "
+                className="single-project-image"
                 src={image}
                 alt="porfolio image"
               />
@@ -65,28 +62,23 @@ const SingleProject = ({
         </Swiper>
       </div>
 
-      {/* PROJECT TITLE */}
-      <div className="project-info-container">
-        <h4 className="project-title flex items-center justify-center tb900:justify-start gap-[1rem] ">
+      <div className="single-project-info-container">
+        <h4 className="single-project-title">
           {name}{" "}
           <img
-            src={
-              nameIcon 
-            }
+            src={nameIcon}
             alt={nameIconAlt}
-            className="w-[30px] h-[30px]"
+            className="single-project-icon"
           />
         </h4>
 
-        <p className="project-details">{blurb}</p>
+        <p className="single-project-details">{blurb}</p>
 
-        {/* PROJECT TECH */}
-
-        <div className="project-tech-container  ">
+        <div className="single-project-tech-container">
           {tech.map((tech, index) => {
             return (
               <img
-                className="project-skills-img"
+                className="single-project-skills-img"
                 key={index}
                 src={`https://skillicons.dev/icons?i=${tech}`}
                 alt={tech}
@@ -94,44 +86,40 @@ const SingleProject = ({
               />
             );
           })}
-          {name === "Vapester" && <img src={shopify} alt="Shopify" />}
+          {name === "Vapester" && <img src="/assets/icon-shopify.svg" alt="Shopify" />}
         </div>
 
-        {/* PROJECT TAGS */}
-
-        <div className="project-tags">
+        <div className="single-project-tags">
           {tags.map((tag, index) => {
             return (
-              <span className="tag" key={index}>
+              <span className="single-project-tag" key={index}>
                 {tag}
               </span>
             );
           })}
         </div>
 
-        <div className="project-links-container">
-          {/* VAPESTER ? RENDER STORE PASSWRD FUNC */}
-
+        <div className="single-project-links-container project-links-container">
           {name === "Vapester" ? (
-            <p className="flex items-center justify-center tb900:justify-start gap-[.5rem] text-gray-500 text-[.8rem]  my-[1.5rem]">
+            <p className="single-project-password-info">
               *Password:
               <span
-                className="cursor-pointer border hover:border-header-txt rounded px-[.5rem] hover:bg-slate-200 text-header-txt font-bold"
+                className="single-project-password-btn"
                 onClick={() => copyToClipboard("eamaos")}
               >
                 COPY TO CLIPBOARD
               </span>
             </p>
           ) : ""}
-          {/* PROJECT LINKS */}
-          <div className="flex items-center justify-center tb900:justify-start gap-[1rem] mt-[2rem] ">
-            <a href={github} target="_blank" className="btn-secondary ">
+
+          <div className="single-project-links">
+            <a href={github} target="_blank" className="single-project-link-btn">
               Code <Iconghub />{" "}
             </a>
 
-            <a className="btn-secondary " href={livelink} target="_blank">
+            <a className="single-project-link-btn" href={livelink} target="_blank">
               Live
-              <img src={iconLink} alt="icon link" />
+              <img src="/assets/icon-link.svg" alt="icon link" />
             </a>
           </div>
         </div>

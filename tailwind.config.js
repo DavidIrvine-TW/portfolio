@@ -7,10 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        "bgOffWhite": "#FAF9F6",
-        "header-txt": "#292929",
-        "babyblue" : "#147efb",
-        "babybluelight": "#6ea6ff"
+        "bgOffWhite": "#FFFBF5",
+        "header-txt": "#292524",
+        "babyblue" : "#78716C",
+        "babybluelight": "#EA580C"
       },
 
       fontSize: {

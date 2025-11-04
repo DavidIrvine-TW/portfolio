@@ -1,141 +1,172 @@
 import React from "react";
-import { Link, animateScroll as scroll } from "react-scroll";
+import "./Header.css";
 
 function Header({menu, setMenu}) {
-  
-
+  const [isScrolled, setIsScrolled] = React.useState(false);
 
   const isOpen = menu ? "cross" : "";
   const menuClass = menu ? "left-0 opacity-100" : "-left-full opacity-0"
 
   const menuHandler = () => {
     setMenu(prev => !prev)
+  }
 
+  // Track scroll position for navbar styling
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Custom smooth scroll function with easing (from Technyra pattern)
+  const handleScrollClick = (e, targetId) => {
+    e.preventDefault();
+
+    // Close mobile menu if open
+    if (menu) {
+      setMenu(false);
+    }
+
+    // Cubic easing function
+    const easeInOutCubic = (t) => {
+      return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+    };
+
+    const duration = 1500; // 1.5 seconds
+    const startPosition = window.pageYOffset;
+    let targetPosition;
+
+    // Home: scroll to top
+    if (targetId === 'home') {
+      targetPosition = 0;
+    }
+    // Contact: scroll to bottom of page
+    else if (targetId === 'contact') {
+      targetPosition = document.documentElement.scrollHeight - window.innerHeight;
+    }
+    // Projects/Portfolio and other sections: scroll to element with offset
+    else {
+      const targetSection = document.getElementById(targetId);
+      if (!targetSection) return;
+
+      const isMobile = window.innerWidth <= 768;
+      const offset = isMobile ? 100 : 100; // Account for navbar height
+      targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - offset;
+    }
+
+    const distance = targetPosition - startPosition;
+    let start = null;
+
+    const animation = (currentTime) => {
+      if (start === null) start = currentTime;
+      const timeElapsed = currentTime - start;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const ease = easeInOutCubic(progress);
+
+      window.scrollTo(0, startPosition + distance * ease);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      }
+    };
+
+    requestAnimationFrame(animation);
   }
 
 
   return (
-    <header className="shadow-md bg-white w-full min-w-[375px] fixed top-0 left-0 z-[1000]">
-      <div className="page-width flex justify-between items-center px-7 py-6 text-header-txt text-xl-dk">
-        <div className="font-Rubik font-bold">
-          <h1>marv-dev</h1>
+    <header className="header">
+      <div className={`header-wrapper ${isScrolled ? 'header-scrolled' : ''}`}>
+        <div className="header-logo">
+          <h1 className="select-none">My Portfolio</h1>
         </div>
 
         <nav>
-          <ul className="hidden tb900:inline-flex gap-6 font-Rubik">
-            <li className="menu-item">
-              <Link 
-               activeClass="active"
-               to="home"
-               spy={true}
-               smooth={true}
-               offset={0}
-               duration={400}
-               >
-                Home</Link>
+          <ul className="header-nav-desktop">
+            <li className="header-menu-item">
+              <a
+                href="#home"
+                onClick={(e) => handleScrollClick(e, 'home')}
+              >
+                Home
+              </a>
             </li>
-            <li className="menu-item">
-              <Link
-                activeClass="active"
-                to="portfolio"
-                spy={true}
-                smooth={true}
-                offset={-120}
-                duration={400}
+            <li className="header-menu-item">
+              <a
+                href="#portfolio"
+                onClick={(e) => handleScrollClick(e, 'portfolio')}
               >
                 Projects
-              </Link>
+              </a>
             </li>
-            <li className="menu-item">
-              <Link
-                activeClass="active"
-                to="about"
-                spy={true}
-                smooth={true}
-                offset={-150}
-                duration={400}
+            {/* <li className="header-menu-item">
+              <a
+                href="#about"
               >
                 About
-              </Link>
-            </li>
-            <li className="menu-item">
-              <Link
-                activeClass="active"
-                to="contact"
-                spy={true}
-                smooth={true}
-                offset={-10}
-                duration={400}
+              </a>
+            </li> */}
+            <li className="header-menu-item">
+              <a
+                href="#contact"
+                onClick={(e) => handleScrollClick(e, 'contact')}
+                className="btn-primary"
               >
                 Contact
-              </Link>
+              </a>
             </li>
           </ul>
 
-          <div className={` tb900:hidden hamburger-menu ${isOpen}`} onClick={menuHandler}>
+          <div className={`hamburger-menu header-hamburger ${isOpen} `} onClick={menuHandler}>
             <span></span>
             <span></span>
             <span></span>
           </div>
 
-          {/* <div id="mob-menu-overlay" className="absolute top-0 bottom-0 left-0 right-0 bg-red-500 z-[-10]"></div> */}
-          
-          <ul className={`border-2 absolute top-[78px] transition duration-300 ${menuClass} tb900:hidden text-center flex flex-col gap-[2rem] items-center pt-[3rem] w-full h-screen bg-bgOffWhite z-[1000]`}>
-           
-            <li className="mobile-menu-item cursor-pointer">
-                <Link 
-                activeClass="active"
-                to="home"
-                spy={true}
-                smooth={true}
-                offset={0}
-                duration={400}
+          <ul className={`header-nav-mobile ${menuClass}`}>
+
+            <li className="header-mobile-menu-item mobile-menu-item">
+              <a
+                href="#home"
+                onClick={(e) => handleScrollClick(e, 'home')}
+              >
+                Home
+              </a>
+            </li>
+            <li className="header-mobile-menu-item">
+              <a
+                href="#portfolio"
+                onClick={(e) => handleScrollClick(e, 'portfolio')}
+              >
+                Projects
+              </a>
+            </li>
+            {/* <li className="header-mobile-menu-item">
+              <a
+                href="#about"
                 onClick={menuHandler}
-                >
-                  Home</Link>
-              </li>
-              <li className="mobile-menu-item cursor-pointer">
-                <Link
-                  activeClass="active"
-                  to="portfolio"
-                  spy={true}
-                  smooth={true}
-                  offset={-120}
-                  duration={400}
-                  onClick={menuHandler}
-                >
-                  Projects
-                </Link>
-              </li>
-              <li className="mobile-menu-item cursor-pointer">
-                <Link
-                  activeClass="active"
-                  to="about"
-                  spy={true}
-                  smooth={true}
-                  offset={-20}
-                  duration={400}
-                  onClick={menuHandler}
-                >
-                  About
-                </Link>
-              </li>
-              <li className="mobile-menu-item cursor-pointer">
-                <Link
-                  activeClass="active"
-                  to="contact"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={400}
-                  onClick={menuHandler}
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
+              >
+                About
+              </a>
+            </li> */}
+            <li className="header-mobile-menu-item">
+              <a
+                href="#contact"
+                onClick={(e) => handleScrollClick(e, 'contact')}
+                className="btn-primary"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
         </nav>
-        
+
       </div>
     </header>
   );

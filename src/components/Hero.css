@@ -1,0 +1,74 @@
+.hero-section {
+  @apply  py-[7rem] tb900:py-[9rem] px-[1.75rem] relative bg-[#FFFBF5] flex flex-col;
+  z-index: 10;
+}
+
+/* Desktop: 100vh */
+@media (min-width: 1024px) {
+  .hero-section {
+    @apply min-h-screen flex items-center justify-center;
+  }
+}
+
+.hero-content-wrapper {
+  @apply flex flex-col-reverse tb900:flex-row items-center justify-center gap-[2rem] tb900:gap-[6rem] w-full max-w-[1120px] mx-auto relative;
+  z-index: 10;
+}
+
+.hero-text-container {
+  @apply flex flex-col max-w-[500px] tb900:w-[50%] relative;
+}
+
+.hero-title {
+  @apply text-center tb900:text-left text-mob-title font-Rubik font-bold tb500:text-title-dk flex flex-col text-[#292524] my-[1.25rem] relative;
+}
+
+.hero-waving-img-desktop {
+  @apply hidden tb900:block w-[45px] tb500:w-[60px] h-auto absolute bottom-0 right-[0%] tb900:right-[10%];
+}
+
+.hero-waving-img-mobile {
+  @apply mx-auto tb900:hidden w-[45px] h-auto tb500:w-[60px] mb-[1.25rem];
+}
+
+.hero-intro-text {
+  @apply text-center tb900:text-left body-text font-Mulish text-body-dk text-gray-500;
+}
+
+.hero-tagline {
+  @apply text-center tb900:text-left font-bold font-Mulish text-body-dk text-gray-500 mt-[1rem];
+}
+
+.hero-connect-btn {
+  @apply btn-primary mx-auto tb900:mx-0 my-[2rem];
+}
+
+.hero-social-links {
+  @apply  flex gap-4 cursor-pointer mx-auto tb900:mx-0;
+}
+
+.hero-image-container {
+  @apply tb900:max-w-[50%];
+}
+
+.hero-img {
+  @apply w-[280px] h-[280px] tb500:w-[350px] tb500:h-[350px] overflow-hidden relative;
+}
+
+.hero-tech-stack-wrapper {
+  @apply flex flex-col tb900:flex-row tb900:max-w-[950px] tb900:mx-auto items-center justify-center mt-[4rem];
+}
+
+.hero-tech-stack-label {
+  @apply font-Mulish font-bold border-b-2 tb900:border-b-0 tb900:border-r-2 tb900:pr-[3rem] tb900:mr-[3rem] items-center text-center tb900:text-left border-current tb900:pb-0 pb-[1rem];
+}
+
+.hero-skill-icon-list {
+  @apply  grid grid-cols-4 gap-x-4 gap-y-11 tb900:flex mt-[3rem] tb900:mt-0 mx-auto;
+}
+
+.hero-skill-icon-item {
+  @apply  relative flex-grow;
+}
+
+

@@ -1,0 +1,36 @@
+.projects-section {
+  @apply  min-h-screen px-[1.75rem] relative bg-[#FFFBF5] to-slate-100;
+  z-index: 10;
+}
+
+/* Desktop: Add bottom border */
+@media (min-width: 1024px) {
+  .projects-section {
+    border-bottom: 32px solid #292524;
+  }
+}
+
+.projects-container {
+  @apply max-w-[1000px] mx-auto relative;
+  z-index: 10;
+}
+
+.projects-header {
+  @apply mb-[3rem] flex flex-col gap-[1rem];
+}
+
+.projects-heading {
+  @apply  flex items-center justify-center tb900:justify-start gap-[1rem];
+}
+
+.projects-icon {
+  @apply w-[30px] h-[30px];
+}
+
+.projects-subheading {
+  @apply text-center tb900:text-left;
+}
+
+.projects-divider {
+  @apply w-[100px] h-[3px] bg-slate-200 my-[4rem] mx-auto;
+}

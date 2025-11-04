@@ -1,9 +1,10 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import IconEmail from "../icons/iconEmail";
-import Point from "../../public/assets/point.png";
 import IconLocation from "../icons/IconLocation";
 import IconEmailAlt from "../icons/IconEmailAlt";
+import Footer from "./Footer";
+import "./Contact.css";
 
 const Contact = () => {
   const form = useRef();
@@ -88,51 +89,40 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="page-width pb-[7rem] px-[1.75rem] ">
+    <section id="contact" className="contact-section ">
+      <div className="contact-wrapper">
 
-      <div className="contact-container">
+        <div className="contact-container">
 
-        <div className="flex flex-col tb900:flex-row tb900:gap-[3rem] items-center">
+        <div className="contact-header-wrapper">
 
-          <div className="flex flex-col items-center tb900:items-start gap-[1rem] mb-[3rem] tb900:w-[50%]">
-            <h3 className="section-heading flex items-center gap-[1rem]  ">
+          <div className="contact-header-left">
+            <h3 className="contact-heading  section-heading ">
               CONTACT
               <img
-                src={Point}
+                src="/assets/point.png"
                 alt="point icon"
-                className="transform rotate-90 w-[25px] h-[25px]"
+                className="contact-icon"
               />
             </h3>
-            <h4 className="section-subheading flex gap-[1rem] items-center justify-center tb900:text-left text-center">
+            <h4 className="contact-subheading section-subheading">
               Hit me up, I'll get back to you soon...
             </h4>
           </div>
 
-          <div className="flex flex-col gap-[1rem] mb-[3rem] tb900:flex-start tb900:w-[50%] tb900:gap-[2rem]" >
+          <div className="contact-info-wrapper">
 
-            {/* <div className="flex flex-col items-center justify-center gap-[1rem] tb900:flex-row tb900:justify-start ">
-              <IconLocation />
-              <div className="flex flex-col items-center justify-center gap-[rem]  tb900:items-start">
-                <span className="font-Rubik font-bold text-header-txt text-[1.1rem]">
-                  Location
-                </span>
-                <span className="font-Mulish text-gray-500 text-[.9rem]  dk:text-[1rem]">
-                  Glasgow, Scotland
-                </span>
-              </div>
-            </div> */}
-
-            <div className="flex flex-col  items-center justify-center gap-[1rem] tb900:flex-row  tb900:justify-start">
+            <div className="contact-info-item">
               <IconEmailAlt />
-              <div className="flex flex-col items-center justify-center gap-[rem] tb900:items-start ">
-                <span className="font-Rubik font-bold text-header-txt text-[1.1rem]">
+              <div className="contact-info-text-wrapper">
+                <span className="contact-info-label">
                   Mail
                 </span>
                 <span
                   onClick={() =>
                     copyEmailToClipboard("marv@marv-dev.com")
                   }
-                  className="font-Mulish text-gray-500 text-[.9rem] hover:text-babyblue cursor-pointer  dk:text-[1rem]"
+                  className="contact-email"
                 >
                   marv@marv-dev.com
                 </span>
@@ -147,9 +137,8 @@ const Contact = () => {
 
           <div className="contact-form-container ">
 
-            <div className="flex flex-col gap-[2rem] tb900:gap-[3rem] tb900:w-[50%]">
-              <div className="flex flex-col relative ">
-                {/* <label>Name</label> */}
+            <div className="contact-form-inputs-wrapper">
+              <div className="contact-input-group">
                 <input
                   onChange={handleInputChange}
                   type="text"
@@ -159,8 +148,7 @@ const Contact = () => {
                 />
                 <span className="contact-error ">{userNameErrorMsg}</span>
               </div>
-              <div className="flex flex-col relative">
-                {/* <label>Email</label> */}
+              <div className="contact-input-group">
                 <input
                   onChange={handleInputChange}
                   type="email"
@@ -172,8 +160,7 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="flex flex-col relative min-h-[200px] tb900:w-[50%]">
-              {/* <label>Message</label> */}
+            <div className="contact-textarea-wrapper">
               <textarea
                 onChange={handleInputChange}
                 name="message"
@@ -185,15 +172,18 @@ const Contact = () => {
 
           </div>
 
-          <div className="flex gap-[2rem] items-center">
-            <button type="submit" value="Send" className="btn-primary">
+          <div className="contact-submit-wrapper">
+            <button type="submit" value="Send" className="contact-submit-btn btn-primary">
               Send it
             </button>
-            {message && <p className="text-green-500 font-bold">{message}</p>}
+            {message && <p className="contact-success-message">{message}</p>}
           </div>
 
         </form>
 
+        </div>
+
+        <Footer />
       </div>
     </section>
   );

@@ -1,0 +1,72 @@
+.single-project-container {
+  @apply project-container mb-[4rem];
+}
+
+.single-project-container-kanban {
+  @apply project-container-kanban mb-[4rem];
+}
+
+.single-project-swiper-container {
+  @apply swiper-container ;
+}
+
+.single-project-swiper {
+  @apply w-full h-full;
+}
+
+.single-project-swiper-slide {
+  @apply swiper-slide w-min h-auto;
+}
+
+.single-project-image {
+  @apply object-cover cursor-grab;
+}
+
+.single-project-info-container {
+  @apply project-info-container;
+}
+
+.single-project-title {
+  @apply project-title flex items-center justify-center tb900:justify-start gap-[1rem];
+}
+
+.single-project-icon {
+  @apply w-[30px] h-[30px];
+}
+
+.single-project-details {
+  @apply project-details;
+}
+
+.single-project-tech-container {
+  @apply project-tech-container;
+}
+
+.single-project-skills-img {
+  @apply project-skills-img;
+}
+
+.single-project-tags {
+  @apply project-tags;
+}
+
+.single-project-tag {
+  @apply tag;
+}
+
+
+.single-project-password-info {
+  @apply flex items-center justify-center tb900:justify-start gap-[.5rem] text-gray-500 text-[.8rem] my-[1.5rem];
+}
+
+.single-project-password-btn {
+  @apply cursor-pointer border hover:border-[#292524] rounded px-[.5rem] hover:bg-slate-200 text-[#292524] font-bold;
+}
+
+.single-project-links {
+  @apply flex items-center justify-center tb900:justify-start gap-[1rem] mt-[2rem];
+}
+
+.single-project-link-btn {
+  @apply btn-secondary;
+}

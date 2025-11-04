@@ -1,0 +1,480 @@
+.atmospheric-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: transparent;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Deep space nebula layers - now containers for morphing blobs */
+.nebula-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: multiply;
+}
+
+/* Morphing blobs that create dynamic nebula effect */
+.nebula-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  will-change: transform, border-radius, opacity;
+}
+
+/* Blob 1 - Warm dark accent, large, left to right */
+.blob-1 {
+  width: 800px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(41, 37, 36, 0.35), transparent 70%);
+  top: 10%;
+  left: -400px;
+  animation:
+    blobDriftLR1 35s ease-in-out infinite,
+    blobMorph1 18s ease-in-out infinite,
+    blobFade1 22s ease-in-out infinite;
+}
+
+/* Blob 2 - Warm gray, medium, right to left */
+.blob-2 {
+  width: 600px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(120, 113, 108, 0.3), transparent 70%);
+  top: 40%;
+  right: -300px;
+  animation:
+    blobDriftRL1 42s ease-in-out infinite,
+    blobMorph2 20s ease-in-out infinite,
+    blobFade2 25s ease-in-out infinite;
+}
+
+/* Blob 3 - Burnt orange, large, diagonal drift */
+.blob-3 {
+  width: 900px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(234, 88, 12, 0.25), transparent 70%);
+  top: 60%;
+  left: -200px;
+  animation:
+    blobDriftDiag1 48s ease-in-out infinite,
+    blobMorph3 16s ease-in-out infinite,
+    blobFade3 28s ease-in-out infinite;
+}
+
+/* Blob 4 - Warm dark, smaller, circular */
+.blob-4 {
+  width: 500px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(41, 37, 36, 0.3), transparent 70%);
+  bottom: 20%;
+  right: -250px;
+  animation:
+    blobCircle1 38s linear infinite,
+    blobMorph4 14s ease-in-out infinite,
+    blobFade4 20s ease-in-out infinite;
+}
+
+/* Blob 5 - Warm gray, crosses screen */
+.blob-5 {
+  width: 700px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(120, 113, 108, 0.35), transparent 70%);
+  top: 25%;
+  left: -350px;
+  animation:
+    blobCross1 52s ease-in-out infinite,
+    blobMorph5 22s ease-in-out infinite,
+    blobFade5 30s ease-in-out infinite;
+}
+
+/* Blob 6 - Burnt orange accent, floats vertically */
+.blob-6 {
+  width: 650px;
+  height: 750px;
+  background: radial-gradient(circle, rgba(234, 88, 12, 0.28), transparent 70%);
+  top: -300px;
+  right: 30%;
+  animation:
+    blobFloat1 45s ease-in-out infinite,
+    blobMorph6 19s ease-in-out infinite,
+    blobFade6 26s ease-in-out infinite;
+}
+
+/* Left to Right movement */
+@keyframes blobDriftLR1 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(calc(100vw + 400px), -100px);
+  }
+}
+
+/* Right to Left movement */
+@keyframes blobDriftRL1 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(calc(-100vw - 300px), 80px);
+  }
+}
+
+/* Diagonal drift */
+@keyframes blobDriftDiag1 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(400px, -200px);
+  }
+  66% {
+    transform: translate(800px, 100px);
+  }
+}
+
+/* Circular motion */
+@keyframes blobCircle1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-300px, -200px);
+  }
+  50% {
+    transform: translate(-400px, 100px);
+  }
+  75% {
+    transform: translate(-100px, 200px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Cross screen */
+@keyframes blobCross1 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(calc(100vw + 400px), 150px);
+  }
+}
+
+/* Vertical float */
+@keyframes blobFloat1 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-80px, calc(100vh + 300px));
+  }
+}
+
+/* Shape morphing - creates organic movement */
+@keyframes blobMorph1 {
+  0%, 100% {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+  50% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+@keyframes blobMorph2 {
+  0%, 100% {
+    border-radius: 50% 50% 30% 70% / 50% 70% 30% 50%;
+  }
+  50% {
+    border-radius: 30% 70% 60% 40% / 70% 40% 60% 30%;
+  }
+}
+
+@keyframes blobMorph3 {
+  0%, 100% {
+    border-radius: 70% 30% 50% 50% / 30% 50% 50% 70%;
+  }
+  50% {
+    border-radius: 40% 60% 40% 60% / 50% 60% 40% 50%;
+  }
+}
+
+@keyframes blobMorph4 {
+  0%, 100% {
+    border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+  }
+  50% {
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+  }
+}
+
+@keyframes blobMorph5 {
+  0%, 100% {
+    border-radius: 35% 65% 45% 55% / 65% 45% 55% 35%;
+  }
+  50% {
+    border-radius: 65% 35% 55% 45% / 35% 65% 45% 55%;
+  }
+}
+
+@keyframes blobMorph6 {
+  0%, 100% {
+    border-radius: 55% 45% 65% 35% / 45% 55% 35% 65%;
+  }
+  50% {
+    border-radius: 45% 55% 35% 65% / 55% 45% 65% 35%;
+  }
+}
+
+/* Opacity fading for breathing effect */
+@keyframes blobFade1 {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes blobFade2 {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.75; }
+}
+
+@keyframes blobFade3 {
+  0%, 100% { opacity: 0.48; }
+  50% { opacity: 0.72; }
+}
+
+@keyframes blobFade4 {
+  0%, 100% { opacity: 0.42; }
+  50% { opacity: 0.65; }
+}
+
+@keyframes blobFade5 {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.68; }
+}
+
+@keyframes blobFade6 {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.75; }
+}
+
+/* Atmospheric fog layers - now with stronger horizontal drift */
+.fog-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.fog-far {
+  background:
+    radial-gradient(
+      ellipse 60% 50% at 80% 40%,
+      rgba(120, 113, 108, 0.3) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 50% 60% at 20% 70%,
+      rgba(168, 162, 158, 0.35) 0%,
+      transparent 55%
+    );
+  filter: blur(60px);
+  animation: fogHorizontal1 55s ease-in-out infinite, fogFade1 40s ease-in-out infinite;
+}
+
+.fog-mid {
+  background:
+    radial-gradient(
+      ellipse 70% 40% at 40% 50%,
+      rgba(120, 113, 108, 0.35) 0%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 55% 65% at 75% 30%,
+      rgba(234, 88, 12, 0.2) 0%,
+      transparent 50%
+    );
+  filter: blur(40px);
+  animation: fogHorizontal2 42s ease-in-out infinite reverse, fogFade2 35s ease-in-out infinite;
+}
+
+.fog-near {
+  background:
+    radial-gradient(
+      ellipse 65% 55% at 30% 20%,
+      rgba(168, 162, 158, 0.38) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 60% 80%,
+      rgba(120, 113, 108, 0.35) 0%,
+      transparent 60%
+    );
+  filter: blur(30px);
+  animation: fogHorizontal3 38s ease-in-out infinite, fogFade3 28s ease-in-out infinite;
+}
+
+@keyframes fogHorizontal1 {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(200px) translateY(-50px);
+  }
+}
+
+@keyframes fogHorizontal2 {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(-180px) translateY(40px);
+  }
+}
+
+@keyframes fogHorizontal3 {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(150px) translateY(-30px);
+  }
+}
+
+@keyframes fogFade1 {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.65; }
+}
+
+@keyframes fogFade2 {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes fogFade3 {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 0.75; }
+}
+
+/* Light streaks - more movement */
+.light-streak {
+  position: absolute;
+  width: 3px;
+  height: 500px;
+  opacity: 0;
+  filter: blur(2px);
+}
+
+.light-streak-1 {
+  top: 10%;
+  left: 30%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(234, 88, 12, 0.4) 50%,
+    transparent
+  );
+  animation: streakMove1 8s ease-in-out infinite;
+}
+
+.light-streak-2 {
+  top: 60%;
+  right: 25%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(120, 113, 108, 0.4) 50%,
+    transparent
+  );
+  animation: streakMove2 12s ease-in-out infinite 4s;
+}
+
+.light-streak-3 {
+  top: 35%;
+  left: 60%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(234, 88, 12, 0.35) 50%,
+    transparent
+  );
+  animation: streakMove3 10s ease-in-out infinite 2s;
+}
+
+@keyframes streakMove1 {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    opacity: 0.75;
+    transform: translateY(30px) translateX(50px);
+  }
+}
+
+@keyframes streakMove2 {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-20px) translateX(-40px);
+  }
+}
+
+@keyframes streakMove3 {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    opacity: 0.65;
+    transform: translateY(40px) translateX(-30px);
+  }
+}
+
+/* Deep vignette for focus */
+.deep-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 20%,
+    rgba(255, 251, 245, 0.2) 60%,
+    rgba(255, 251, 245, 0.4) 100%
+  );
+  pointer-events: none;
+}
+
+/* Mobile optimization - reduce complexity */
+@media (max-width: 768px) {
+  .nebula-blob {
+    filter: blur(60px);
+  }
+
+  .blob-1, .blob-3, .blob-5 {
+    display: none;
+  }
+
+  .fog-far,
+  .fog-mid {
+    display: none;
+  }
+
+  .fog-near {
+    filter: blur(20px);
+    opacity: 0.1;
+  }
+
+  .light-streak-2,
+  .light-streak-3 {
+    display: none;
+  }
+}
