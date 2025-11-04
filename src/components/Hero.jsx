@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import IconGitHub from "../icons/IconGitHub";
 import IconLinkedIn from "../icons/IconLinkedIn";
 import IconDownload from "../icons/IconDownload";
 import HeroSkillsData from "../data/heroSkillsData.json";
 import "./Hero.css";
+import "./Skeleton.css";
 
 function Hero() {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [loadedSkills, setLoadedSkills] = useState({});
+
+  const handleSkillLoad = (skill) => {
+    setLoadedSkills(prev => ({ ...prev, [skill]: true }));
+  };
+
   // Custom smooth scroll function with easing (from Technyra pattern)
   const handleScrollToContact = (e) => {
     e.preventDefault();
@@ -111,7 +119,16 @@ function Hero() {
 
         <div className="hero-image-container">
           <div className="hero-img">
-            <img src={`${import.meta.env.BASE_URL}assets/HeroImgGray.jpg`} alt="profile image" loading="eager" />
+            {!imageLoaded && (
+              <div className="skeleton skeleton-circle w-[280px] h-[280px] tb500:w-[350px] tb500:h-[350px]"></div>
+            )}
+            <img
+              src={`${import.meta.env.BASE_URL}assets/HeroImgGray.jpg`}
+              alt="profile image"
+              loading="eager"
+              onLoad={() => setImageLoaded(true)}
+              style={{ display: imageLoaded ? 'block' : 'none' }}
+            />
           </div>
         </div>
       </div>
@@ -120,10 +137,15 @@ function Hero() {
         <ul className="hero-skill-icon-list skill-icon-list">
           {HeroSkillsData.skills.map((skill, index) => (
             <li key={index} className="hero-skill-icon-item skill-icon-item">
+              {!loadedSkills[skill] && (
+                <div className="skeleton skeleton-badge"></div>
+              )}
               <img
                 src={`https://skillicons.dev/icons?i=${skill}`}
                 alt="skills-icons"
                 loading="eager"
+                onLoad={() => handleSkillLoad(skill)}
+                style={{ display: loadedSkills[skill] ? 'block' : 'none' }}
               />
               <div className="hero-skill-tooltip tooltip">{skill}</div>
             </li>
