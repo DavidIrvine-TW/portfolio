@@ -1,6 +1,7 @@
 import React from "react";
 import IconGitHub from "../icons/IconGitHub";
 import IconLinkedIn from "../icons/IconLinkedIn";
+import IconDownload from "../icons/IconDownload";
 import HeroSkillsData from "../data/heroSkillsData.json";
 import "./Hero.css";
 
@@ -36,6 +37,22 @@ function Hero() {
     requestAnimationFrame(animation);
   };
 
+  const handleResumeClick = (e) => {
+    e.preventDefault();
+    const resumeUrl = `${import.meta.env.BASE_URL}assets/David_Irvine_Web_Developer.pdf`;
+
+    // Open in new tab
+    window.open(resumeUrl, '_blank');
+
+    // Also trigger download
+    const link = document.createElement('a');
+    link.href = resumeUrl;
+    link.download = 'David_Irvine_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="home" className="hero-section ">
       <div className="hero-content-wrapper">
@@ -50,23 +67,33 @@ function Hero() {
           </h2>
           <img
               className="hero-waving-img-mobile"
-              src="/assets/waving.png"
+              src={`${import.meta.env.BASE_URL}assets/waving.png`}
               alt="waving hand"
             />
 
           <p className="hero-intro-text">
-            David Irvine, web portfolio, UK.
+            David Irvine ~ web portfolio, UK 
           </p>
           <p className="hero-tagline">
             I can help you build it.
           </p>
-          <a
-            href="#contact"
-            className="hero-connect-btn"
-            onClick={handleScrollToContact}
-          >
-            Connect
-          </a>
+          <div className="hero-buttons">
+            <a
+              href="#contact"
+              className="hero-connect-btn"
+              onClick={handleScrollToContact}
+            >
+              Connect
+            </a>
+            <a
+              href={`${import.meta.env.BASE_URL}assets/David_Irvine_Web_Developer.pdf`}
+              onClick={handleResumeClick}
+              className="hero-resume-btn"
+            >
+              Resume
+              <IconDownload />
+            </a>
+          </div>
 
           <div className="hero-social-links icon-link">
             <a href="https://github.com/DavidIrvine-TW" target="_blank">
@@ -84,7 +111,7 @@ function Hero() {
 
         <div className="hero-image-container">
           <div className="hero-img">
-            <img src="/assets/HeroImgGray.jpg" alt="profile image" loading="eager" />
+            <img src={`${import.meta.env.BASE_URL}assets/HeroImgGray.jpg`} alt="profile image" loading="eager" />
           </div>
         </div>
       </div>

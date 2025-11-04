@@ -18,7 +18,7 @@ const Projects = () => {
           <h3 className="projects-heading section-heading">
             PORTFOLIO
             <img
-              src="/assets/briefcase.png"
+              src={`${import.meta.env.BASE_URL}assets/briefcase.png`}
               alt="briefcase icon"
               className="projects-icon"
             />

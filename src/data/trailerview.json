@@ -1,13 +1,13 @@
 [{
     "id" : "project-trailerview",
     "name" : "TrailerView",
-    "nameIcon" :"./assets/video.png",
+    "nameIcon" :"/assets/video.png",
     "nameIconAlt" : "project name icon",
     "tech" : ["nextjs", "mongodb", "tailwind", "nodejs", "vercel","materialui"],
     "blurb" : "Full-stack entertainment app using the TMDB API. Trailerview offers instant access to TMDB's TV and movie YouTube content upon page load. Supports user sign-in via NextAuth for bookmark synchronization across devices.",
     "tags" : ["#app", "#nextAuth", "#fullstack", "#TMDB", "#swiperjs", "#tilt", "#toastify", "#materialui", "#youtube","#npm", "#nextjs", "#mongoose", "#nodejs", "#tailwind","#mongodb","#api"],
     "livelink" : "https://trailerview-davidirvine-tw.vercel.app/",
     "github" : "https://github.com/DavidIrvine-TW/trailerview",
-    "images": ["./assets/trailerviewOne.jpg","./assets/trailerviewTwo.jpg","./assets/trailerviewThree.jpg","./assets/trailerviewFour.jpg"],
+    "images": ["/assets/trailerviewOne.jpg","/assets/trailerviewTwo.jpg","/assets/trailerviewThree.jpg","/assets/trailerviewFour.jpg"],
     "align" : "left"
 }]

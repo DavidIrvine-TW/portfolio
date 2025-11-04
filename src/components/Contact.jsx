@@ -100,7 +100,7 @@ const Contact = () => {
             <h3 className="contact-heading  section-heading ">
               CONTACT
               <img
-                src="/assets/point.png"
+                src={`${import.meta.env.BASE_URL}assets/point.png`}
                 alt="point icon"
                 className="contact-icon"
               />

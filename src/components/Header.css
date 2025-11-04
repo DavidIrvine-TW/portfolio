@@ -26,6 +26,18 @@
   @apply menu-item;
 }
 
+.header-home-link {
+  @apply flex items-center gap-[.25rem];
+  transition: all 0.3s ease;
+}
+
+.header-home-link.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+
 .header-menu-item .btn-primary {
   transition: transform 0.3s ease;
   text-transform: none;
@@ -42,7 +54,7 @@
 }
 
 .header-nav-mobile {
-  @apply absolute top-[78px] transition-all duration-500 ease-in-out tb900:hidden text-center flex flex-col gap-[3rem] items-center justify-center w-full h-screen bg-[#292524] z-[1000];
+  @apply fixed top-0 left-0 transition-all duration-500 ease-in-out tb900:hidden text-center flex flex-col gap-[3rem] items-center justify-center w-full h-screen bg-[#292524] z-[1000];
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }

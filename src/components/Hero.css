@@ -39,8 +39,26 @@
   @apply text-center tb900:text-left font-bold font-Mulish text-body-dk text-gray-500 mt-[1rem];
 }
 
+.hero-buttons {
+  @apply flex gap-[1rem] mx-auto tb900:mx-0 my-[2rem];
+}
+
 .hero-connect-btn {
-  @apply btn-primary mx-auto tb900:mx-0 my-[2rem];
+  @apply btn-primary;
+}
+
+.hero-resume-btn {
+  @apply flex items-center gap-[.5rem] w-max px-[1rem] py-[.5rem] border-2 font-bold rounded uppercase tracking-[1px] cursor-pointer;
+  background-color: transparent;
+  color: #292524;
+  border-color: #78716C;
+  transition: all 0.3s ease;
+}
+
+.hero-resume-btn:hover {
+  transform: scale(1.05);
+  background-color: #78716C;
+  color: white;
 }
 
 .hero-social-links {

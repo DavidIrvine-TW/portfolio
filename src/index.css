@@ -130,7 +130,7 @@
   /* display: none; */
 }
 .swiper-button-next:after, .swiper-button-prev:after {
-  color: #fff;
+  color: #78716C;
   font-weight: bold;
   font-size: .8rem;
   position: absolute;
@@ -142,12 +142,14 @@
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  border: 1px solid white;
-  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid #78716C;
+  background-color: rgba(255, 251, 245, 0.9);
 }
 
 .swiper-button-next:hover:after, .swiper-button-prev:hover:after  {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #78716C;
+  color: white;
+  border-color: #78716C;
   transform: scale(1.3);
 }
 .swiper-pagination-bullet {

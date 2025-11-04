@@ -54,7 +54,7 @@ const SingleProject = ({
               <img
                 key={index}
                 className="single-project-image"
-                src={image}
+                src={`${import.meta.env.BASE_URL}${image.replace(/^\//, '')}`}
                 alt="porfolio image"
               />
             </SwiperSlide>
@@ -66,7 +66,7 @@ const SingleProject = ({
         <h4 className="single-project-title">
           {name}{" "}
           <img
-            src={nameIcon}
+            src={`${import.meta.env.BASE_URL}${nameIcon.replace(/^\//, '')}`}
             alt={nameIconAlt}
             className="single-project-icon"
           />
@@ -86,7 +86,7 @@ const SingleProject = ({
               />
             );
           })}
-          {name === "Vapester" && <img src="/assets/icon-shopify.svg" alt="Shopify" />}
+          {name === "Vapester" && <img src={`${import.meta.env.BASE_URL}assets/icon-shopify.svg`} alt="Shopify" />}
         </div>
 
         <div className="single-project-tags">
@@ -119,7 +119,7 @@ const SingleProject = ({
 
             <a className="single-project-link-btn" href={livelink} target="_blank">
               Live
-              <img src="/assets/icon-link.svg" alt="icon link" />
+              <img src={`${import.meta.env.BASE_URL}assets/icon-link.svg`} alt="icon link" />
             </a>
           </div>
         </div>

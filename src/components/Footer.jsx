@@ -29,7 +29,7 @@ const Footer = () => {
           </ul>
 
           <div>
-            <span className="footer-copyright"> © 2024</span>
+            <span className="footer-copyright"> © 2025</span>
           </div>
 
       </div>

@@ -9,7 +9,7 @@ const IconEmailAlt = () => {
         height="30"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#147efb"
+        stroke="#78716C"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"

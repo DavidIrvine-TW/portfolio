@@ -1,4 +1,5 @@
 import React from "react";
+import IconArrowUp from "../icons/IconArrowUp";
 import "./Header.css";
 
 function Header({menu, setMenu}) {
@@ -23,6 +24,19 @@ function Header({menu, setMenu}) {
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Prevent scrolling when mobile menu is open
+  React.useEffect(() => {
+    if (menu) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [menu]);
 
   // Custom smooth scroll function with easing (from Technyra pattern)
   const handleScrollClick = (e, targetId) => {
@@ -84,7 +98,7 @@ function Header({menu, setMenu}) {
     <header className="header">
       <div className={`header-wrapper ${isScrolled ? 'header-scrolled' : ''}`}>
         <div className="header-logo">
-          <h1 className="select-none">My Portfolio</h1>
+          <h1 className="select-none">marv-dev</h1>
         </div>
 
         <nav>
@@ -92,9 +106,10 @@ function Header({menu, setMenu}) {
             <li className="header-menu-item">
               <a
                 href="#home"
-                onClick={(e) => handleScrollClick(e, 'home')}
+                onClick={(e) => isScrolled && handleScrollClick(e, 'home')}
+                className={`header-home-link ${isScrolled ? 'active' : 'disabled'}`}
               >
-                Home
+                <IconArrowUp /> Back
               </a>
             </li>
             <li className="header-menu-item">
@@ -134,9 +149,10 @@ function Header({menu, setMenu}) {
             <li className="header-mobile-menu-item mobile-menu-item">
               <a
                 href="#home"
-                onClick={(e) => handleScrollClick(e, 'home')}
+                onClick={(e) => isScrolled && handleScrollClick(e, 'home')}
+                className={`header-home-link ${isScrolled ? 'active' : 'disabled'}`}
               >
-                Home
+                <IconArrowUp /> Back
               </a>
             </li>
             <li className="header-mobile-menu-item">
