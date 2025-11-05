@@ -98,7 +98,9 @@ function Header({menu, setMenu}) {
     <header className="header">
       <div className={`header-wrapper ${isScrolled ? 'header-scrolled' : ''}`}>
         <div className="header-logo">
-          <h1 className="select-none">marv-dev</h1>
+          <a href="/" onClick={(e) => { e.preventDefault(); window.location.reload(); }}>
+            <h1 className="select-none">marv-dev</h1>
+          </a>
         </div>
 
         <nav>

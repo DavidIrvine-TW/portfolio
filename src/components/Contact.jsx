@@ -90,13 +90,13 @@ const Contact = () => {
 
   return (
     <section id="contact" className="contact-section ">
-      <div className="contact-wrapper">
+      <div className="contact-wrapper ">
 
-        <div className="contact-container">
+        <div className="contact-container ">
 
-        <div className="contact-header-wrapper">
+        <div className="contact-header-wrapper ">
 
-          <div className="contact-header-left">
+          <div className="contact-header-left ">
             <h3 className="contact-heading  section-heading ">
               CONTACT
               <img
@@ -183,8 +183,10 @@ const Contact = () => {
 
         </div>
 
-        <Footer />
+       <Footer />
       </div>
+
+       
     </section>
   );
 };

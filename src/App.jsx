@@ -1,10 +1,12 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import About from "./components/About";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import Lenis from "lenis";
+
+// Lazy load components below the fold
+const About = lazy(() => import("./components/About"));
+const Projects = lazy(() => import("./components/Projects"));
+const Contact = lazy(() => import("./components/Contact"));
 
 function App() {
   const [menu, setMenu] = useState(false);
@@ -36,10 +38,13 @@ function App() {
 
       <main className="w-full">
         <Hero />
-        <Projects />
-        {/* Spacer for desktop fixed Contact section */}
-        <div className="w-full hidden lg:block lg:h-screen" aria-hidden="true"></div>
-        <Contact />
+        <Suspense fallback={<div className="min-h-screen"></div>}>
+          {/* <About/> */}
+          <Projects />
+          {/* Spacer for desktop fixed Contact section */}
+          <div className="w-full hidden lg:block lg:h-screen" aria-hidden="true"></div>
+          <Contact />
+        </Suspense>
       </main>
     </div>
   );

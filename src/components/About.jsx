@@ -1,11 +1,4 @@
 import React from "react";
-import IconAbout from "../icons/iconAbout";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 import "./About.css";
 
 function About() {
@@ -14,85 +7,55 @@ function About() {
   };
 
   return (
-    <section id="about" className="about-section page-width">
+    <section id="about" className="about-section">
       <div className="about-container">
-        <div className="about-content-wrapper">
-          <div className="about-swiper-container">
-            <Swiper
-              className="about-swiper"
-              pagination={{}}
-              modules={[Navigation, Pagination]}
-              spaceBetween={16}
-              navigation={true}
-              slidesPerView={1}
-            >
-              <SwiperSlide className="about-swiper-slide">
-                <img
-                  className="about-swiper-image"
-                  src="/assets/teacher.gif"
-                  alt="code gif"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="about-swiper-slide">
-                <img
-                  className="about-swiper-image"
-                  src="/assets/synth.gif"
-                  alt="teacher gif"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="about-swiper-slide">
-                <img
-                  className="about-swiper-image"
-                  src="/assets/giphy.gif"
-                  alt="code gif"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="about-swiper-slide">
-                <img
-                  className="about-swiper-image"
-                  src="/assets/study.gif"
-                  alt="code gif"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="about-swiper-slide">
-                <img
-                  className="about-swiper-image"
-                  src="/assets/dj.gif"
-                  alt="code gif"
-                />
-              </SwiperSlide>
-            </Swiper>
-            <p className="about-swiper-caption">
-              Is a picture worth a 1000 words?
-            </p>
+        <div className="about-header">
+          <h2 className="about-heading section-heading">
+            ABOUT
+            <img src="/assets/task.png" alt="about icon" className="about-icon" />
+          </h2>
+          <h3 className="about-subheading section-subheading">
+            Building fast, functional, and engaging web experiences
+          </h3>
+        </div>
+
+        <div className="about-content">
+          <div className="about-stats-grid">
+            <div className="about-image-card">
+              <img src="/assets/study.gif" alt="coding" className="about-card-gif" />
+              <div className="about-card-label">Building</div>
+            </div>
+            <div className="about-image-card">
+              <img src="/assets/synth.gif" alt="creating" className="about-card-gif" />
+              <div className="about-card-label">Creating</div>
+            </div>
+            <div className="about-stat-card">
+              <div className="about-stat-number">20+</div>
+              <div className="about-stat-label">Projects</div>
+              <div className="about-stat-desc">Delivered</div>
+            </div>
           </div>
 
-          <div className="about-text-container">
-            <h3 className="about-heading">
-              A LITTLE ABOUT ME{" "}
-              <img src="/assets/social-media.png" alt="about icon" className="about-icon" />
-            </h3>
-            <p className="about-description">
-              I spent eleven years as an international school teacher in Taiwan,
-              Korea, Vietnam, Thailand, and Japan. A great experience that honed my
-              communication skills, adaptability, and cultural awareness.
-              <br />
-              <br />
-              Now, as a dad and web developer, I bring a blend of empathy,
-              patience, and technical expertise to my work. My
-              background equips me to navigate diverse environments and tackle
-              challenges with creativity and understanding.
-              <br />
-              <br />
-              I returned to the UK in March 2024 to pursue my
-              passion for web development.
+          <div className="about-text">
+            <p className="about-paragraph">
+              Glasgow-based web developer specializing in rapid application development
+              with cutting-edge AI integrations via Model Context Protocol. At StudioEast,
+              I architected "Blueprint"—an internal web builder using Next.js and Storyblok
+              that slashed standard business site builds from weeks to days while delivering
+              full-featured solutions with custom API integrations and modern animations.
             </p>
-            <button onClick={openResume} className="about-resume-btn">
-              my CV/Resume
+            <p className="about-paragraph">
+              I excel at transforming complex Figma designs into polished, production-ready
+              applications. With 20+ client projects delivered across WordPress, Shopify,
+              React, and Next.js, I've built custom API integrations, reusable component
+              libraries, and diverse web solutions—all while maintaining exceptional code
+              quality and meeting ambitious timelines in fast-paced agency environments.
+            </p>
+            <button onClick={openResume} className="about-resume-btn btn-primary">
+              View Resume
             </button>
           </div>
         </div>
-        <div className="about-divider"></div>
       </div>
     </section>
   );

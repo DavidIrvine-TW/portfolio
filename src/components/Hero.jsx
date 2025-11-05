@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import IconGitHub from "../icons/IconGitHub";
 import IconLinkedIn from "../icons/IconLinkedIn";
 import IconDownload from "../icons/IconDownload";
@@ -9,6 +9,15 @@ import "./Skeleton.css";
 function Hero() {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [loadedSkills, setLoadedSkills] = useState({});
+  const [fadeIn, setFadeIn] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setFadeIn(true);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSkillLoad = (skill) => {
     setLoadedSkills(prev => ({ ...prev, [skill]: true }));
@@ -63,7 +72,7 @@ function Hero() {
 
   return (
     <section id="home" className="hero-section ">
-      <div className="hero-content-wrapper">
+      <div className={`hero-content-wrapper ${fadeIn ? 'hero-fade-in' : 'hero-fade-out'}`}>
         <div className="hero-text-container">
           <h2 className="hero-title">
             Web Alchemist & Educator

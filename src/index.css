@@ -25,7 +25,23 @@
 
 }
 
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 2px;
+}
 
+::-webkit-scrollbar-track {
+  background: #171717;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: peru;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #d39653;
+}
 
 /* BURGER MENU */
 
@@ -126,13 +142,19 @@
   @apply hover:text-[#78716C] cursor-pointer font-Rubik font-bold text-l-dk transition-colors duration-200 ;
   }
 }
+.swiper-button-next, .swiper-button-prev {
+  width: 30px !important;
+  height: 30px !important;
+}
+
 .swiper-button-prev:after {
   /* display: none; */
 }
+
 .swiper-button-next:after, .swiper-button-prev:after {
   color: #78716C;
   font-weight: bold;
-  font-size: .8rem;
+  font-size: .8rem !important;
   position: absolute;
   bottom: 0%;
   transition: all .2s ease;
@@ -159,12 +181,12 @@
 /* projects */
 @layer components {
   .project-container {
-  @apply  flex flex-col max-w-[445px] tb900:max-w-[1000px] mx-auto tb900:flex-row gap-[3rem] border-2 py-[2rem] px-[1rem] tb500:px-[2rem] tb500:py-[3rem] rounded bg-white;
+  @apply  flex flex-col max-w-[445px] tb900:max-w-[1000px] mx-auto tb900:flex-row gap-[3rem] border-2 border-[#A8A29E] py-[2rem] px-[1rem] tb500:px-[2rem] tb500:py-[3rem] rounded bg-white transition-all duration-300 hover:shadow-md;
   }
 }
 @layer components {
   .project-container-kanban {
-  @apply  flex flex-col max-w-[445px] tb900:max-w-[1000px] mx-auto tb900:flex-row-reverse gap-[3rem] border-2 py-[2rem] px-[1rem] tb500:px-[2rem] tb500:py-[3rem] rounded bg-white;
+  @apply  flex flex-col max-w-[445px] tb900:max-w-[1000px] mx-auto tb900:flex-row-reverse gap-[3rem] border-2 border-[#A8A29E] py-[2rem] px-[1rem] tb500:px-[2rem] tb500:py-[3rem] rounded bg-white transition-all duration-300 hover:shadow-md;
   }
 }
 @layer components {
@@ -217,7 +239,10 @@
 }
 @layer components {
   .tag {
-  @apply  text-[.8rem] border rounded-lg bg-slate-200  px-[.2rem] py-[.1rem];
+  @apply  text-[.8rem] border rounded-lg px-[.2rem] py-[.1rem];
+  background-color: #E7E5E4;
+  color: #292524;
+  border-color: #A8A29E;
   }
 }
 @layer components {
@@ -241,7 +266,7 @@
 /* contact */
 @layer components {
   .contact-container {
-  @apply  mx-auto px-[1rem] tb900:px-[2rem] py-[2rem] border-2 bg-white  rounded max-w-[445px] tb900:max-w-[1000px] ;
+  @apply  mx-auto px-[1rem] tb900:px-[2rem] py-[2rem] border-2 border-[#A8A29E] bg-white  rounded max-w-[445px] tb900:max-w-[1000px] transition-all duration-300 hover:shadow-md;
   }
 }
 @layer components {

@@ -1,6 +1,6 @@
 .contact-section {
   /* Mobile/Tablet: Normal scroll */
-  @apply relative w-full pt-[6rem];
+  @apply relative w-full ;
   z-index: 1;
   background-color: #FFFBF5;
 }
@@ -8,26 +8,27 @@
 /* Desktop: Fixed positioning */
 @media (min-width: 1024px) {
   .contact-section {
-    @apply fixed top-0 left-0 right-0 h-screen pt-[12rem];
+    @apply fixed top-0 left-0 right-0 h-screen w-full   ;
     z-index: 1;
     background-color: #FFFBF5;
   }
 }
 
 .contact-wrapper {
-  @apply relative w-full flex flex-col items-center;
+  @apply relative w-full flex flex-col items-center justify-center;
   z-index: 10;
+  min-height: 100vh;
 }
 
 /* Desktop: Full height to enable footer at bottom */
 @media (min-width: 1024px) {
   .contact-wrapper {
-    @apply h-full justify-between;
+    @apply h-full justify-center;
   }
 }
 
 .contact-container {
-  @apply max-w-[1000px] mx-auto w-full px-[1.75rem];
+  @apply max-w-[1000px] mx-auto w-full px-[10px] tb900:px-[1.75rem];
 }
 
 .contact-header-wrapper {

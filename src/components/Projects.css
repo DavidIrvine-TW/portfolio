@@ -1,12 +1,13 @@
 .projects-section {
-  @apply  min-h-screen px-[1.75rem] relative bg-[#FFFBF5] to-slate-100;
+  @apply  min-h-screen px-[10px] tb900:px-[1.75rem] relative bg-[#FFFBF5] to-slate-100;
   z-index: 10;
 }
 
 /* Desktop: Add bottom border */
 @media (min-width: 1024px) {
   .projects-section {
-    border-bottom: 32px solid #292524;
+    @apply shadow-lg;
+    border-bottom: 32px solid #78716C ;
   }
 }
 
@@ -32,5 +33,5 @@
 }
 
 .projects-divider {
-  @apply w-[100px] h-[3px] bg-slate-200 my-[4rem] mx-auto;
+  @apply w-[100px] h-[3px] bg-[#78716C] my-[4rem] mx-auto;
 }

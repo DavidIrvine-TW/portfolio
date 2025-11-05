@@ -1,5 +1,5 @@
 .hero-section {
-  @apply  py-[7rem] tb900:py-[9rem] px-[1.75rem] relative bg-[#FFFBF5] flex flex-col;
+  @apply  py-[7rem] tb900:py-[9rem] px-[10px] tb900:px-[1.75rem] relative bg-[#FFFBF5] flex flex-col;
   z-index: 10;
 }
 
@@ -13,6 +13,15 @@
 .hero-content-wrapper {
   @apply flex flex-col-reverse tb900:flex-row items-center justify-center gap-[2rem] tb900:gap-[6rem] w-full max-w-[1120px] mx-auto relative;
   z-index: 10;
+  transition: opacity 800ms ease-in-out;
+}
+
+.hero-fade-out {
+  opacity: 0;
+}
+
+.hero-fade-in {
+  opacity: 1;
 }
 
 .hero-text-container {

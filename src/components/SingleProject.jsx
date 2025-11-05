@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Iconghub from "../icons/Iconghub";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -21,6 +21,32 @@ const SingleProject = ({
   align,
   images,
 }) => {
+  const [inView, setInView] = useState(false);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px"
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
 
   const copyToClipboard = (text) => {
     navigator.clipboard
@@ -33,9 +59,12 @@ const SingleProject = ({
       });
   };
 
+  const containerClass = align === "right"
+    ? `single-project-container-kanban ${inView ? 'project-fade-in' : 'project-fade-out'}`
+    : `single-project-container ${inView ? 'project-fade-in' : 'project-fade-out'}`;
 
   return (
-    <div className={align === "right" ? 'single-project-container-kanban' : 'single-project-container'}>
+    <div ref={containerRef} className={containerClass}>
       <div className="single-project-swiper-container border-1">
         <Swiper
           className="single-project-swiper"
@@ -101,15 +130,17 @@ const SingleProject = ({
 
         <div className="single-project-links-container project-links-container">
           {name === "Vapester" ? (
-            <p className="single-project-password-info">
-              *Password:
-              <span
-                className="single-project-password-btn"
-                onClick={() => copyToClipboard("eamaos")}
-              >
-                COPY TO CLIPBOARD
-              </span>
-            </p>
+            <div className="single-project-password-info">
+              <div className="single-project-password-content">
+                <span className="single-project-password-label">🔒 Password Protected: </span>
+                <button
+                  className="single-project-password-btn"
+                  onClick={() => copyToClipboard("eamaos")}
+                >
+                  Copy Password
+                </button>
+              </div>
+            </div>
           ) : ""}
 
           <div className="single-project-links">

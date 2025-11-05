@@ -1,9 +1,23 @@
 .single-project-container {
-  @apply project-container mb-[4rem];
+  @apply project-container mb-[4rem] transition-all duration-300 hover:shadow-md;
+  border-color: #A8A29E;
 }
 
 .single-project-container-kanban {
-  @apply project-container-kanban mb-[4rem];
+  @apply project-container-kanban mb-[4rem] transition-all duration-300 hover:shadow-md;
+  border-color: #A8A29E;
+}
+
+.project-fade-out {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 800ms ease-out, transform 800ms ease-out;
+}
+
+.project-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 800ms ease-out, transform 800ms ease-out;
 }
 
 .single-project-swiper-container {
@@ -52,15 +66,43 @@
 
 .single-project-tag {
   @apply tag;
+  background-color: #E7E5E4 !important;
+  color: #292524 !important;
+  border-color: #A8A29E !important;
 }
 
 
 .single-project-password-info {
-  @apply flex items-center justify-center tb900:justify-start gap-[.5rem] text-gray-500 text-[.8rem] my-[1.5rem];
+  @apply flex justify-center tb900:justify-start my-[1.5rem];
+}
+
+.single-project-password-content {
+  @apply flex flex-row gap-[0.5rem] p-[0.75rem] border rounded-lg items-center;
+  background-color: #FFEDD5;
+  border-color: #78716C;
+  box-shadow: 0 2px 4px rgba(120, 113, 108, 0.1);
+}
+
+.single-project-password-label {
+  @apply font-Rubik font-bold text-[#292524] text-[0.85rem];
+}
+
+.single-project-password-value {
+  @apply font-mono text-[0.95rem] font-bold text-[#78716C] bg-white px-[0.5rem] py-[0.15rem] rounded border border-[#A8A29E];
+  letter-spacing: 1px;
 }
 
 .single-project-password-btn {
-  @apply cursor-pointer border hover:border-[#292524] rounded px-[.5rem] hover:bg-slate-200 text-[#292524] font-bold;
+  @apply cursor-pointer border-2 rounded px-[0.75rem] py-[0.25rem] text-[0.75rem] font-bold transition-all duration-300;
+  background-color: #78716C;
+  color: white;
+  border-color: #78716C;
+}
+
+.single-project-password-btn:hover {
+  background-color: #292524;
+  border-color: #292524;
+  transform: scale(1.05);
 }
 
 .single-project-links {

@@ -9,7 +9,9 @@ const Footer = () => {
       <div className="footer-wrapper">
 
         <div className="footer-logo">
-          <span>marv-dev</span>
+          <a href="https://www.linkedin.com/in/david-irvine-b367b6248/" target="_blank" rel="noopener noreferrer">
+            marv-dev
+          </a>
         </div>
 
           <ul className="footer-social-links">

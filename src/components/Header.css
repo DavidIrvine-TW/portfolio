@@ -5,6 +5,7 @@
 .header-wrapper {
   @apply flex justify-between items-center p-6 text-[#292524] text-xl-dk max-w-[1400px] mx-auto w-full;
   border-radius: 0.25rem;
+  border: 1px solid transparent;
   transition: all 0.3s ease;
 }
 
@@ -12,10 +13,19 @@
   @apply shadow-md;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  border: 1px solid #78716C;
 }
 
 .header-logo {
   @apply font-Rubik font-bold;
+}
+
+.header-logo a {
+  @apply cursor-pointer transition-colors duration-200;
+}
+
+.header-logo a:hover {
+  color: #78716C;
 }
 
 .header-nav-desktop {
