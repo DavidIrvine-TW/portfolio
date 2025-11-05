@@ -36,15 +36,22 @@
   @apply menu-item;
 }
 
+.header-menu-item:has(.header-home-link.disabled) {
+  cursor: default;
+  pointer-events: none;
+}
+
 .header-home-link {
   @apply flex items-center gap-[.25rem];
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .header-home-link.disabled {
   opacity: 0.3;
-  cursor: not-allowed;
-  pointer-events: none;
+  cursor: default !important;
+  pointer-events: none !important;
+  user-select: none;
 }
 
 
@@ -70,10 +77,14 @@
 }
 
 .header-mobile-menu-item {
-  @apply cursor-pointer;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.header-mobile-menu-item:has(.header-home-link.disabled) {
+  cursor: default;
+  pointer-events: none;
 }
 
 .header-mobile-menu-item:nth-child(1) {

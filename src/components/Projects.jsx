@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import vapesterData from "../data/vapester.json";
 import kanbanData from "../data/kanban.json";
 import trailerviewData from "../data/trailerview.json";
@@ -9,8 +9,22 @@ import "./Projects.css";
 
 
 const Projects = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Track scroll position for background darkening
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
-    <section id="portfolio" className="projects-section  ">
+    <section id="portfolio" className={`projects-section ${isScrolled ? 'projects-section-scrolled' : ''}`}>
 
       <div className="projects-container ">
 

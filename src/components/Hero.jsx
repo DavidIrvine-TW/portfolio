@@ -10,6 +10,7 @@ function Hero() {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [loadedSkills, setLoadedSkills] = useState({});
   const [fadeIn, setFadeIn] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -17,6 +18,19 @@ function Hero() {
     }, 300);
 
     return () => clearTimeout(timer);
+  }, []);
+
+  // Track scroll position for background darkening
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleSkillLoad = (skill) => {
@@ -71,11 +85,11 @@ function Hero() {
   };
 
   return (
-    <section id="home" className="hero-section ">
+    <section id="home" className={`hero-section ${isScrolled ? 'hero-section-scrolled' : ''}`}>
       <div className={`hero-content-wrapper ${fadeIn ? 'hero-fade-in' : 'hero-fade-out'}`}>
         <div className="hero-text-container">
           <h2 className="hero-title">
-            Web Alchemist & Educator
+            Web Alchemist & Developer
             {/* <img
               className="hero-waving-img-desktop"
               src="/assets/waving.png"

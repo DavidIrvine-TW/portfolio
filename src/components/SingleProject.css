@@ -1,10 +1,12 @@
 .single-project-container {
   @apply project-container mb-[4rem] transition-all duration-300 hover:shadow-md;
+  background-color: #FFFBF5;
   border-color: #A8A29E;
 }
 
 .single-project-container-kanban {
   @apply project-container-kanban mb-[4rem] transition-all duration-300 hover:shadow-md;
+  background-color: #FFFBF5;
   border-color: #A8A29E;
 }
 

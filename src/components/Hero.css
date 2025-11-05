@@ -1,6 +1,11 @@
 .hero-section {
   @apply  py-[7rem] tb900:py-[9rem] px-[10px] tb900:px-[1.75rem] relative bg-[#FFFBF5] flex flex-col;
   z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.hero-section-scrolled {
+  background-color: #EDE9E3;
 }
 
 /* Desktop: 100vh */

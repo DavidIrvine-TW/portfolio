@@ -1,6 +1,11 @@
 .projects-section {
-  @apply  min-h-screen px-[10px] tb900:px-[1.75rem] relative bg-[#FFFBF5] to-slate-100;
+  @apply  min-h-screen px-[10px] tb900:px-[1.75rem] pb-[4rem] relative bg-[#FFFBF5] to-slate-100;
   z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.projects-section-scrolled {
+  background-color: #EDE9E3;
 }
 
 /* Desktop: Add bottom border */
@@ -33,5 +38,5 @@
 }
 
 .projects-divider {
-  @apply w-[100px] h-[3px] bg-[#78716C] my-[4rem] mx-auto;
+  @apply hidden lg:block w-[100px] h-[3px] bg-[#78716C] mt-[4rem] mx-auto;
 }

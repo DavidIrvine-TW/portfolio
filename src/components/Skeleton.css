@@ -29,3 +29,52 @@
   height: 48px;
   border-radius: 4px;
 }
+
+/* Project skeleton styles */
+.skeleton-project-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+}
+
+.skeleton-project-title {
+  width: 60%;
+  height: 32px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+}
+
+.skeleton-project-blurb {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.skeleton-text-short {
+  width: 70%;
+}
+
+.skeleton-tech-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+}
+
+.skeleton-tag {
+  width: 80px;
+  height: 28px;
+  border-radius: 14px;
+}
+
+.skeleton-button {
+  width: 100px;
+  height: 40px;
+  border-radius: 6px;
+}

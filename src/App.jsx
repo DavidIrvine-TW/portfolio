@@ -1,11 +1,17 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import ProjectSkeleton from "./components/ProjectSkeleton";
 import { useState, useEffect, lazy, Suspense } from "react";
 import Lenis from "lenis";
 
 // Lazy load components below the fold
 const About = lazy(() => import("./components/About"));
-const Projects = lazy(() => import("./components/Projects"));
+const Projects = lazy(() =>
+  Promise.all([
+    import("./components/Projects"),
+    new Promise(resolve => setTimeout(resolve, 2000))
+  ]).then(([moduleExports]) => moduleExports)
+);
 const Contact = lazy(() => import("./components/Contact"));
 
 function App() {
@@ -38,7 +44,30 @@ function App() {
 
       <main className="w-full">
         <Hero />
-        <Suspense fallback={<div className="min-h-screen"></div>}>
+        <Suspense fallback={
+          <section className="projects-section">
+            <div className="projects-container">
+              <div className="projects-header">
+                <h3 className="projects-heading section-heading">
+                  PORTFOLIO
+                  <img
+                    src={`${import.meta.env.BASE_URL}assets/briefcase.png`}
+                    alt="briefcase icon"
+                    className="projects-icon"
+                  />
+                </h3>
+                <h4 className="projects-subheading section-subheading">
+                  Featured projects
+                </h4>
+              </div>
+              <ProjectSkeleton align="left" />
+              <ProjectSkeleton align="left" />
+              <ProjectSkeleton align="right" />
+              <ProjectSkeleton align="right" />
+            </div>
+            <div className="projects-divider"></div>
+          </section>
+        }>
           {/* <About/> */}
           <Projects />
           {/* Spacer for desktop fixed Contact section */}

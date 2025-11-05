@@ -128,7 +128,7 @@
 /* header menu */
 @layer components {
   .menu-item {
-  @apply hover:text-[#78716C] cursor-pointer font-Rubik font-bold text-l-dk transition-colors duration-200 ;
+  @apply hover:text-[#78716C] font-Rubik font-bold text-l-dk transition-colors duration-200 ;
   }
 }
 /* about slider */
@@ -181,12 +181,12 @@
 /* projects */
 @layer components {
   .project-container {
-  @apply  flex flex-col max-w-[445px] tb900:max-w-[1000px] mx-auto tb900:flex-row gap-[3rem] border-2 border-[#A8A29E] py-[2rem] px-[1rem] tb500:px-[2rem] tb500:py-[3rem] rounded bg-white transition-all duration-300 hover:shadow-md;
+  @apply  flex flex-col max-w-[445px] tb900:max-w-[1000px] mx-auto tb900:flex-row gap-[3rem] border-2 border-[#A8A29E] py-[2rem] px-[1rem] tb500:px-[2rem] tb500:py-[3rem] rounded bg-[#FFFBF5] transition-all duration-300 hover:shadow-md;
   }
 }
 @layer components {
   .project-container-kanban {
-  @apply  flex flex-col max-w-[445px] tb900:max-w-[1000px] mx-auto tb900:flex-row-reverse gap-[3rem] border-2 border-[#A8A29E] py-[2rem] px-[1rem] tb500:px-[2rem] tb500:py-[3rem] rounded bg-white transition-all duration-300 hover:shadow-md;
+  @apply  flex flex-col max-w-[445px] tb900:max-w-[1000px] mx-auto tb900:flex-row-reverse gap-[3rem] border-2 border-[#A8A29E] py-[2rem] px-[1rem] tb500:px-[2rem] tb500:py-[3rem] rounded bg-[#FFFBF5] transition-all duration-300 hover:shadow-md;
   }
 }
 @layer components {
@@ -266,7 +266,7 @@
 /* contact */
 @layer components {
   .contact-container {
-  @apply  mx-auto px-[1rem] tb900:px-[2rem] py-[2rem] border-2 border-[#A8A29E] bg-white  rounded max-w-[445px] tb900:max-w-[1000px] transition-all duration-300 hover:shadow-md;
+  @apply  mx-auto px-[1rem] tb900:px-[2rem] py-[2rem] border-2 border-[#A8A29E] bg-[#FFFBF5]  rounded max-w-[445px] tb900:max-w-[1000px] transition-all duration-300 hover:shadow-md;
   }
 }
 @layer components {
