@@ -101,7 +101,7 @@ function Header({menu, setMenu}) {
         <div className="header-logo">
           <a href="/" onClick={(e) => { e.preventDefault(); window.location.reload(); }}>
             <h1 className="select-none" style={{fontSize : "1rem"}}>
-              <MarqueeText>2025 Portfolio</MarqueeText>
+              <MarqueeText>Web Developer</MarqueeText>
             </h1>
           </a>
         </div>
