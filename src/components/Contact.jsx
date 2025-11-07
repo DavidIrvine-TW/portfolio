@@ -99,11 +99,11 @@ const Contact = () => {
           <div className="contact-header-left ">
             <h3 className="contact-heading  section-heading ">
               CONTACT
-              <img
+              {/* <img
                 src={`${import.meta.env.BASE_URL}assets/point.png`}
                 alt="point icon"
                 className="contact-icon"
-              />
+              /> */}
             </h3>
             <h4 className="contact-subheading section-subheading">
               Hit me up, I'll get back to you soon...

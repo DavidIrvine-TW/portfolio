@@ -31,11 +31,11 @@ const Projects = () => {
         <div className="projects-header">
           <h3 className="projects-heading section-heading">
             PORTFOLIO
-            <img
+            {/* <img
               src={`${import.meta.env.BASE_URL}assets/briefcase.png`}
               alt="briefcase icon"
               className="projects-icon"
-            />
+            /> */}
           </h3>
           <h4 className="projects-subheading section-subheading ">
             Featured projects

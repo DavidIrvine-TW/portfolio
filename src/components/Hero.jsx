@@ -96,11 +96,11 @@ function Hero() {
               alt="waving hand"
             /> */}
           </h2>
-          <img
+          {/* <img
               className="hero-waving-img-mobile"
               src={`${import.meta.env.BASE_URL}assets/waving.png`}
               alt="waving hand"
-            />
+            /> */}
 
           <p className="hero-intro-text">
             David Irvine ~ web portfolio, UK 

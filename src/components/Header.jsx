@@ -1,5 +1,6 @@
 import React from "react";
 import IconArrowUp from "../icons/IconArrowUp";
+import MarqueeText from "./MarqueeText";
 import "./Header.css";
 
 function Header({menu, setMenu}) {
@@ -99,7 +100,9 @@ function Header({menu, setMenu}) {
       <div className={`header-wrapper ${isScrolled ? 'header-scrolled' : ''}`}>
         <div className="header-logo">
           <a href="/" onClick={(e) => { e.preventDefault(); window.location.reload(); }}>
-            <h1 className="select-none">marv-dev</h1>
+            <h1 className="select-none" style={{fontSize : "1rem"}}>
+              <MarqueeText>2025 Portfolio</MarqueeText>
+            </h1>
           </a>
         </div>
 

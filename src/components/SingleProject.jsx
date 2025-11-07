@@ -94,11 +94,11 @@ const SingleProject = ({
       <div className="single-project-info-container">
         <h4 className="single-project-title">
           {name}{" "}
-          <img
+          {/* <img
             src={`${import.meta.env.BASE_URL}${nameIcon.replace(/^\//, '')}`}
             alt={nameIconAlt}
             className="single-project-icon"
-          />
+          /> */}
         </h4>
 
         <p className="single-project-details">{blurb}</p>
