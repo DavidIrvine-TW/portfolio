@@ -71,7 +71,8 @@ function Header({menu, setMenu}) {
       if (!targetSection) return;
 
       const isMobile = window.innerWidth <= 768;
-      const offset = isMobile ? 100 : 100; // Account for navbar height
+      // For portfolio section, scroll to exact top to show full viewport section
+      const offset = targetId === 'portfolio' ? 0 : (isMobile ? 100 : 100);
       targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - offset;
     }
 
@@ -114,7 +115,7 @@ function Header({menu, setMenu}) {
                 onClick={(e) => isScrolled && handleScrollClick(e, 'home')}
                 className={`header-home-link ${isScrolled ? 'active' : 'disabled'}`}
               >
-                <IconArrowUp /> Back
+                <IconArrowUp /> Top
               </a>
             </li>
             <li className="header-menu-item">
@@ -125,13 +126,6 @@ function Header({menu, setMenu}) {
                 Projects
               </a>
             </li>
-            {/* <li className="header-menu-item">
-              <a
-                href="#about"
-              >
-                About
-              </a>
-            </li> */}
             <li className="header-menu-item">
               <a
                 href="#contact"
@@ -157,7 +151,7 @@ function Header({menu, setMenu}) {
                 onClick={(e) => isScrolled && handleScrollClick(e, 'home')}
                 className={`header-home-link ${isScrolled ? 'active' : 'disabled'}`}
               >
-                <IconArrowUp /> Back
+                <IconArrowUp /> Top
               </a>
             </li>
             <li className="header-mobile-menu-item">
@@ -168,14 +162,6 @@ function Header({menu, setMenu}) {
                 Projects
               </a>
             </li>
-            {/* <li className="header-mobile-menu-item">
-              <a
-                href="#about"
-                onClick={menuHandler}
-              >
-                About
-              </a>
-            </li> */}
             <li className="header-mobile-menu-item">
               <a
                 href="#contact"

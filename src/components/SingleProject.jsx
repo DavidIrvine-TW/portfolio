@@ -1,23 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Iconghub from "../icons/Iconghub";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 import "./SingleProject.css";
 
 const SingleProject = ({
   blurb,
   name,
-  nameIcon,
-  nameIconAlt,
   tech,
   tags,
   livelink,
   github,
-  index,
   align,
   images,
 }) => {
@@ -92,7 +88,7 @@ const SingleProject = ({
       </div>
 
       <div className="single-project-info-container">
-        <h4 className="single-project-title">
+        <h4 className="single-project-title select-none">
           {name}{" "}
           {/* <img
             src={`${import.meta.env.BASE_URL}${nameIcon.replace(/^\//, '')}`}
@@ -101,13 +97,13 @@ const SingleProject = ({
           /> */}
         </h4>
 
-        <p className="single-project-details">{blurb}</p>
+        <p className="single-project-details select-none">{blurb}</p>
 
         <div className="single-project-tech-container">
           {tech.map((tech, index) => {
             return (
               <img
-                className="single-project-skills-img"
+                className="single-project-skills-img select-none"
                 key={index}
                 src={`https://skillicons.dev/icons?i=${tech}`}
                 alt={tech}
@@ -115,13 +111,13 @@ const SingleProject = ({
               />
             );
           })}
-          {name === "Vapester" && <img src={`${import.meta.env.BASE_URL}assets/icon-shopify.svg`} alt="Shopify" />}
+          {name.includes("Shopify") && <img src={`${import.meta.env.BASE_URL}assets/icon-shopify.svg`} alt="Shopify" className="single-project-skills-img select-none" />}
         </div>
 
         <div className="single-project-tags">
           {tags.map((tag, index) => {
             return (
-              <span className="single-project-tag" key={index}>
+              <span className="single-project-tag select-none" key={index}>
                 {tag}
               </span>
             );
@@ -129,29 +125,33 @@ const SingleProject = ({
         </div>
 
         <div className="single-project-links-container project-links-container">
-          {name === "Vapester" ? (
+          {name.includes("Vapester") && (
             <div className="single-project-password-info">
               <div className="single-project-password-content">
-                <span className="single-project-password-label">🔒 Password Protected: </span>
+                <span className="single-project-password-label select-none">🔒 Password Protected: </span>
                 <button
                   className="single-project-password-btn"
                   onClick={() => copyToClipboard("eamaos")}
                 >
-                  Copy Password
+                  Copy password
                 </button>
               </div>
             </div>
-          ) : ""}
+          )}
 
           <div className="single-project-links">
-            <a href={github} target="_blank" className="single-project-link-btn">
-              Code <Iconghub />{" "}
-            </a>
+            {github && github !== "https://github.com" && github !== "#" && (
+              <a href={github} target="_blank" rel="noreferrer" className="single-project-link-btn">
+                Code <Iconghub />{" "}
+              </a>
+            )}
 
-            <a className="single-project-link-btn" href={livelink} target="_blank">
-              Live
-              <img src={`${import.meta.env.BASE_URL}assets/icon-link.svg`} alt="icon link" />
-            </a>
+            {livelink && livelink !== "https://example.com" && livelink !== "#" && (
+              <a className="single-project-link-btn" href={livelink} target="_blank" rel="noreferrer">
+                Live
+                <img src={`${import.meta.env.BASE_URL}assets/icon-link.svg`} alt="icon link" />
+              </a>
+            )}
           </div>
         </div>
       </div>

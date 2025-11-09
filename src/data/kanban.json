@@ -1,9 +1,9 @@
 [{
     "id" : "project-kanban",
-    "name" : "Kanban",
+    "name" : "Kanban App [React]",
     "nameIcon" :"/assets/task.png",
     "nameIconAlt" : "task icon",
-    "blurb" : "Full-stack agile project management app facilitating work visualization, limiting work-in-progress, and enhancing efficiency. Utilizes Firebase for authentication and data storage, React Redux for state management, and ReactDnD for task drag and drop.",
+    "blurb" : "A comprehensive agile project management application inspired by industry-leading tools, featuring Firebase authentication for secure user access, Redux Toolkit for centralized state management, and intuitive drag-and-drop functionality powered by React DnD. Users can create multiple boards, organize tasks across customizable columns, and manage project workflows with real-time updates and persistent cloud storage.",
     "tech" : ["react", "firebase", "tailwind", "redux", "figma", "vite"],
     "features" : "",
     "livelink" : "https://davidirvine-tw.github.io/tsk_mngr_app/",

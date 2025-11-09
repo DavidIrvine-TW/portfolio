@@ -1,9 +1,9 @@
 [{
     "id" : "project-photosnap",
-    "name" : "Photosnap",
+    "name" : "Photosnap [React]",
     "nameIcon" :"/assets/photographer.png",
     "nameIconAlt" : "photographer icon",
-    "blurb" : "A multipage photo-sharing website/blog. This project was built from a Figma design with React and styled using Tailwind CSS. The build is handled by Vite and deployed on GH-Pages.",
+    "blurb" : "A pixel-perfect, multipage photo-sharing website meticulously crafted from Figma designs using React and Tailwind CSS. Features responsive layouts optimized for all screen sizes, CSS Grid for complex gallery arrangements, smooth page transitions, and component-based architecture for maintainable and scalable code. Demonstrates strong attention to design fidelity and modern frontend development practices.",
     "tech" : ["react", "tailwind", "figma", "vite"],
     "features" : "",
     "livelink" : "https://davidirvine-tw.github.io/photosnap-website/",

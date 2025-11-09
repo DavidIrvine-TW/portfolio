@@ -1,4 +1,3 @@
-import React from "react";
 import "./AtmosphericBackground.css";
 
 function AtmosphericBackground() {

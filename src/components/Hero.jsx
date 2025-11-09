@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import IconGitHub from "../icons/IconGitHub";
 import IconLinkedIn from "../icons/IconLinkedIn";
 import IconDownload from "../icons/IconDownload";
@@ -88,24 +88,14 @@ function Hero() {
     <section id="home" className={`hero-section ${isScrolled ? 'hero-section-scrolled' : ''}`}>
       <div className={`hero-content-wrapper ${fadeIn ? 'hero-fade-in' : 'hero-fade-out'}`}>
         <div className="hero-text-container">
-          <h2 className="hero-title">
+          <h2 className="hero-title select-none">
             Web Alchemist & Developer
-            {/* <img
-              className="hero-waving-img-desktop"
-              src="/assets/waving.png"
-              alt="waving hand"
-            /> */}
           </h2>
-          {/* <img
-              className="hero-waving-img-mobile"
-              src={`${import.meta.env.BASE_URL}assets/waving.png`}
-              alt="waving hand"
-            /> */}
 
-          <p className="hero-intro-text">
-            David Irvine ~ web portfolio, UK 
+          <p className="hero-intro-text select-none">
+            David Irvine ~ web portfolio, UK
           </p>
-          <p className="hero-tagline">
+          <p className="hero-tagline select-none">
             I can help you build it.
           </p>
           <div className="hero-buttons">
@@ -127,13 +117,14 @@ function Hero() {
           </div>
 
           <div className="hero-social-links icon-link">
-            <a href="https://github.com/DavidIrvine-TW" target="_blank">
+            <a href="https://github.com/DavidIrvine-TW" target="_blank" rel="noreferrer">
               <IconGitHub />
             </a>
 
             <a
               href="https://www.linkedin.com/in/david-irvine-b367b6248/"
               target="_blank"
+              rel="noreferrer"
             >
               <IconLinkedIn />
             </a>
@@ -151,6 +142,7 @@ function Hero() {
               loading="eager"
               onLoad={() => setImageLoaded(true)}
               style={{ display: imageLoaded ? 'block' : 'none' }}
+              className="select-none"
             />
           </div>
         </div>
@@ -169,8 +161,9 @@ function Hero() {
                 loading="eager"
                 onLoad={() => handleSkillLoad(skill)}
                 style={{ display: loadedSkills[skill] ? 'block' : 'none' }}
+                className="select-none"
               />
-              <div className="hero-skill-tooltip tooltip">{skill}</div>
+              <div className="hero-skill-tooltip tooltip select-none">{skill}</div>
             </li>
           ))}
         </ul>

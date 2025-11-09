@@ -1,10 +1,10 @@
 [{
     "id" : "project-trailerview",
-    "name" : "TrailerView",
+    "name" : "TrailerView App [Nextjs]",
     "nameIcon" :"/assets/video.png",
     "nameIconAlt" : "project name icon",
     "tech" : ["nextjs", "mongodb", "tailwind", "nodejs", "vercel","materialui"],
-    "blurb" : "Full-stack entertainment app using the TMDB API. Trailerview offers instant access to TMDB's TV and movie YouTube content upon page load. Supports user sign-in via NextAuth for bookmark synchronization across devices.",
+    "blurb" : "A full-stack entertainment application built with Next.js that leverages the TMDB API to provide users with instant access to movie trailers, detailed film information, and personalized bookmark collections. Features NextAuth authentication for secure user sessions and MongoDB database integration for persistent bookmark synchronization across devices.",
     "tags" : ["#app", "#nextAuth", "#fullstack", "#TMDB", "#swiperjs", "#tilt", "#toastify", "#materialui", "#youtube","#npm", "#nextjs", "#mongoose", "#nodejs", "#tailwind","#mongodb","#api"],
     "livelink" : "https://trailerview-davidirvine-tw.vercel.app/",
     "github" : "https://github.com/DavidIrvine-TW/trailerview",

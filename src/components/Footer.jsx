@@ -1,4 +1,3 @@
-import React from "react";
 import IconGitHub from "../icons/IconGitHub";
 import IconLinkedIn from "../icons/IconLinkedIn";
 import "./Footer.css";
@@ -10,13 +9,13 @@ const Footer = () => {
 
         <div className="footer-logo">
           <a href="https://www.linkedin.com/in/david-irvine-b367b6248/" target="_blank" rel="noopener noreferrer">
-            marv-dev
+            David Irvine Portfolio
           </a>
         </div>
 
           <ul className="footer-social-links">
             <li className="footer-social-link">
-              <a href="https://github.com/DavidIrvine-TW" target="_blank">
+              <a href="https://github.com/DavidIrvine-TW" target="_blank" rel="noreferrer">
                 <IconGitHub />
               </a>
             </li>
@@ -24,6 +23,7 @@ const Footer = () => {
               <a
                 href="https://www.linkedin.com/in/david-irvine-b367b6248/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <IconLinkedIn />
               </a>
@@ -31,7 +31,7 @@ const Footer = () => {
           </ul>
 
           <div>
-            <span className="footer-copyright"> © 2025</span>
+            <span className="footer-copyright select-none"> © 2025</span>
           </div>
 
       </div>

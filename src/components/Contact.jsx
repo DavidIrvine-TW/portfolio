@@ -1,7 +1,5 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import IconEmail from "../icons/iconEmail";
-import IconLocation from "../icons/IconLocation";
 import IconEmailAlt from "../icons/IconEmailAlt";
 import Footer from "./Footer";
 import "./Contact.css";
@@ -41,7 +39,6 @@ const Contact = () => {
 
     if (!message.value.trim()) {
       setUserMessageErrorMsg("* Required");
-      hasError = true;
     } else {
       setUserMessageErrorMsg("");
     }
@@ -54,11 +51,11 @@ const Contact = () => {
         publicKey
       )
       .then(
-        (result) => {
+        () => {
           setMessage("Message sent!");
           form.current.reset();
         },
-        (error) => {
+        () => {
           setMessage("Failed to send email. Please try again.");
         }
       );
@@ -97,16 +94,11 @@ const Contact = () => {
         <div className="contact-header-wrapper ">
 
           <div className="contact-header-left ">
-            <h3 className="contact-heading  section-heading ">
-              CONTACT
-              {/* <img
-                src={`${import.meta.env.BASE_URL}assets/point.png`}
-                alt="point icon"
-                className="contact-icon"
-              /> */}
+            <h3 className="contact-heading  section-heading select-none">
+              Contact
             </h3>
-            <h4 className="contact-subheading section-subheading">
-              Hit me up, I'll get back to you soon...
+            <h4 className="contact-subheading section-subheading select-none">
+              I&apos;ll get back to you soon...
             </h4>
           </div>
 
@@ -115,7 +107,7 @@ const Contact = () => {
             <div className="contact-info-item">
               <IconEmailAlt />
               <div className="contact-info-text-wrapper">
-                <span className="contact-info-label">
+                <span className="contact-info-label select-none">
                   Mail
                 </span>
                 <span

@@ -62,7 +62,7 @@
 }
 
 .hero-resume-btn {
-  @apply flex items-center gap-[.5rem] w-max px-[1rem] py-[.5rem] border-2 font-bold rounded uppercase tracking-[1px] cursor-pointer;
+  @apply flex items-center gap-[.5rem] w-max px-[1rem] py-[.5rem] border-2 font-bold rounded tracking-[1px] cursor-pointer;
   background-color: transparent;
   color: #292524;
   border-color: #78716C;

@@ -110,12 +110,12 @@
 
 @layer components {
   .btn-primary {
-  @apply transition duration-300 cursor-pointer items-center w-max px-[1rem] py-[.5rem] border font-bold rounded  bg-[#78716C] text-white uppercase hover:scale-105 tracking-[1px];
+  @apply transition duration-300 cursor-pointer items-center w-max px-[1rem] py-[.5rem] border font-bold rounded  bg-[#78716C] text-white hover:scale-105 tracking-[1px];
   }
 }
 @layer components {
   .btn-primary-b {
-  @apply cursor-pointer items-center w-max px-[1rem] py-[.5rem] border font-bold rounded mt-[2rem] mb-[1rem] bg-[#292524] text-white uppercase hover:bg-[#78716C] tracking-[1px];
+  @apply cursor-pointer items-center w-max px-[1rem] py-[.5rem] border font-bold rounded mt-[2rem] mb-[1rem] bg-[#292524] text-white hover:bg-[#78716C] tracking-[1px];
   }
 }
 @layer components {

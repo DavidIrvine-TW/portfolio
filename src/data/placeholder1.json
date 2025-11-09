@@ -1,0 +1,16 @@
+[
+  {
+    "id": "placeholder-1",
+    "name": "Katherine Hooker [Shopify]",
+    "nameIcon": "./assets/briefcase.png",
+    "nameIconAlt": "briefcase icon",
+    "blurb": "A luxury fashion storefront translated from Figma designs, built on a heavily customized Shopify Impulse theme. Features bespoke Liquid templates, advanced filtering, custom AJAX cart, and Swiper.js galleries. Implements sophisticated design patterns with vanilla JavaScript and custom CSS animations seamlessly integrated with Shopify's checkout system.",
+    "tech": ["html", "css", "js", "figma"],
+    "features": "",
+    "livelink": "https://katherinehooker.com",
+    "github": "https://github.com",
+    "tags": ["#e-commerce", "#html", "#css", "#javascript", "#shopify", "#liquid", "#template", "#ajax", "#leafletjs", "#swiperjs", "#tilt"],
+    "images": ["/assets/Katherine-Hooker (2)-min.png"],
+    "align": "left"
+  }
+]

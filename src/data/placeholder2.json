@@ -1,0 +1,16 @@
+[
+  {
+    "id": "placeholder-2",
+    "name": "Portfolio [React]",
+    "nameIcon": "./assets/briefcase.png",
+    "nameIconAlt": "briefcase icon",
+    "blurb": "A modern single-page portfolio built with React and Vite showcasing advanced animation techniques. Features Framer Motion horizontal scrolling galleries, Lenis smooth scroll, custom hover interactions, and EmailJS integration. Demonstrates component-based architecture and sophisticated CSS animations optimized for mobile and desktop viewports.",
+    "tech": ["react", "tailwind", "vite"],
+    "features": "",
+    "livelink": "#",
+    "github": "https://github.com/DavidIrvine-TW/portfolio",
+    "tags": ["#portfolio", "#react", "#vite", "#tailwind", "#framer-motion", "#gsap", "#animations", "#responsive", "#spa", "#emailjs", "#lenis", "#smooth-scroll"],
+    "images": ["/assets/marv-dev-portfolio-min.png"],
+    "align": "right"
+  }
+]

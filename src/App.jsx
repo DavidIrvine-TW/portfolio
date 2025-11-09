@@ -5,13 +5,7 @@ import { useState, useEffect, lazy, Suspense } from "react";
 import Lenis from "lenis";
 
 // Lazy load components below the fold
-const About = lazy(() => import("./components/About"));
-const Projects = lazy(() =>
-  Promise.all([
-    import("./components/Projects"),
-    new Promise(resolve => setTimeout(resolve, 2000))
-  ]).then(([moduleExports]) => moduleExports)
-);
+const Projects = lazy(() => import("./components/Projects"));
 const Contact = lazy(() => import("./components/Contact"));
 
 function App() {
@@ -68,7 +62,6 @@ function App() {
             <div className="projects-divider"></div>
           </section>
         }>
-          {/* <About/> */}
           <Projects />
           {/* Spacer for desktop fixed Contact section */}
           <div className="w-full hidden lg:block lg:h-screen" aria-hidden="true"></div>
