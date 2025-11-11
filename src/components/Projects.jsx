@@ -10,10 +10,11 @@ import placeholder3Data from "../data/placeholder3.json";
 
 import SingleProject from "./SingleProject";
 import DesktopProjectCard from "./DesktopProjectCard";
+import DesktopProjectCardSkeleton from "./DesktopProjectCardSkeleton";
 import "./Projects.css";
 
 /* Custom hook to calculate maximum horizontal scroll distance */
-const useMaxScroll = (scrollContainerRef) => {
+const useMaxScroll = (scrollContainerRef, dependencies = []) => {
   const [maxScroll, setMaxScroll] = useState(0);
 
   const updateScrollLimit = useCallback(() => {
@@ -25,10 +26,17 @@ const useMaxScroll = (scrollContainerRef) => {
   }, [scrollContainerRef]);
 
   useEffect(() => {
-    updateScrollLimit();
+    // Small delay to ensure DOM has updated
+    const timer = setTimeout(() => {
+      updateScrollLimit();
+    }, 100);
+
     window.addEventListener('resize', updateScrollLimit);
-    return () => window.removeEventListener('resize', updateScrollLimit);
-  }, [updateScrollLimit]);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', updateScrollLimit);
+    };
+  }, [updateScrollLimit, ...dependencies]);
 
   return maxScroll;
 };
@@ -82,18 +90,15 @@ const Projects = () => {
   const targetRef = useRef(null);
   const scrollContainerRef = useRef(null);
 
-  // Get maximum horizontal scroll distance (only calculated, used conditionally)
-  const maxScroll = useMaxScroll(scrollContainerRef);
+  // Get maximum horizontal scroll distance - recalculate when content changes
+  const maxScroll = useMaxScroll(scrollContainerRef, [isMounted]);
 
-  // Get scroll progress relative to the target section (conditionally for desktop)
-  const { scrollYProgress } = useScroll(
-    isMounted && isDesktop
-      ? {
-          target: targetRef,
-          offset: ['start start', 'end end'],
-        }
-      : {}
-  );
+  // Get scroll progress relative to the target section
+  // targetRef is always in DOM (hidden when not needed) to avoid hydration errors
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ['start start', 'end end'],
+  });
 
   // Transform vertical scroll to horizontal movement
   const x = useTransform(scrollYProgress, [0, 1], [0, -maxScroll]);
@@ -121,7 +126,7 @@ const Projects = () => {
   );
 
   // DESKTOP: Horizontal scroll layout
-  if (isMounted && isDesktop) {
+  if (isDesktop) {
     return (
       <section id="portfolio" ref={targetRef} className="relative" style={sectionStyle}>
         <div className="sticky top-0 left-0 h-screen overflow-hidden" style={stickyContainerStyle}>
@@ -137,22 +142,31 @@ const Projects = () => {
               {/* Header inline with cards */}
               <div className="flex flex-col gap-[1rem] flex-shrink-0 w-[30vw] mr-[1rem]">
                 <h3 className="projects-heading section-heading select-none" style={{ fontSize: '2rem', fontWeight: 'bold' }}>Featured Projects</h3>
-                {/* <h4 className="projects-subheading section-subheading select-none" style={{ fontSize: '2rem', fontWeight: 'bold' }}>
-                  Featured projects
-                </h4> */}
               </div>
 
-              {/* Render all projects with desktop card */}
-              {allProjects.map((project, index) => (
-                <div key={project.id} className={`flex-shrink-0 w-[35vw] ${index > 0 ? 'ml-[3rem]' : ''}`}>
-                  <DesktopProjectCard
-                    {...project}
-                    index={index}
-                    hoveredIndex={hoveredIndex}
-                    setHoveredIndex={setHoveredIndex}
-                  />
-                </div>
-              ))}
+              {/* Render skeletons or actual projects */}
+              {!isMounted ? (
+                // Show skeletons while mounting
+                <>
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={`skeleton-${i}`} className={`flex-shrink-0 w-[35vw] ${i > 1 ? 'ml-[3rem]' : ''}`}>
+                      <DesktopProjectCardSkeleton />
+                    </div>
+                  ))}
+                </>
+              ) : (
+                // Show actual projects after mount
+                allProjects.map((project, index) => (
+                  <div key={project.id} className={`flex-shrink-0 w-[35vw] ${index > 0 ? 'ml-[3rem]' : ''}`}>
+                    <DesktopProjectCard
+                      {...project}
+                      index={index}
+                      hoveredIndex={hoveredIndex}
+                      setHoveredIndex={setHoveredIndex}
+                    />
+                  </div>
+                ))
+              )}
 
               {/* Spacer at the end */}
               <div className="w-[5vw] flex-shrink-0" />
@@ -165,7 +179,7 @@ const Projects = () => {
 
   // MOBILE/TABLET: Original vertical layout
   return (
-    <section id="portfolio" className={`projects-section ${isScrolled ? 'projects-section-scrolled' : ''}`}>
+    <section id="portfolio" className={`projects-section ${isScrolled ? 'projects-section-scrolled' : ''}`} ref={targetRef}>
       <div className="projects-container">
         <div className="projects-header">
           <h3 className="projects-heading section-heading select-none">PORTFOLIO</h3>

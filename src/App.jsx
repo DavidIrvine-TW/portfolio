@@ -41,7 +41,8 @@ function App() {
         <Suspense fallback={
           <section className="projects-section">
             <div className="projects-container">
-              <div className="projects-header">
+
+              {/* <div className="projects-header">
                 <h3 className="projects-heading section-heading">
                   PORTFOLIO
                   <img
@@ -53,7 +54,8 @@ function App() {
                 <h4 className="projects-subheading section-subheading">
                   Featured projects
                 </h4>
-              </div>
+              </div> */}
+
               <ProjectSkeleton align="left" />
               <ProjectSkeleton align="left" />
               <ProjectSkeleton align="right" />
