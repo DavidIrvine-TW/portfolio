@@ -6,9 +6,9 @@
 
 .desktop-project-card-title-above {
   font-family: 'Rubik', sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #292524;
+  color: #F5F5F5;
   margin: 0;
   text-align: left;
 }
@@ -21,13 +21,14 @@
   border-radius: 4px;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background: rgba(10, 10, 10, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .desktop-project-card-empty {
-  border: 2px solid #292524;
-  background: transparent;
-  box-shadow: none;
+  border: 1px solid #404040;
+  background: rgba(10, 10, 10, 0.3);
 }
 
 .desktop-project-card-bg {
@@ -52,7 +53,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(41, 37, 36, 0.7), rgba(41, 37, 36, 0.9));
+  background: linear-gradient(to bottom, rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.6));
   z-index: 1;
 }
 
@@ -68,16 +69,18 @@
 }
 
 .desktop-project-card-right-content {
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  margin: 8px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
   padding: 1rem;
-  background: rgba(41, 37, 36, 1);
+  background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 4px;
   transform-origin: center;
 }
@@ -111,19 +114,65 @@
   gap: 0.5rem;
 }
 
+.desktop-project-card-tech-icon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
 .desktop-project-card-tech-icon {
   width: 40px;
   height: 40px;
   border-radius: 0.5rem;
 }
 
+.desktop-project-card-tech-icon-wrapper:hover .desktop-project-card-tech-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  transition-delay: 0.5s;
+}
+
+.desktop-project-card-tech-tooltip {
+  position: absolute;
+  top: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  opacity: 0;
+  background: rgba(41, 37, 36, 0.95);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  transition-delay: 0s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.desktop-project-card-tech-tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(41, 37, 36, 0.95);
+}
+
 .desktop-project-card-tag {
   padding: 0.25rem 0.75rem;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #404040;
   border-radius: 0.5rem;
   font-size: 0.875rem;
   font-family: 'Mulish', sans-serif;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .desktop-project-card-buttons-wrapper {
@@ -155,19 +204,19 @@
 
 .desktop-project-card-password-btn {
   padding: 0.25rem 0.75rem;
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 0.5rem;
-  color: white;
+  background-color: #F5F5F5;
+  border: 1px solid #F5F5F5;
+  border-radius: 0.25rem;
+  color: #0A0A0A;
   cursor: pointer;
   font-family: 'Mulish', sans-serif;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  font-weight: 700;
 }
 
 .desktop-project-card-password-btn:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  transform: scale(1.05);
+  background-color: transparent;
+  color: #F5F5F5;
 }
 
 .desktop-project-card-btn {
@@ -175,23 +224,23 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1.5rem;
-  border: 2px solid #78716C;
-  border-radius: 0.5rem;
+  border: 1px solid #F5F5F5;
+  border-radius: 0;
   background-color: transparent;
-  color: #78716C;
+  color: #F5F5F5;
   font-family: 'Rubik', sans-serif;
-  font-weight: bold;
-  text-transform: none;
+  font-weight: 400;
+  text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.875rem;
-  letter-spacing: 1px;
+  letter-spacing: 0.05em;
 }
 
 .desktop-project-card-btn:hover {
-  background-color: #78716C;
-  color: white;
+  background-color: #F5F5F5;
+  color: #0A0A0A;
 }
 
 .desktop-project-card-btn img {
@@ -201,21 +250,21 @@
 
 /* Primary button variant */
 .desktop-project-card-btn-primary {
-  background-color: #78716C;
-  color: white;
-  border: 2px solid #78716C;
+  background-color: #F5F5F5;
+  color: #0A0A0A;
+  border: 1px solid #F5F5F5;
 }
 
 .desktop-project-card-btn-primary:hover {
   background-color: transparent;
-  color: #78716C;
-  border: 2px solid #78716C;
+  color: #F5F5F5;
+  border: 1px solid #F5F5F5;
 }
 
 .desktop-project-card-btn-primary img {
-  filter: brightness(0) invert(1);
+  filter: brightness(0);
 }
 
 .desktop-project-card-btn-primary:hover img {
-  filter: none;
+  filter: brightness(0) invert(1);
 }

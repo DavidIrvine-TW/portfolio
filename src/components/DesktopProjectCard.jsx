@@ -32,7 +32,7 @@ const DesktopProjectCard = ({
   // Consolidated animation variants
   const cardVariants = {
     animate: () => ({
-      scale: isHovered ? 1.05 : 1,
+      scale: 1,
     }),
   };
 
@@ -158,19 +158,24 @@ const DesktopProjectCard = ({
                 transition={{ ...baseTransition, delay: getDelay(0.4, 0.1) }}
               >
                 {tech.map((techItem, idx) => (
-                  <img
-                    key={idx}
-                    src={`https://skillicons.dev/icons?i=${techItem}`}
-                    alt={techItem}
-                    className="desktop-project-card-tech-icon select-none"
-                  />
+                  <div key={idx} className="desktop-project-card-tech-icon-wrapper">
+                    <img
+                      src={`https://skillicons.dev/icons?i=${techItem}`}
+                      alt={techItem}
+                      className="desktop-project-card-tech-icon select-none"
+                    />
+                    <span className="desktop-project-card-tech-tooltip">{techItem === 'js' ? 'JavaScript' : techItem === 'ts' ? 'TypeScript' : techItem}</span>
+                  </div>
                 ))}
                 {name.includes("Shopify") && (
-                  <img
-                    src={`${import.meta.env.BASE_URL}assets/icon-shopify.svg`}
-                    alt="Shopify"
-                    className="desktop-project-card-tech-icon select-none"
-                  />
+                  <div className="desktop-project-card-tech-icon-wrapper">
+                    <img
+                      src={`${import.meta.env.BASE_URL}assets/icon-shopify.svg`}
+                      alt="Shopify"
+                      className="desktop-project-card-tech-icon select-none"
+                    />
+                    <span className="desktop-project-card-tech-tooltip">Shopify</span>
+                  </div>
                 )}
               </motion.div>
             </motion.div>

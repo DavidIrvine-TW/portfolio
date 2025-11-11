@@ -5,7 +5,7 @@
     "nameIconAlt" : "project name icon",
     "tech" : ["nextjs", "mongodb", "tailwind", "nodejs", "vercel","materialui"],
     "blurb" : "A full-stack entertainment application built with Next.js that leverages the TMDB API to provide users with instant access to movie trailers, detailed film information, and personalized bookmark collections. Features NextAuth authentication for secure user sessions and MongoDB database integration for persistent bookmark synchronization across devices.",
-    "tags" : ["#app", "#nextAuth", "#fullstack", "#TMDB", "#swiperjs", "#tilt", "#toastify", "#materialui", "#youtube","#npm", "#nextjs", "#mongoose", "#nodejs", "#tailwind","#mongodb","#api"],
+    "tags" : [  "#tilt", "#toastify", "#materialui", "#youtube","#npm", "#api", "#mongoose", "#nodejs", "#tailwind","#mongodb"],
     "livelink" : "https://trailerview-davidirvine-tw.vercel.app/",
     "github" : "https://github.com/DavidIrvine-TW/trailerview",
     "images": ["/assets/trailerviewOne.jpg","/assets/trailerviewTwo.jpg","/assets/trailerviewThree.jpg","/assets/trailerviewFour.jpg"],

@@ -102,16 +102,27 @@ const SingleProject = ({
         <div className="single-project-tech-container">
           {tech.map((tech, index) => {
             return (
-              <img
-                className="single-project-skills-img select-none"
-                key={index}
-                src={`https://skillicons.dev/icons?i=${tech}`}
-                alt={tech}
-                loading="eager"
-              />
+              <div key={index} className="single-project-skills-img-wrapper">
+                <img
+                  className="single-project-skills-img select-none"
+                  src={`https://skillicons.dev/icons?i=${tech}`}
+                  alt={tech}
+                  loading="eager"
+                />
+                <span className="single-project-skills-tooltip">{tech === 'js' ? 'JavaScript' : tech === 'ts' ? 'TypeScript' : tech}</span>
+              </div>
             );
           })}
-          {name.includes("Shopify") && <img src={`${import.meta.env.BASE_URL}assets/icon-shopify.svg`} alt="Shopify" className="single-project-skills-img select-none" />}
+          {name.includes("Shopify") && (
+            <div className="single-project-skills-img-wrapper">
+              <img
+                src={`${import.meta.env.BASE_URL}assets/icon-shopify.svg`}
+                alt="Shopify"
+                className="single-project-skills-img select-none"
+              />
+              <span className="single-project-skills-tooltip">Shopify</span>
+            </div>
+          )}
         </div>
 
         <div className="single-project-tags">
@@ -147,7 +158,7 @@ const SingleProject = ({
             )}
 
             {livelink && livelink !== "https://example.com" && livelink !== "#" && (
-              <a className="single-project-link-btn" href={livelink} target="_blank" rel="noreferrer">
+              <a className="single-project-link-btn single-project-link-btn-primary" href={livelink} target="_blank" rel="noreferrer">
                 Live
                 <img src={`${import.meta.env.BASE_URL}assets/icon-link.svg`} alt="icon link" />
               </a>

@@ -1,79 +1,213 @@
+/* ====== Header Container ====== */
 .header {
-  @apply w-full min-w-[375px] fixed top-0 left-0 z-[1000000];
+  width: 100%;
+  min-width: 375px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000000;
 }
 
+/* ====== Header Wrapper ====== */
 .header-wrapper {
-  @apply flex justify-between items-center p-6 text-[#292524] text-xl-dk max-w-[1400px] mx-auto w-full;
-  border-radius: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  color: #F5F5F5;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  font-weight: 400;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  letter-spacing: 0.05em;
   border: 1px solid transparent;
-  transition: all 0.3s ease;
+  border-radius: 4px;
+  transition: all 0.2s linear;
+}
+
+@media (min-width: 900px) {
+  .header-wrapper {
+    padding: 1.5rem 2rem;
+  }
+}
+
+.header-wrapper.header-wide {
+  max-width: 1400px;
 }
 
 .header-wrapper.header-scrolled {
-  @apply shadow-md;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid #78716C;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid #404040;
+  border-radius: 4px;
 }
 
+/* ====== Logo ====== */
 .header-logo {
-  @apply font-Rubik font-bold;
+  font-family: 'Mulish', sans-serif;
+  font-weight: 400;
+  z-index: 10;
+  line-height: 1.5;
 }
 
 .header-logo a {
-  @apply cursor-pointer transition-colors duration-200;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-block;
 }
 
 .header-logo a:hover {
-  color: #78716C;
+  color: #999999;
 }
 
-.header-nav-desktop {
-  @apply hidden tb900:inline-flex gap-6 font-Rubik;
+/* ====== Dock-Style Navigation (Desktop) ====== */
+.header-nav-dock {
+  display: none;
+  gap: 2.5rem;
+  font-family: 'Rubik', sans-serif;
+  position: relative;
 }
 
-.header-menu-item {
-  @apply menu-item;
+@media (min-width: 900px) {
+  .header-nav-dock {
+    display: flex;
+  }
 }
 
-.header-menu-item:has(.header-home-link.disabled) {
-  cursor: default;
-  pointer-events: none;
+.dock-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.header-home-link {
-  @apply flex items-center gap-[.25rem];
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.header-home-link.disabled {
+.dock-item.disabled {
   opacity: 0.3;
-  cursor: default !important;
-  pointer-events: none !important;
+  pointer-events: none;
   user-select: none;
 }
 
-
-.header-menu-item .btn-primary {
-  transition: transform 0.3s ease;
-  text-transform: none;
+/* Simple color transition for non-primary items */
+.dock-item:not(.primary):not(.disabled) .dock-link {
+  transition: color 0.4s ease;
 }
 
-.header-menu-item .btn-primary:hover {
-  transform: scale(1.05);
-  color: white;
-  background-color: #292524;
+.dock-item.primary .dock-link {
+  background: #F5F5F5;
+  color: #0A0A0A;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid #F5F5F5;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
+/* Border expansion effect for primary button */
+.dock-item.primary .dock-link::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border: 1px solid #F5F5F5;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.dock-item.primary.hovered .dock-link::after {
+  opacity: 1;
+  animation: borderPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes borderPulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.dock-item.primary.hovered .dock-link {
+  background: transparent;
+  color: #F5F5F5;
+}
+
+.dock-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  color: #666666;
+  font-weight: 400;
+  font-size: 0.85rem;
+  text-decoration: none;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  transition: color 0.4s ease;
+}
+
+.dock-link:not(.disabled):hover {
+  color: #F5F5F5;
+}
+
+.dock-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.dock-item.hovered .dock-icon {
+  transform: translateY(-4px);
+}
+
+.dock-label {
+  display: block;
+}
+
+/* ====== Mobile Menu ====== */
 .header-hamburger {
-  @apply tb900:hidden ;
+  display: block;
+}
+
+@media (min-width: 900px) {
+  .header-hamburger {
+    display: none;
+  }
 }
 
 .header-nav-mobile {
-  @apply fixed top-0 left-0 transition-all duration-500 ease-in-out tb900:hidden text-center flex flex-col gap-[3rem] items-center justify-center w-full h-screen bg-[#292524] z-[1000];
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease-in-out;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background: #0A0A0A;
+  z-index: 1000;
+}
+
+@media (min-width: 900px) {
+  .header-nav-mobile {
+    display: none;
+  }
 }
 
 .header-mobile-menu-item {
@@ -100,22 +234,37 @@
 }
 
 .header-mobile-menu-item a {
-  @apply font-Rubik font-bold text-[1.5rem] text-white transition-colors duration-300;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .header-mobile-menu-item a:hover {
-  color: #EA580C;
+  color: #999999;
 }
 
 .header-mobile-menu-item .btn-primary {
-  @apply text-[1.25rem] px-[2rem] py-[.75rem];
-  background-color: #78716C;
-  text-transform: none;
+  font-size: 1rem;
+  padding: 0.875rem 2.5rem;
+  background: #F5F5F5;
+  color: #0A0A0A;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+  border: 1px solid #F5F5F5;
+  border-radius: 0;
 }
 
 .header-mobile-menu-item .btn-primary:hover {
-  background-color: #EA580C;
-  transform: scale(1.05);
+  background: transparent;
+  color: #F5F5F5;
+  transform: none;
 }
 
 @keyframes fadeInUp {

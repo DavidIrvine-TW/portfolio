@@ -20,7 +20,7 @@
 
 #root {
   position: relative;
-  background-color: #FFFBF5;
+  background: #0A0A0A;
   min-height: 100vh;
 
 }
@@ -31,16 +31,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #171717;
+  background: #0A0A0A;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: peru;
-  border-radius: 4px;
+  background: #333333;
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #d39653;
+  background: #666666;
 }
 
 /* BURGER MENU */
@@ -62,14 +62,14 @@
 
 .hamburger-menu span {
   width: 24px;
-  height: 3px;
-  background-color: #292524;
+  height: 1px;
+  background-color: #F5F5F5;
   transition: transform 0.3s ease-in-out;
 }
 
 .hamburger-menu.cross span:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
-  background-color: #EA580C;
+  background-color: #F5F5F5;
 }
 
 .hamburger-menu.cross span:nth-child(2) {
@@ -78,7 +78,7 @@
 
 .hamburger-menu.cross span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
-  background-color: #EA580C;
+  background-color: #F5F5F5;
 }
 
 /* Hide hamburger on desktop */
@@ -92,12 +92,12 @@
 /* section headings */
 @layer components {
   .section-heading {
-  @apply font-bold text-[#78716C] font-Mulish text-[1.25rem] tracking-[.5px];
+  @apply font-bold text-[#F5F5F5] font-Mulish text-[1.5rem] tracking-[.5px];
   }
 }
 @layer components {
   .section-subheading {
-  @apply font-Rubik font-bold text-[#292524] text-about-heading-dk ;
+  @apply font-Rubik font-bold text-[#F5F5F5] text-about-heading-dk ;
   }
 }
 /* body-text */
@@ -276,17 +276,39 @@
 }
 @layer components {
   .contact-input {
-  @apply bg-[#FFFBF5] p-[.5rem] border-2 rounded ;
+  @apply p-[.5rem] border rounded text-[#F5F5F5];
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #404040;
+  transition: all 0.3s ease;
+  }
+  .contact-input:focus {
+    outline: none;
+    border-color: #666666;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .contact-input::placeholder {
+    color: #666666;
   }
 }
 @layer components {
   .contact-textarea {
-  @apply min-h-[200px] p-[.5rem] border-2 rounded bg-[#FFFBF5] ;
+  @apply min-h-[200px] p-[.5rem] border rounded text-[#F5F5F5];
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #404040;
+  transition: all 0.3s ease;
+  }
+  .contact-textarea:focus {
+    outline: none;
+    border-color: #666666;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .contact-textarea::placeholder {
+    color: #666666;
   }
 }
 @layer components {
   .contact-error {
-  @apply absolute bottom-[-25px] right-[8px] text-[.75rem] text-red-500 font-bold;
+  @apply absolute bottom-[-25px] right-[8px] text-[.75rem] text-red-400 font-bold;
   }
 }
 

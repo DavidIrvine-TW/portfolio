@@ -3,7 +3,7 @@
     "name" : "Photosnap [React]",
     "nameIcon" :"/assets/photographer.png",
     "nameIconAlt" : "photographer icon",
-    "blurb" : "A pixel-perfect, multipage photo-sharing website meticulously crafted from Figma designs using React and Tailwind CSS. Features responsive layouts optimized for all screen sizes, CSS Grid for complex gallery arrangements, smooth page transitions, and component-based architecture for maintainable and scalable code. Demonstrates strong attention to design fidelity and modern frontend development practices.",
+    "blurb" : "A pixel-perfect, multipage photo-sharing website crafted from Figma designs using React and Tailwind CSS. Features responsive layouts for all screen sizes, CSS Grid for gallery arrangements, smooth page transitions, and component-based architecture. Demonstrates strong attention to design fidelity and modern development practices.",
     "tech" : ["react", "tailwind", "figma", "vite"],
     "features" : "",
     "livelink" : "https://davidirvine-tw.github.io/photosnap-website/",

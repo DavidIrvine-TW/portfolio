@@ -2,7 +2,57 @@
   /* Mobile/Tablet: Normal scroll */
   @apply relative w-full ;
   z-index: 1;
-  background-color: #D5D1CB;
+  background-color: #0A0A0A;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(251, 146, 60, 0.06) 0%, transparent 50%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(245, 158, 11, 0.04) 2px,
+      rgba(245, 158, 11, 0.04) 4px
+    );
+  pointer-events: none;
+  z-index: 0;
+  animation: breathe 8s ease-in-out infinite;
+}
+
+.contact-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
+  background-size: 200% 200%;
+  pointer-events: none;
+  z-index: 0;
+  animation: subtleShift 12s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes subtleShift {
+  0%, 100% {
+    opacity: 0.06;
+    filter: blur(0px);
+  }
+  50% {
+    opacity: 0.04;
+    filter: blur(0.5px);
+  }
 }
 
 /* Desktop: Fixed positioning */
@@ -10,7 +60,7 @@
   .contact-section {
     @apply fixed top-0 left-0 right-0 h-screen w-full   ;
     z-index: 1;
-    background-color: #D5D1CB;
+    background-color: #0A0A0A;
   }
 }
 
@@ -29,15 +79,17 @@
 
 .contact-container {
   @apply max-w-[1000px] mx-auto w-full px-[10px] tb900:px-[1.75rem];
-  background-color: #FFFBF5;
-  border: 2px solid #A8A29E;
-  border-radius: 8px;
+  background: rgba(10, 10, 10, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid #404040;
+  border-radius: 4px;
   padding: 2rem 1rem;
   transition: all 0.3s ease;
 }
 
 .contact-container:hover {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-color: #666666;
 }
 
 @media (min-width: 900px) {
@@ -56,6 +108,7 @@
 
 .contact-heading {
   @apply flex items-center gap-[1rem];
+  color: #FB923C !important;
 }
 
 .contact-icon {
@@ -64,6 +117,7 @@
 
 .contact-subheading {
   @apply  flex gap-[1rem] items-center justify-center tb900:text-left text-center;
+  color: #F5F5F5 !important;
 }
 
 .contact-info-wrapper {
@@ -72,6 +126,7 @@
 
 .contact-info-item {
   @apply flex flex-col items-center justify-center gap-[1rem] tb900:flex-row tb900:justify-start;
+  color: #F5F5F5;
 }
 
 .contact-info-text-wrapper {
@@ -79,11 +134,11 @@
 }
 
 .contact-info-label {
-  @apply font-Rubik font-bold text-[#292524] text-[1.1rem];
+  @apply font-Rubik font-bold text-[#F5F5F5] text-[1.1rem];
 }
 
 .contact-email {
-  @apply font-Mulish text-gray-500 text-[.9rem] hover:text-[#78716C] cursor-pointer dk:text-[1rem];
+  @apply font-Mulish text-[#999999] text-[.9rem] hover:text-[#F5F5F5] cursor-pointer dk:text-[1rem];
 }
 
 .contact-form-container {
@@ -119,12 +174,22 @@
 }
 
 .contact-submit-btn {
+  background-color: #F5F5F5 !important;
+  color: #0A0A0A !important;
+  border: 1px solid #F5F5F5 !important;
+  border-radius: 0 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  font-weight: 400 !important;
+  transition: all 0.3s ease !important;
+}
 
-  background-color: #78716C !important;
-  color: white !important;
-  border: 1px solid #78716C !important;
+.contact-submit-btn:hover {
+  background-color: transparent !important;
+  color: #F5F5F5 !important;
+  transform: none !important;
 }
 
 .contact-success-message {
-  @apply text-green-500 font-bold;
+  @apply text-green-400 font-bold;
 }

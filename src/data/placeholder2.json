@@ -9,7 +9,7 @@
     "features": "",
     "livelink": "#",
     "github": "https://github.com/DavidIrvine-TW/portfolio",
-    "tags": ["#portfolio", "#react", "#vite", "#tailwind", "#framer-motion", "#gsap", "#animations", "#responsive", "#spa", "#emailjs", "#lenis", "#smooth-scroll"],
+    "tags": ["#react", "#vite", "#tailwind", "#framer-motion", "#gsap", "#animations", "#responsive", "#spa", "#emailjs", "#lenis"],
     "images": ["/assets/marv-dev-portfolio-min.png"],
     "align": "right"
   }

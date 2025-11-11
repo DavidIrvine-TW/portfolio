@@ -107,9 +107,6 @@ const Contact = () => {
             <div className="contact-info-item">
               <IconEmailAlt />
               <div className="contact-info-text-wrapper">
-                <span className="contact-info-label select-none">
-                  Mail
-                </span>
                 <span
                   onClick={() =>
                     copyEmailToClipboard("marv@marv-dev.com")
