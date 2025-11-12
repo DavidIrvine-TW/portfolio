@@ -122,7 +122,7 @@
 .desktop-project-card-tech-container,
 .desktop-project-card-tags-container,
 .desktop-project-card-buttons-container {
-  overflow: hidden;
+  overflow: visible;
 }
 
 .desktop-project-card-tech-container {

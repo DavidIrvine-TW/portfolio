@@ -3,11 +3,11 @@
     "name" : "Technyra [Nextjs]",
     "nameIcon" :"/assets/briefcase.png",
     "nameIconAlt" : "briefcase icon",
-    "blurb" : "A cloud infrastructure and ecommerce platform company website built with Next.js 15, React 19, and Tailwind CSS. Leverages an MCP server integrated with Figma for design-to-code automation, generating pixel-perfect responsive layouts. Features a custom API handling contact form submissions with Cloudflare Turnstile protection and email service integration. Deployed on Firebase Hosting with comprehensive CSP headers and XSS prevention.",
+    "blurb" : "A cloud infrastructure and ecommerce platform company website built with Next.js 15, React 19, and Tailwind CSS. Leverages an MCP server integrated with Figma for design-to-code automation, generating pixel-perfect responsive layouts. Features a custom API handling contact form submissions with Cloudflare Turnstile protection and email service integration. Deployed on Firebase Hosting with comprehensive CSP headers.",
     "tech" : ["nextjs", "react", "tailwind", "figma", "mcp"],
     "features" : "",
     "livelink" : "https://technyra.tech",
-    "github" : "https://github.com",
+    "github" : "https://github.com/placeholder/technyra",
     "tags" : ["#nextjs", "#react", "#tailwind", "#figma", "#mcp", "#api", "#firebase", "#cloudflare", "#responsive"],
     "images": ["/assets/Technyra-Built-for-the-cloud-smart-era.png"],
     "align" : "left"
