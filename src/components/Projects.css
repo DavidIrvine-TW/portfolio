@@ -2,7 +2,7 @@
   @apply  min-h-screen px-[10px] tb900:px-[1.75rem] pb-[4rem] relative bg-[#0A0A0A] to-slate-100;
   z-index: 10;
   transition: background-color 0.3s ease;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .projects-section::before {
@@ -89,6 +89,168 @@
 
 .projects-divider {
   @apply hidden lg:block w-[100px] h-[1px] bg-[#404040] mt-[4rem] mx-auto;
+}
+
+/* Floating Abstract Shapes */
+.projects-floating-shapes {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.projects-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(251, 146, 60, 0.15) 0%, transparent 70%);
+  filter: blur(30px);
+}
+
+.projects-shape-1 {
+  width: 350px;
+  height: 350px;
+  top: 10%;
+  left: 5%;
+  animation: projectFloat1 20s ease-in-out infinite, projectPulse1 4s ease-in-out infinite;
+}
+
+.projects-shape-2 {
+  width: 250px;
+  height: 250px;
+  top: 60%;
+  right: 10%;
+  animation: projectFloat2 25s ease-in-out infinite, projectPulse2 5.5s ease-in-out infinite;
+}
+
+.projects-shape-3 {
+  width: 300px;
+  height: 300px;
+  bottom: 15%;
+  left: 15%;
+  animation: projectFloat3 30s ease-in-out infinite, projectPulse3 7s ease-in-out infinite;
+}
+
+.projects-shape-4 {
+  width: 220px;
+  height: 220px;
+  top: 30%;
+  right: 20%;
+  background: radial-gradient(circle, rgba(251, 146, 60, 0.18) 0%, transparent 70%);
+  animation: projectFloat4 22s ease-in-out infinite, projectPulse4 4.5s ease-in-out infinite;
+}
+
+.projects-shape-5 {
+  width: 280px;
+  height: 280px;
+  bottom: 25%;
+  right: 5%;
+  animation: projectFloat5 28s ease-in-out infinite, projectPulse5 6s ease-in-out infinite;
+}
+
+@keyframes projectFloat1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -20px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 30px) scale(0.9);
+  }
+}
+
+@keyframes projectFloat2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-40px, 25px) scale(1.15);
+  }
+  66% {
+    transform: translate(25px, -30px) scale(0.85);
+  }
+}
+
+@keyframes projectFloat3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(35px, 30px) scale(0.9);
+  }
+  66% {
+    transform: translate(-30px, -25px) scale(1.1);
+  }
+}
+
+@keyframes projectFloat4 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-25px, -35px) scale(1.2);
+  }
+  66% {
+    transform: translate(40px, 20px) scale(0.8);
+  }
+}
+
+@keyframes projectFloat5 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(20px, -40px) scale(1.05);
+  }
+  66% {
+    transform: translate(-35px, 15px) scale(0.95);
+  }
+}
+
+@keyframes projectPulse1 {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes projectPulse2 {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes projectPulse3 {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes projectPulse4 {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes projectPulse5 {
+  0%, 100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.95;
+  }
 }
 
 /* Desktop horizontal scroll container effects */

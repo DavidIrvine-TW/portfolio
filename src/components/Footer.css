@@ -1,7 +1,7 @@
 .footer {
   @apply w-full tb900:absolute bottom-0 left-0 tb900:h-[78px];
-  background-color: transparent;
-  border-top: 1px solid #404040;
+  background-color: #FB923C;
+  border-top: none;
 }
 
 .footer-wrapper {
@@ -10,11 +10,12 @@
 }
 
 .footer-logo a {
-  @apply font-Rubik font-bold text-[#F5F5F5] cursor-pointer transition-all duration-300;
+  @apply font-Rubik font-bold cursor-pointer transition-all duration-300;
+  color: #0A0A0A;
 }
 
 .footer-logo a:hover {
-  color: #999999;
+  color: #292524;
 }
 
 .footer-social-links {
@@ -30,7 +31,8 @@
 }
 
 .footer-social-link {
-  @apply text-[#F5F5F5] transition-all duration-300;
+  @apply transition-all duration-300;
+  color: #0A0A0A;
 }
 
 .footer-social-link a {
@@ -38,10 +40,11 @@
 }
 
 .footer-social-link:hover {
-  color: #999999;
+  color: #292524;
   transform: none;
 }
 
 .footer-copyright {
-  @apply text-[.75rem] text-[#666666];
+  @apply text-[.75rem];
+  color: #0A0A0A;
 }

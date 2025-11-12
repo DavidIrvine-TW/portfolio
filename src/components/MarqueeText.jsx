@@ -26,7 +26,7 @@ const MarqueeText = ({ children, className = "" }) => {
         animate={{ x: 'calc(-100% - 6px)' }}
         transition={{
           ease: 'linear',
-          duration: 5,
+          duration: 12,
           repeat: Infinity,
           repeatType: 'loop',
         }}
@@ -46,7 +46,7 @@ const MarqueeText = ({ children, className = "" }) => {
         animate={{ x: 'calc(-200% - 12px)' }}
         transition={{
           ease: 'linear',
-          duration: 5,
+          duration: 12,
           repeat: Infinity,
           repeatType: 'loop',
         }}
@@ -66,7 +66,7 @@ const MarqueeText = ({ children, className = "" }) => {
         animate={{ x: '0%' }}
         transition={{
           ease: 'linear',
-          duration: 5,
+          duration: 12,
           repeat: Infinity,
           repeatType: 'loop',
         }}
@@ -86,7 +86,7 @@ const MarqueeText = ({ children, className = "" }) => {
         animate={{ x: 'calc(100% + 6px)' }}
         transition={{
           ease: 'linear',
-          duration: 5,
+          duration: 12,
           repeat: Infinity,
           repeatType: 'loop',
         }}

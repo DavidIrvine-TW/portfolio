@@ -14,8 +14,10 @@ function Hero() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [marqueeOffset, setMarqueeOffset] = useState(0);
+  const [skillIconsVisible, setSkillIconsVisible] = useState(false);
 
   const imageRef = useRef(null);
+  const skillIconsRef = useRef(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -43,7 +45,7 @@ function Hero() {
     const handleMarqueeScroll = () => {
       const scrollY = window.scrollY;
       // Move marquee left when scrolling down (negative offset)
-      // Speed factor: adjust 0.5 to control sensitivity
+      // Speed factor: adjust 0.5 to control sensitivity (faster)
       setMarqueeOffset(-scrollY * 0.5);
     };
 
@@ -51,6 +53,24 @@ function Hero() {
     handleMarqueeScroll(); // Check initial position
 
     return () => window.removeEventListener('scroll', handleMarqueeScroll);
+  }, []);
+
+  // Track skill icons visibility based on scroll position
+  useEffect(() => {
+    const handleSkillIconsScroll = () => {
+      const scrollY = window.scrollY;
+      // Make visible when scrolled more than 20px
+      if (scrollY > 20) {
+        setSkillIconsVisible(true);
+      } else {
+        setSkillIconsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleSkillIconsScroll);
+    handleSkillIconsScroll(); // Check initial position
+
+    return () => window.removeEventListener('scroll', handleSkillIconsScroll);
   }, []);
 
   // Subtle parallax effect
@@ -125,6 +145,16 @@ function Hero() {
 
   return (
     <section id="home" className={`hero-section ${isScrolled ? 'hero-section-scrolled' : ''}`}>
+      {/* Background image wallpaper */}
+      {/* <div className="hero-bg-image-container">
+        <img
+          src={`${import.meta.env.BASE_URL}assets/HeroImgGray.jpg`}
+          alt="Hero background"
+          className="hero-bg-image"
+        />
+        <div className="hero-bg-overlay" />
+      </div> */}
+
       {/* Floating abstract shapes */}
       <div className="hero-floating-shapes">
         <div className="hero-shape hero-shape-1"></div>
@@ -144,8 +174,7 @@ function Hero() {
         >
           {/* Animated Gradient Title */}
           <h1 className="hero-title select-none">
-            <span className="gradient-text">Web <span className="highlight-text">Alchemist</span></span>
-            <span className="gradient-text shimmer-text">& Developer</span>
+            <span className="gradient-text">Web Developer <span className="highlight-text">Full Stack</span></span>
           </h1>
 
           <motion.p
@@ -241,18 +270,18 @@ function Hero() {
                       stiffness: 200
                     }}
                   >
-                    {!loadedSkills[skill] && (
+                    {!loadedSkills[skill] && skill !== 'claude' && skill !== 'mcp' && (
                       <div className="skeleton skeleton-badge"></div>
                     )}
                     <img
-                      src={`https://skillicons.dev/icons?i=${skill}`}
+                      src={skill === 'claude' ? `${import.meta.env.BASE_URL}assets/claude-ai-icon.svg` : skill === 'mcp' ? `${import.meta.env.BASE_URL}assets/mcp-server-stroke-rounded.svg` : `https://skillicons.dev/icons?i=${skill}`}
                       alt={skill}
                       loading="eager"
                       onLoad={() => handleSkillLoad(skill)}
-                      style={{ display: loadedSkills[skill] ? 'block' : 'none' }}
+                      style={{ display: loadedSkills[skill] || skill === 'claude' || skill === 'mcp' ? 'block' : 'none' }}
                       className="select-none skill-icon"
                     />
-                    <span className="skill-tooltip">{skill === 'js' ? 'JavaScript' : skill === 'ts' ? 'TypeScript' : skill}</span>
+                    <span className="skill-tooltip">{skill === 'js' ? 'JavaScript' : skill === 'ts' ? 'TypeScript' : skill === 'claude' ? 'Claude AI' : skill === 'mcp' ? 'MCP' : skill}</span>
                   </motion.div>
                 ))}
               </div>
@@ -278,31 +307,43 @@ function Hero() {
             }}
             transition={{ type: "spring", stiffness: 80, damping: 30 }}
           >
-            <div className="hero-img">
+            <motion.div
+              className="hero-img"
+              whileHover={{ scale: 1.015 }}
+              transition={{ duration: 0.4 }}
+            >
               {!imageLoaded && (
                 <div className="skeleton skeleton-circle w-[280px] h-[280px] tb500:w-[350px] tb500:h-[350px]"></div>
               )}
-              <motion.img
+              {imageLoaded && (
+                <div className="hero-img-bg">
+                  <img
+                    src={`${import.meta.env.BASE_URL}assets/HeroImgGray.jpg`}
+                    alt="profile background"
+                    className="hero-img-bg-image select-none"
+                  />
+                  <div className="hero-img-overlay" />
+                </div>
+              )}
+              <img
                 src={`${import.meta.env.BASE_URL}assets/HeroImgGray.jpg`}
                 alt="profile image"
                 loading="eager"
                 onLoad={() => setImageLoaded(true)}
-                style={{ display: imageLoaded ? 'block' : 'none' }}
-                className="select-none hero-profile-image"
-                whileHover={{ scale: 1.015 }}
-                transition={{ duration: 0.4 }}
+                style={{ opacity: 0, position: 'absolute' }}
               />
-            </div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
 
       {/* Skill Badges - Desktop only (outside content wrapper for full width) */}
       <motion.div
+        ref={skillIconsRef}
         className="hero-skills-desktop"
         initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.8 }}
+        animate={{ opacity: skillIconsVisible ? 1 : 0, y: 0 }}
+        transition={{ opacity: { duration: 0.3 }, y: { duration: 0.8, delay: 0.8 } }}
       >
         <div className="skills-container">
           <div
@@ -322,18 +363,18 @@ function Hero() {
                   stiffness: 200
                 }}
               >
-                {!loadedSkills[skill] && (
+                {!loadedSkills[skill] && skill !== 'claude' && skill !== 'mcp' && (
                   <div className="skeleton skeleton-badge"></div>
                 )}
                 <img
-                  src={`https://skillicons.dev/icons?i=${skill}`}
+                  src={skill === 'claude' ? `${import.meta.env.BASE_URL}assets/claude-ai-icon.svg` : skill === 'mcp' ? `${import.meta.env.BASE_URL}assets/mcp-server-stroke-rounded.svg` : `https://skillicons.dev/icons?i=${skill}`}
                   alt={skill}
                   loading="eager"
                   onLoad={() => handleSkillLoad(skill)}
-                  style={{ display: loadedSkills[skill] ? 'block' : 'none' }}
+                  style={{ display: loadedSkills[skill] || skill === 'claude' || skill === 'mcp' ? 'block' : 'none' }}
                   className="select-none skill-icon"
                 />
-                <span className="skill-tooltip">{skill === 'js' ? 'JavaScript' : skill === 'ts' ? 'TypeScript' : skill}</span>
+                <span className="skill-tooltip">{skill === 'js' ? 'JavaScript' : skill === 'ts' ? 'TypeScript' : skill === 'claude' ? 'Claude AI' : skill === 'mcp' ? 'MCP' : skill}</span>
               </motion.div>
             ))}
           </div>
@@ -355,18 +396,18 @@ function Hero() {
                   stiffness: 200
                 }}
               >
-                {!loadedSkills[skill] && (
+                {!loadedSkills[skill] && skill !== 'claude' && skill !== 'mcp' && (
                   <div className="skeleton skeleton-badge"></div>
                 )}
                 <img
-                  src={`https://skillicons.dev/icons?i=${skill}`}
+                  src={skill === 'claude' ? `${import.meta.env.BASE_URL}assets/claude-ai-icon.svg` : skill === 'mcp' ? `${import.meta.env.BASE_URL}assets/mcp-server-stroke-rounded.svg` : `https://skillicons.dev/icons?i=${skill}`}
                   alt={skill}
                   loading="eager"
                   onLoad={() => handleSkillLoad(skill)}
-                  style={{ display: loadedSkills[skill] ? 'block' : 'none' }}
+                  style={{ display: loadedSkills[skill] || skill === 'claude' || skill === 'mcp' ? 'block' : 'none' }}
                   className="select-none skill-icon"
                 />
-                <span className="skill-tooltip">{skill === 'js' ? 'JavaScript' : skill === 'ts' ? 'TypeScript' : skill}</span>
+                <span className="skill-tooltip">{skill === 'js' ? 'JavaScript' : skill === 'ts' ? 'TypeScript' : skill === 'claude' ? 'Claude AI' : skill === 'mcp' ? 'MCP' : skill}</span>
               </motion.div>
             ))}
           </div>

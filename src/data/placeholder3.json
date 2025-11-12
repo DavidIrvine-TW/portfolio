@@ -1,7 +1,7 @@
 [
   {
     "id": "placeholder-3",
-    "name": "...",
+    "name": "Proficiencies:",
     "nameIcon": "./assets/briefcase.png",
     "nameIconAlt": "briefcase icon",
     "blurb": "",
@@ -11,6 +11,7 @@
     "github": "#",
     "tags": [],
     "images": [],
-    "align": "left"
+    "align": "left",
+    "showSkillIcons": true
   }
 ]

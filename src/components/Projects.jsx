@@ -4,6 +4,8 @@ import vapesterData from "../data/vapester.json";
 import kanbanData from "../data/kanban.json";
 import trailerviewData from "../data/trailerview.json";
 import photosnapData from "../data/photosnap.json";
+import technyraData from "../data/technyra.json";
+import kopplaData from "../data/koppla.json";
 import placeholder1Data from "../data/placeholder1.json";
 import placeholder2Data from "../data/placeholder2.json";
 import placeholder3Data from "../data/placeholder3.json";
@@ -57,6 +59,8 @@ const Projects = () => {
       ...vapesterData,
       ...kanbanData,
       ...photosnapData,
+      ...technyraData,
+      ...kopplaData,
       ...placeholder1Data,
       ...placeholder2Data,
       ...placeholder3Data,
@@ -127,6 +131,15 @@ const Projects = () => {
 
     return (
       <section id="portfolio" ref={targetRef} className="relative" style={sectionStyle}>
+        {/* Floating abstract shapes */}
+        <div className="projects-floating-shapes">
+          <div className="projects-shape projects-shape-1"></div>
+          <div className="projects-shape projects-shape-2"></div>
+          <div className="projects-shape projects-shape-3"></div>
+          <div className="projects-shape projects-shape-4"></div>
+          <div className="projects-shape projects-shape-5"></div>
+        </div>
+
         <div className="sticky top-0 left-0 h-screen overflow-hidden desktop-projects-container" style={stickyContainerStyle}>
           {/* Full viewport background image wallpaper */}
           <AnimatePresence mode="wait">
@@ -147,9 +160,9 @@ const Projects = () => {
                   src={hoveredImage}
                   alt="Project background"
                   className="absolute inset-0 w-full h-full object-cover object-top"
-                  style={{ opacity: 0.3 }}
+                  style={{ opacity: 0.4 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/20" />
               </motion.div>
             )}
           </AnimatePresence>
@@ -164,20 +177,36 @@ const Projects = () => {
 
               {/* Header inline with cards */}
               <div className="flex flex-col gap-[1rem] flex-shrink-0 w-[30vw] mr-[1rem]">
-                <h3 className="projects-heading section-heading select-none" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#F5F5F5' }}>Featured <span style={{ color: '#FB923C' }}>Projects</span></h3>
+                <h3 className="projects-heading section-heading select-none" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#F5F5F5' }}>Project <span style={{ color: '#FB923C' }}>Gallery</span></h3>
               </div>
 
               {/* Render projects */}
-              {allProjects.map((project, index) => (
-                <div key={project.id} className={`flex-shrink-0 w-[35vw] ${index > 0 ? 'ml-[3rem]' : ''}`}>
-                  <DesktopProjectCard
-                    {...project}
-                    index={index}
-                    hoveredIndex={hoveredIndex}
-                    setHoveredIndex={setHoveredIndex}
-                  />
-                </div>
-              ))}
+              {allProjects.map((project, index) => {
+                const isThisCardHovered = hoveredIndex === index;
+                const isSomeCardHovered = hoveredIndex !== null;
+                const shouldBeVisible = !isSomeCardHovered || isThisCardHovered;
+
+                return (
+                  <motion.div
+                    key={project.id}
+                    className={`flex-shrink-0 w-[35vw] ${index > 0 ? 'ml-[3rem]' : ''}`}
+                    animate={{
+                      opacity: shouldBeVisible ? 1 : 0.5,
+                    }}
+                    transition={{
+                      duration: 0.4,
+                      ease: [0.25, 0.1, 0.25, 1],
+                    }}
+                  >
+                    <DesktopProjectCard
+                      {...project}
+                      index={index}
+                      hoveredIndex={hoveredIndex}
+                      setHoveredIndex={setHoveredIndex}
+                    />
+                  </motion.div>
+                );
+              })}
 
               {/* Spacer at the end */}
               <div className="w-[5vw] flex-shrink-0" />
@@ -191,6 +220,15 @@ const Projects = () => {
   // MOBILE/TABLET: Original vertical layout
   return (
     <section id="portfolio" className={`projects-section ${isScrolled ? 'projects-section-scrolled' : ''}`} ref={targetRef}>
+      {/* Floating abstract shapes */}
+      <div className="projects-floating-shapes">
+        <div className="projects-shape projects-shape-1"></div>
+        <div className="projects-shape projects-shape-2"></div>
+        <div className="projects-shape projects-shape-3"></div>
+        <div className="projects-shape projects-shape-4"></div>
+        <div className="projects-shape projects-shape-5"></div>
+      </div>
+
       <div className="projects-container">
         <div className="projects-header">
           <h3 className="projects-heading section-heading select-none">PORTFOLIO</h3>
