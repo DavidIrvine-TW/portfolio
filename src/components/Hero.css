@@ -356,6 +356,13 @@
   color: #FB923C;
 }
 
+.hero-bracket {
+  color: #666666;
+  font-weight: 400;
+  opacity: 0.7;
+  margin: 0 0.1em;
+}
+
 /* ====== Intro Text & Tagline ====== */
 .hero-intro-text {
   text-align: center;
@@ -495,6 +502,20 @@
   transition: transform 0.1s ease-out;
 }
 
+.hero-img-wrapper {
+  position: relative;
+  width: 280px;
+  height: 280px;
+}
+
+@media (min-width: 500px) {
+  .hero-img-wrapper {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+
 .hero-img {
   width: 280px;
   height: 280px;
@@ -503,6 +524,8 @@
   border-radius: 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   border: 1px solid #1A1A1A;
+  z-index: 1;
+  margin: 0 auto;
 }
 
 @media (min-width: 500px) {
@@ -664,7 +687,7 @@
 .skill-icon {
   width: 36px;
   height: 36px;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)) brightness(0.85) saturate(0.9);
 }
 
 .skill-icon[src*="mcp-server"] {

@@ -259,32 +259,30 @@
 @layer components {
   .project-skills-img {
   @apply w-[35px];
+  filter: brightness(0.85) saturate(0.9);
   }
 }
 
 
 /* contact */
 @layer components {
-  .contact-container {
-  @apply  mx-auto px-[1rem] tb900:px-[2rem] py-[2rem] border-2 border-[#A8A29E] bg-[#FFFBF5]  rounded max-w-[445px] tb900:max-w-[1000px] transition-all duration-300 hover:shadow-md;
-  }
-}
-@layer components {
   .contact-form-container {
-  @apply flex flex-col tb900:flex-row w-full gap-[2rem] tb900:gap-[3rem] mb-[2rem];
+  @apply flex flex-col tb900:flex-row w-full gap-[2rem] tb900:gap-[2.5rem] mb-[0rem];
   }
 }
 @layer components {
   .contact-input {
-  @apply p-[.5rem] border rounded text-[#F5F5F5];
-  background: rgba(255, 255, 255, 0.05);
-  border-color: #404040;
+  @apply p-[0.75rem] border text-[#F5F5F5];
+  background: rgba(15, 15, 15, 0.8);
+  border-color: #1A1A1A;
+  border-radius: 0;
   transition: all 0.3s ease;
+  font-size: 0.95rem;
   }
   .contact-input:focus {
     outline: none;
-    border-color: #666666;
-    background: rgba(255, 255, 255, 0.08);
+    border-color: #333333;
+    background: rgba(20, 20, 20, 0.9);
   }
   .contact-input::placeholder {
     color: #666666;
@@ -292,23 +290,21 @@
 }
 @layer components {
   .contact-textarea {
-  @apply min-h-[200px] p-[.5rem] border rounded text-[#F5F5F5];
-  background: rgba(255, 255, 255, 0.05);
-  border-color: #404040;
+  @apply min-h-[200px] p-[0.75rem] border text-[#F5F5F5];
+  background: rgba(15, 15, 15, 0.8);
+  border-color: #1A1A1A;
+  border-radius: 0;
   transition: all 0.3s ease;
+  font-size: 0.95rem;
+  resize: vertical;
   }
   .contact-textarea:focus {
     outline: none;
-    border-color: #666666;
-    background: rgba(255, 255, 255, 0.08);
+    border-color: #333333;
+    background: rgba(20, 20, 20, 0.9);
   }
   .contact-textarea::placeholder {
     color: #666666;
-  }
-}
-@layer components {
-  .contact-error {
-  @apply absolute bottom-[-25px] right-[8px] text-[.75rem] text-red-400 font-bold;
   }
 }
 

@@ -1,9 +1,61 @@
 .contact-section {
-  /* Mobile/Tablet: Normal scroll */
-  @apply relative w-full ;
+  @apply relative w-full;
   z-index: 1;
   background-color: #0A0A0A;
   overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Subtle texture overlay like hero section */
+.contact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.03) 2px,
+      rgba(255, 255, 255, 0.03) 4px
+    );
+  pointer-events: none;
+  z-index: 2;
+  animation: contactBreathe 8s ease-in-out infinite;
+}
+
+.contact-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
+  background-size: 200% 200%;
+  pointer-events: none;
+  z-index: 2;
+  animation: contactSubtleShift 12s ease-in-out infinite;
+}
+
+@keyframes contactBreathe {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes contactSubtleShift {
+  0%, 100% {
+    opacity: 0.1;
+    filter: blur(0px);
+  }
+  50% {
+    opacity: 0.07;
+    filter: blur(0.5px);
+  }
 }
 
 /* Floating Abstract Shapes */
@@ -12,54 +64,55 @@
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  z-index: 5;
+  z-index: 1;
 }
 
 .contact-shape {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(251, 146, 60, 0.15) 0%, transparent 70%);
-  filter: blur(30px);
+  background: radial-gradient(circle, rgba(251, 146, 60, 0.12) 0%, transparent 70%);
+  filter: blur(40px);
 }
 
 .contact-shape-1 {
-  width: 350px;
-  height: 350px;
-  top: 10%;
-  left: 5%;
+  width: 400px;
+  height: 400px;
+  top: 5%;
+  left: -5%;
   animation: contactFloat1 20s ease-in-out infinite, contactPulse1 4s ease-in-out infinite;
 }
 
 .contact-shape-2 {
-  width: 250px;
-  height: 250px;
-  top: 60%;
-  right: 10%;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  right: -5%;
   animation: contactFloat2 25s ease-in-out infinite, contactPulse2 5.5s ease-in-out infinite;
 }
 
 .contact-shape-3 {
-  width: 300px;
-  height: 300px;
-  bottom: 15%;
-  left: 15%;
+  width: 350px;
+  height: 350px;
+  bottom: 10%;
+  left: 10%;
   animation: contactFloat3 30s ease-in-out infinite, contactPulse3 7s ease-in-out infinite;
 }
 
 .contact-shape-4 {
-  width: 220px;
-  height: 220px;
-  top: 30%;
-  right: 20%;
-  background: radial-gradient(circle, rgba(251, 146, 60, 0.18) 0%, transparent 70%);
+  width: 250px;
+  height: 250px;
+  top: 20%;
+  right: 25%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
   animation: contactFloat4 22s ease-in-out infinite, contactPulse4 4.5s ease-in-out infinite;
 }
 
 .contact-shape-5 {
-  width: 280px;
-  height: 280px;
-  bottom: 25%;
-  right: 5%;
+  width: 320px;
+  height: 320px;
+  bottom: 20%;
+  right: 10%;
+  background: radial-gradient(circle, rgba(251, 146, 60, 0.1) 0%, transparent 70%);
   animation: contactFloat5 28s ease-in-out infinite, contactPulse5 6s ease-in-out infinite;
 }
 
@@ -171,57 +224,76 @@
 /* Desktop: Fixed positioning */
 @media (min-width: 1024px) {
   .contact-section {
-    @apply fixed top-0 left-0 right-0 h-screen w-full   ;
+    @apply fixed top-0 left-0 right-0 w-full;
+    height: 100vh;
     z-index: 1;
     background-color: #0A0A0A;
   }
 }
 
 .contact-wrapper {
-  @apply relative w-full flex flex-col items-center justify-center;
+  @apply relative w-full flex flex-col items-center;
   z-index: 10;
-  min-height: 100vh;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  padding: 5rem 10px 2rem 10px;
 }
 
 /* Desktop: Full height to enable footer at bottom */
 @media (min-width: 1024px) {
   .contact-wrapper {
-    @apply h-full justify-center;
+    @apply h-full;
+    padding: 6rem 1.75rem 2rem 1.75rem;
+    justify-content: center;
   }
 }
 
 .contact-container {
-  @apply max-w-[1000px] mx-auto w-full px-[10px] tb900:px-[1.75rem];
-  background: rgba(10, 10, 10, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid #404040;
-  border-radius: 4px;
-  padding: 2rem 1rem;
+  @apply max-w-[1000px] mx-auto w-full;
+  background: rgba(15, 15, 15, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid #1A1A1A;
+  border-radius: 0;
+  padding: 2rem 1.5rem;
   transition: all 0.3s ease;
+  margin-bottom: 2rem;
 }
 
 .contact-container:hover {
-  border-color: #666666;
+  border-color: #333333;
+  background: rgba(20, 20, 20, 0.7);
 }
 
 @media (min-width: 900px) {
   .contact-container {
-    padding: 2rem 1.75rem;
+    padding: 32px 28px;
   }
 }
 
 .contact-header-wrapper {
-  @apply flex flex-col tb900:flex-row tb900:gap-[3rem] items-center;
+  @apply flex flex-col tb900:flex-row tb900:gap-[3rem] items-start mb-[3rem];
 }
 
 .contact-header-left {
-  @apply flex flex-col items-center tb900:items-start gap-[1rem] mb-[3rem] tb900:w-[50%];
+  @apply flex flex-col items-start gap-[0.5rem] tb900:w-[50%];
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 900px) {
+  .contact-header-left {
+    margin-bottom: 0;
+  }
 }
 
 .contact-heading {
-  @apply flex items-center gap-[1rem];
+  @apply flex items-center gap-[0.5rem];
   color: #FB923C !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .contact-icon {
@@ -229,64 +301,66 @@
 }
 
 .contact-subheading {
-  @apply  flex gap-[1rem] items-center justify-center tb900:text-left text-center;
-  color: #F5F5F5 !important;
+  @apply text-left;
+  color: #999999 !important;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .contact-info-wrapper {
-  @apply flex flex-col gap-[1rem] mb-[3rem] tb900:items-start tb900:w-[50%] tb900:gap-[2rem];
+  @apply flex flex-col gap-[1rem] tb900:items-start tb900:w-[50%] tb900:mb-0 tb900:justify-center;
 }
 
 .contact-info-item {
-  @apply flex flex-col items-center justify-center gap-[1rem] tb900:flex-row tb900:justify-start;
+  @apply flex flex-row items-center gap-[0.75rem];
   color: #F5F5F5;
 }
 
 .contact-info-text-wrapper {
-  @apply flex flex-col items-center justify-center gap-[1rem] tb900:items-start;
+  @apply flex flex-col items-start;
 }
 
 .contact-info-label {
-  @apply font-Rubik font-bold text-[#F5F5F5] text-[1.1rem];
+  @apply font-Rubik font-bold text-[#F5F5F5] text-[1rem];
 }
 
 .contact-email {
-  @apply font-Mulish text-[#999999] text-[.9rem] hover:text-[#F5F5F5] cursor-pointer dk:text-[1rem];
+  @apply font-Mulish text-[#666666] text-[0.9rem] hover:text-[#FB923C] cursor-pointer transition-colors duration-300 dk:text-[1rem];
 }
 
-.contact-form-container {
-  /* This class is already defined in the original, so we'll keep it as-is */
-}
-
-.contact-input {
-  /* This class is already defined in the original, so we'll keep it as-is */
-}
-
-.contact-textarea {
-  /* This class is already defined in the original, so we'll keep it as-is */
-}
 
 .contact-error {
-  /* This class is already defined in the original, so we'll keep it as-is */
+  @apply text-[0.875rem] font-Mulish;
+  color: #FB923C;
+  opacity: 0.95;
+  display: block;
+  min-height: 1.25rem;
 }
 
 .contact-form-inputs-wrapper {
-  @apply flex flex-col gap-[2rem] tb900:gap-[3rem] tb900:w-[50%];
+  @apply flex flex-col gap-[1.5rem] tb900:gap-[2rem] tb900:w-[50%];
 }
 
 .contact-input-group {
-  @apply flex flex-col relative;
+  @apply flex flex-col relative gap-[0.5rem];
 }
 
 .contact-textarea-wrapper {
-  @apply flex flex-col relative min-h-[200px] tb900:w-[50%];
+  @apply flex flex-col relative gap-[0.5rem] tb900:w-[50%];
 }
 
 .contact-submit-wrapper {
-  @apply flex gap-[2rem] items-center;
+  @apply flex gap-[1.5rem] items-center mt-[2rem];
+}
+
+@media (min-width: 900px) {
+  .contact-submit-wrapper {
+    margin-top: 0;
+  }
 }
 
 .contact-submit-btn {
+  padding: 0.875rem 2.5rem !important;
   background-color: #F5F5F5 !important;
   color: #0A0A0A !important;
   border: 1px solid #F5F5F5 !important;
@@ -295,6 +369,8 @@
   letter-spacing: 0.05em !important;
   font-weight: 400 !important;
   transition: all 0.3s ease !important;
+  font-size: 0.9rem !important;
+  cursor: pointer;
 }
 
 .contact-submit-btn:hover {
@@ -304,5 +380,8 @@
 }
 
 .contact-success-message {
-  @apply text-green-400 font-bold;
+  @apply font-Mulish font-semibold text-[0.9rem];
+  color: #FB923C;
+  opacity: 0.95;
+  transition: opacity 0.3s ease;
 }

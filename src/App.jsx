@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import AboutInfo from "./components/AboutInfo";
 import ProjectSkeleton from "./components/ProjectSkeleton";
 import { useState, useEffect, lazy, Suspense } from "react";
 import Lenis from "lenis";
@@ -38,6 +39,7 @@ function App() {
 
       <main className="w-full">
         <Hero />
+        <AboutInfo />
         <Suspense fallback={
           <section className="projects-section">
             <div className="projects-container">

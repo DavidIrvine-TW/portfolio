@@ -166,7 +166,8 @@
 .single-project-image {
   object-fit: cover;
   cursor: grab;
-  filter: brightness(0.7);
+  filter: brightness(0.85) saturate(0.85);
+  opacity: 0.9;
 }
 
 .single-project-info-container {
@@ -253,6 +254,7 @@
 .single-project-title-tech-icon {
   width: 20px;
   height: 20px;
+  filter: brightness(0.85) saturate(0.9);
 }
 
 @media (min-width: 500px) {
@@ -337,6 +339,7 @@
 .single-project-skills-grid .single-project-skills-img {
   width: 48px;
   height: 48px;
+  filter: brightness(0.85) saturate(0.9);
 }
 
 .single-project-skills-grid .single-project-skills-img[src*="mcp-server"] {

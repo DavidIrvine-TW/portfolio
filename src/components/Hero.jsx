@@ -174,7 +174,7 @@ function Hero() {
         >
           {/* Animated Gradient Title */}
           <h1 className="hero-title select-none">
-            <span className="gradient-text">Web Developer <span className="highlight-text">Full Stack</span></span>
+            <span className="gradient-text">Web Dev/ <span className="highlight-text">Alchemist</span></span>
           </h1>
 
           <motion.p
@@ -307,23 +307,25 @@ function Hero() {
             }}
             transition={{ type: "spring", stiffness: 80, damping: 30 }}
           >
-            <motion.div
-              className="hero-img"
-              whileHover={{ scale: 1.015 }}
-              transition={{ duration: 0.4 }}
-            >
+            <div className="hero-img-wrapper">
               {!imageLoaded && (
                 <div className="skeleton skeleton-circle w-[280px] h-[280px] tb500:w-[350px] tb500:h-[350px]"></div>
               )}
               {imageLoaded && (
-                <div className="hero-img-bg">
-                  <img
-                    src={`${import.meta.env.BASE_URL}assets/HeroImgGray.jpg`}
-                    alt="profile background"
-                    className="hero-img-bg-image select-none"
-                  />
-                  <div className="hero-img-overlay" />
-                </div>
+                <motion.div
+                  className="hero-img"
+                  whileHover={{ scale: 1.015 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <div className="hero-img-bg">
+                    <img
+                      src={`${import.meta.env.BASE_URL}assets/HeroImgGray.jpg`}
+                      alt="profile main"
+                      className="hero-img-bg-image select-none"
+                    />
+                    <div className="hero-img-overlay" />
+                  </div>
+                </motion.div>
               )}
               <img
                 src={`${import.meta.env.BASE_URL}assets/HeroImgGray.jpg`}
@@ -332,7 +334,7 @@ function Hero() {
                 onLoad={() => setImageLoaded(true)}
                 style={{ opacity: 0, position: 'absolute' }}
               />
-            </motion.div>
+            </div>
           </motion.div>
         </motion.div>
       </div>

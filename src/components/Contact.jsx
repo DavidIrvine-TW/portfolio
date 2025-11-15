@@ -23,25 +23,38 @@ const Contact = () => {
     e.preventDefault();
     const { user_name, user_email, message } = e.target.elements;
 
+    let hasError = false;
+
     if (!user_name.value.trim()) {
       setUserNameErrorMsg("* Required");
+      hasError = true;
     } else {
       setUserNameErrorMsg("");
     }
 
     if (!user_email.value.trim()) {
       setUserEmailErrorMsg("* Required");
+      hasError = true;
     } else if (!/\S+@\S+\.\S+/.test(user_email.value)) {
       setUserEmailErrorMsg("* Invalid email address");
+      hasError = true;
     } else {
       setUserEmailErrorMsg("");
     }
 
     if (!message.value.trim()) {
       setUserMessageErrorMsg("* Required");
+      hasError = true;
     } else {
       setUserMessageErrorMsg("");
     }
+
+    // Only send email if there are no validation errors
+    if (hasError) {
+      return;
+    }
+
+    console.log("Sending email with:", { serviceId, templateId, publicKey });
 
     emailjs
       .sendForm(
@@ -54,8 +67,14 @@ const Contact = () => {
         () => {
           setMessage("Message sent!");
           form.current.reset();
+          // Clear success message after 4 seconds
+          setTimeout(() => {
+            setMessage("");
+          }, 4000);
         },
-        () => {
+        (error) => {
+          console.error("EmailJS Error Details:", error);
+          console.error("Error text:", error.text);
           setMessage("Failed to send email. Please try again.");
         }
       );
