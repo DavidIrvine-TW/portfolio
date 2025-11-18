@@ -1,5 +1,6 @@
 [{
     "id" : "project-koppla",
+    "type": "website",
     "name" : "Koppla",
     "nameIcon" :"/assets/briefcase.png",
     "nameIconAlt" : "briefcase icon",
@@ -8,7 +9,7 @@
     "features" : "",
     "livelink" : "https://kopplatechnology.com/",
     "github" : "https://github.com/placeholder/koppla",
-    "tags" : ["#html", "#css", "#js", "#php", "#figma", "#mcp", "#nextjs", "#responsive", "#corporate", "#figma-to-code"],
+    "tags" : ["Figma MCP Integration", "Design-to-Code Automation", "Next.js Static Export", "PHP Contact Backend", "Multi-page Corporate Site"],
     "images": ["/assets/Koppla-End-to-End-Digital-Product-Development-min.png"],
     "align" : "right"
 }]

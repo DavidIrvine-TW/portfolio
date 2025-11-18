@@ -1,5 +1,6 @@
 [{
     "id" : "project-kanban",
+    "type": "app",
     "name" : "Kanban App [React]",
     "nameIcon" :"/assets/task.png",
     "nameIconAlt" : "task icon",
@@ -8,7 +9,7 @@
     "features" : "",
     "livelink" : "https://davidirvine-tw.github.io/tsk_mngr_app/",
     "github" : "https://github.com/DavidIrvine-TW/tsk_mngr_app",
-    "tags" : ["#app", "#redux", "#firebaseauth", "#fullstack", "#reactdnd", "#npm", "#react", "#firebase", "#tailwind", "#figma", "#redux"],
+    "tags" : ["Firebase Authentication", "Redux State Management", "Drag & Drop Interface", "Real-time Updates", "Cloud Storage"],
     "images": ["/assets/kanban.png"],
     "align" : "right"
 }]

@@ -7,6 +7,7 @@ import "./DesktopProjectCard.css";
 const DesktopProjectCard = ({
   blurb,
   name,
+  type,
   tech,
   tags,
   livelink,
@@ -107,6 +108,9 @@ const DesktopProjectCard = ({
   // Remove brackets and content from title
   const cleanTitle = name.replace(/\s*\[.*?\]\s*/g, '');
 
+  // Determine if it's an app or website based on type prop
+  const isApp = type === "app";
+
   return (
     <motion.div
       className="desktop-project-card-wrapper"
@@ -121,9 +125,16 @@ const DesktopProjectCard = ({
         animate="animate"
         transition={{ duration: 0.2 }}
       >
-        <h4 className="desktop-project-card-title-above select-none">
-          {cleanTitle}
-        </h4>
+        <div className="desktop-project-card-title-with-badge">
+          <h4 className="desktop-project-card-title-above select-none">
+            {cleanTitle}
+          </h4>
+          {!showSkillIcons && (
+            <span className={`desktop-project-card-type-badge ${isApp ? 'badge-app' : 'badge-website'}`}>
+              {isApp ? 'APP' : 'WEBSITE'}
+            </span>
+          )}
+        </div>
         {!showSkillIcons && tech && tech.length > 0 && (
           <div className="desktop-project-card-title-tech">
             {tech.filter(t => t !== 'mcp').map((techItem, idx) => (
@@ -215,6 +226,15 @@ const DesktopProjectCard = ({
               animate="animate"
               transition={{ duration: 0.2 }}
             >
+              <motion.h5
+                className="desktop-project-card-section-title select-none"
+                variants={contentVariants}
+                initial="initial"
+                animate="animate"
+                transition={{ duration: 0.2 }}
+              >
+                Description
+              </motion.h5>
               <motion.p
                 className="desktop-project-card-blurb select-none"
                 variants={contentVariants}
@@ -262,68 +282,90 @@ const DesktopProjectCard = ({
             )}
 
             {/* Tags */}
-            <motion.div
-              className="desktop-project-card-tags-container"
-              variants={containerVariants}
-              animate="animate"
-              transition={{ duration: 0.2 }}
-            >
+            {!showSkillIcons && tags && tags.length > 0 && (
               <motion.div
-                className="desktop-project-card-tags"
-                variants={contentVariants}
-                initial="initial"
+                className="desktop-project-card-tags-container"
+                variants={containerVariants}
                 animate="animate"
                 transition={{ duration: 0.2 }}
               >
-                {tags.map((tag, idx) => (
-                  <span key={idx} className="desktop-project-card-tag select-none">
-                    {tag}
-                  </span>
-                ))}
+                <motion.h5
+                  className="desktop-project-card-section-title select-none"
+                  variants={contentVariants}
+                  initial="initial"
+                  animate="animate"
+                  transition={{ duration: 0.2 }}
+                >
+                  Key Features
+                </motion.h5>
+                <motion.div
+                  className="desktop-project-card-tags"
+                  variants={contentVariants}
+                  initial="initial"
+                  animate="animate"
+                  transition={{ duration: 0.2 }}
+                >
+                  {tags.map((tag, idx) => (
+                    <span key={idx} className="desktop-project-card-tag select-none">
+                      {tag.replace(/^#/, '')}
+                    </span>
+                  ))}
+                </motion.div>
               </motion.div>
-            </motion.div>
+            )}
 
             {/* Action buttons */}
-            <motion.div
-              className="desktop-project-card-buttons-container"
-              variants={containerVariants}
-              animate="animate"
-              transition={{ duration: 0.2 }}
-            >
+            {!showSkillIcons && (github || livelink) && (
               <motion.div
-                className="desktop-project-card-buttons"
-                variants={contentVariants}
-                initial="initial"
+                className="desktop-project-card-buttons-container"
+                variants={containerVariants}
                 animate="animate"
                 transition={{ duration: 0.2 }}
               >
-                {github && github !== "https://github.com" && github !== "#" && (
-                  <a
-                    href={github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="desktop-project-card-btn"
-                  >
-                    Code <Iconghub />
-                  </a>
-                )}
+                <motion.h5
+                  className="desktop-project-card-section-title select-none"
+                  variants={contentVariants}
+                  initial="initial"
+                  animate="animate"
+                  transition={{ duration: 0.2 }}
+                >
+                  Links
+                </motion.h5>
+                <motion.div
+                  className="desktop-project-card-buttons"
+                  variants={contentVariants}
+                  initial="initial"
+                  animate="animate"
+                  transition={{ duration: 0.2 }}
+                >
+                  {github && github !== "https://github.com" && github !== "#" && (
+                    <a
+                      href={github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="desktop-project-card-btn"
+                    >
+                      Code <Iconghub />
+                    </a>
+                  )}
 
-                {livelink && livelink !== "https://example.com" && livelink !== "#" && (
-                  <a
-                    href={livelink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="desktop-project-card-btn desktop-project-card-btn-primary"
-                  >
-                    {name.includes("Vapester") ? "Dev Store" : name.includes("App") ? "Live App" : "Live Site"}
-                    <img
-                      src={`${import.meta.env.BASE_URL}assets/icon-link.svg`}
-                      alt="icon link"
-                    />
-                  </a>
-                )}
+                  {livelink && livelink !== "https://example.com" && livelink !== "#" && (
+                    <a
+                      href={livelink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="desktop-project-card-btn desktop-project-card-btn-primary"
+                    >
+                      {name.includes("Vapester") ? "Dev Store" : name.includes("App") ? "Live App" : "Live Site"}
+                      <img
+                        src={`${import.meta.env.BASE_URL}assets/icon-link.svg`}
+                        alt="icon link"
+                      />
+                    </a>
+                  )}
+                </motion.div>
               </motion.div>
-            </motion.div>
+            )}
 
             {/* Password info - Vapester only */}
             {name.includes("Vapester") && (

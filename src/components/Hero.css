@@ -1,6 +1,6 @@
 /* ====== Hero Section ====== */
 .hero-section {
-  padding: 5rem 10px 2rem 10px;
+  padding: clamp(3rem, 8vw, 5rem) clamp(10px, 2vw, 1.75rem) clamp(1.5rem, 4vw, 2rem) clamp(10px, 2vw, 1.75rem);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -258,8 +258,8 @@
 
 @media (min-width: 900px) {
   .hero-section {
-    padding: 5rem 1.75rem 2rem 1.75rem;
-    height: 100vh;
+    min-height: max(600px, 100vh);
+    height: auto;
   }
 }
 
@@ -273,9 +273,9 @@
   flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: clamp(2rem, 5vw, 3rem);
   width: 100%;
-  max-width: 1000px;
+  max-width: min(1000px, 90vw);
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -286,7 +286,7 @@
 @media (min-width: 900px) {
   .hero-content-wrapper {
     flex-direction: row;
-    gap: 8rem;
+    gap: clamp(4rem, 10vw, 8rem);
   }
 }
 
@@ -315,21 +315,14 @@
 /* ====== Animated Gradient Title ====== */
 .hero-title {
   text-align: center;
-  font-size: 3rem;
-  line-height: 3.5rem;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  line-height: 1.15;
   font-family: 'Rubik', sans-serif;
   font-weight: 700;
   display: flex;
   flex-direction: column;
-  margin: 1.25rem 0;
+  margin: clamp(1rem, 2vw, 1.25rem) 0;
   position: relative;
-}
-
-@media (min-width: 500px) {
-  .hero-title {
-    font-size: 4.5rem;
-    line-height: 5rem;
-  }
 }
 
 @media (min-width: 900px) {
@@ -367,7 +360,7 @@
 .hero-intro-text {
   text-align: center;
   font-family: 'Mulish', sans-serif;
-  font-size: 1.25rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
   line-height: 1.6;
   color: #666666;
   font-weight: 700;
@@ -376,7 +369,6 @@
 @media (min-width: 900px) {
   .hero-intro-text {
     text-align: left;
-    font-size: 1.25rem;
   }
 }
 
@@ -384,9 +376,9 @@
   text-align: center;
   font-weight: 400;
   font-family: 'Mulish', sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
   line-height: 1.6;
-  margin-top: 1rem;
+  margin-top: clamp(0.75rem, 2vw, 1rem);
   color: #999999;
 }
 
@@ -399,19 +391,19 @@
 /* ====== Hero Buttons ====== */
 .hero-buttons {
   display: flex;
-  gap: 1rem;
-  margin: 2rem auto;
+  gap: clamp(0.75rem, 2vw, 1rem);
+  margin: clamp(1.5rem, 3vw, 2rem) auto;
   flex-wrap: wrap;
 }
 
 @media (min-width: 900px) {
   .hero-buttons {
-    margin: 2rem 0;
+    margin: clamp(1.5rem, 3vw, 2rem) 0;
   }
 }
 
 .hero-connect-btn {
-  padding: 0.875rem 2.5rem;
+  padding: clamp(0.75rem, 1.5vw, 0.875rem) clamp(2rem, 4vw, 2.5rem);
   font-weight: 400;
   border-radius: 0;
   cursor: pointer;
@@ -419,7 +411,7 @@
   color: #0A0A0A;
   border: 1px solid #F5F5F5;
   transition: all 0.3s ease;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -433,7 +425,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.875rem 2.5rem;
+  padding: clamp(0.75rem, 1.5vw, 0.875rem) clamp(2rem, 4vw, 2.5rem);
   border: 1px solid #333333;
   font-weight: 400;
   border-radius: 0;
@@ -441,7 +433,7 @@
   background: transparent;
   color: #F5F5F5;
   transition: all 0.3s ease;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -455,7 +447,7 @@
 /* ====== Social Links ====== */
 .hero-social-links {
   display: flex;
-  gap: 1.5rem;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
   cursor: pointer;
   margin: 0 auto;
 }
@@ -469,8 +461,8 @@
 .hero-social-links a {
   transition: all 0.3s;
   color: #666666;
-  width: 40px;
-  height: 40px;
+  width: clamp(36px, 6vw, 40px);
+  height: clamp(36px, 6vw, 40px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -504,21 +496,13 @@
 
 .hero-img-wrapper {
   position: relative;
-  width: 280px;
-  height: 280px;
+  width: clamp(250px, 50vw, 400px);
+  height: clamp(250px, 50vw, 400px);
 }
-
-@media (min-width: 500px) {
-  .hero-img-wrapper {
-    width: 400px;
-    height: 400px;
-  }
-}
-
 
 .hero-img {
-  width: 280px;
-  height: 280px;
+  width: clamp(250px, 50vw, 400px);
+  height: clamp(250px, 50vw, 400px);
   overflow: hidden;
   position: relative;
   border-radius: 0;
@@ -526,13 +510,6 @@
   border: 1px solid #1A1A1A;
   z-index: 1;
   margin: 0 auto;
-}
-
-@media (min-width: 500px) {
-  .hero-img {
-    width: 400px;
-    height: 400px;
-  }
 }
 
 .hero-img-bg {
@@ -573,7 +550,7 @@
 .hero-skills-mobile {
   display: block;
   position: relative;
-  margin-top: 2rem;
+  margin-top: clamp(1.5rem, 3vw, 2rem);
   width: 100%;
 }
 
@@ -586,10 +563,10 @@
 .hero-skills-mobile .skills-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 0.75rem;
+  gap: clamp(0.5rem, 1.5vw, 0.75rem);
   justify-items: center;
   width: 100%;
-  max-width: 300px;
+  max-width: min(300px, 90vw);
   margin: 0 auto;
 }
 
@@ -663,7 +640,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  padding: clamp(0.4rem, 1vw, 0.625rem);
   border-radius: 4px;
   cursor: pointer;
   background: #0F0F0F;
@@ -685,24 +662,13 @@
 }
 
 .skill-icon {
-  width: 36px;
-  height: 36px;
+  width: clamp(32px, 5vw, 40px);
+  height: clamp(32px, 5vw, 40px);
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)) brightness(0.85) saturate(0.9);
 }
 
 .skill-icon[src*="mcp-server"] {
   filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-}
-
-@media (min-width: 900px) {
-  .skill-badge {
-    padding: 0.625rem;
-  }
-
-  .skill-icon {
-    width: 40px;
-    height: 40px;
-  }
 }
 
 .skill-tooltip {
@@ -746,11 +712,6 @@
 /* ====== Responsive Adjustments ====== */
 @media (max-width: 900px) {
   .hero-content-wrapper {
-    gap: 2rem;
-  }
-
-  .hero-img {
-    width: 250px;
-    height: 250px;
+    gap: clamp(1.5rem, 4vw, 2rem);
   }
 }

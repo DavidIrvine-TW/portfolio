@@ -3,7 +3,7 @@
   z-index: 1;
   background-color: #0A0A0A;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: max(600px, 100vh);
   display: flex;
   flex-direction: column;
 }
@@ -225,7 +225,7 @@
 @media (min-width: 1024px) {
   .contact-section {
     @apply fixed top-0 left-0 right-0 w-full;
-    height: 100vh;
+    height: max(600px, 100vh);
     z-index: 1;
     background-color: #0A0A0A;
   }

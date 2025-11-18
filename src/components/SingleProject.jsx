@@ -11,6 +11,7 @@ import "./SingleProject.css";
 const SingleProject = ({
   blurb,
   name,
+  type,
   tech,
   tags,
   livelink,

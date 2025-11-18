@@ -6,7 +6,7 @@ import "./Contact.css";
 
 const Contact = () => {
   const form = useRef();
-  
+
   // emailjs errormsg
   const [message, setMessage] = useState("");
   const [userNameErrorMsg, setUserNameErrorMsg] = useState("");
@@ -203,7 +203,7 @@ const Contact = () => {
        <Footer />
       </div>
 
-       
+
     </section>
   );
 };

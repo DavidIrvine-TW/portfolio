@@ -103,7 +103,7 @@ const Projects = () => {
   // Memoize styles for performance
   const sectionStyle = useMemo(
     () => ({
-      height: '400vh',
+      height: 'max(300vh, 2400px)',
       zIndex: 10,
       backgroundColor: '#0A0A0A',
       transition: 'background-color 0.3s ease',

@@ -1,5 +1,6 @@
 [{
     "id" : "project-photosnap",
+    "type": "website",
     "name" : "Photosnap [React]",
     "nameIcon" :"/assets/photographer.png",
     "nameIconAlt" : "photographer icon",
@@ -8,7 +9,7 @@
     "features" : "",
     "livelink" : "https://davidirvine-tw.github.io/photosnap-website/",
     "github" : "https://github.com/DavidIrvine-TW/photosnap-website",
-    "tags" : ["#blog", "#react", "#tailwind", "#figma", "#css-grid", "#website", "#vite"],
+    "tags" : ["Pixel-Perfect Design", "CSS Grid Galleries", "Responsive Layouts", "Component Architecture", "Figma to Code"],
     "images": ["/assets/photosnapOne.jpg","/assets/photosnapTwo.jpg","/assets/photosnapThree.jpg"],
     "align" : "right"
 
