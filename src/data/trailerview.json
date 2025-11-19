@@ -7,9 +7,9 @@
     "tech" : ["nextjs", "mongodb", "tailwind", "nodejs", "vercel","materialui"],
     "blurb" : "A full-stack entertainment app built with Next.js and powered by the TMDB API.",
     "keyFeatures": [
-      "Next.js, MongoDB, Tailwind CSS, Node.js, Material UI",
-      "NextAuth authentication",
-      "MongoDB storage for user bookmarks",
+      "Next.js | MongoDB | Tailwind CSS | Node.js | Material UI | NextAuth",
+      "NextAuth for user authentication",
+      "MongoDB storage for user bookmarks/app data",
       "Search functionality for movies and TV shows",
       "Swiper.js + React Tilt"
     ],

@@ -4,12 +4,13 @@
     "type": "Website",
     "nameIcon" :"/assets/briefcase.png",
     "nameIconAlt" : "briefcase icon",
-    "blurb" : "A cloud infrastructure company website built with Next.js 15 and React 19.",
+    "blurb" : "1.5 day build using Claude Code and Figma's MCP server. Framer Motion and GSAP for animations.",
     "keyFeatures": [
-      "Next.js 15, React 19, Tailwind CSS, Figma, MCP",
-      "Custom API with Cloudflare Turnstile protection",
-      "Firebase Hosting with CSP headers",
-      "MCP server for design-to-code automation"
+      "Next.js 15, Tailwind CSS, Figma, MCP, Cloudflare",
+      "Custom email API with Cloudflare Turnstile protection",
+      "Firebase Hosting",
+      "MCP server for design-to-code automation",
+      "Fixed footer/contact section"
     ],
     "tech" : ["nextjs", "react", "tailwind", "figma", "mcp"],
     "features" : "",

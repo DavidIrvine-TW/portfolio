@@ -4,12 +4,13 @@
     "type": "Website",
     "nameIcon" :"/assets/photographer.png",
     "nameIconAlt" : "photographer icon",
-    "blurb" : "Photo-sharing blog style website from a Figma design. Built using React and Tailwind CSS.",
+    "blurb" : "Photo-sharing blog style static website from a Figma design. Built using React and Tailwind CSS.",
     "keyFeatures": [
       "React, Tailwind CSS, Figma, Vite",
       "Responsive layouts for all screen sizes",
       "CSS Grid gallery arrangements",
-      "Smooth page transitions"
+      "Smooth page transitions",
+      "Pixel perfect from Figma design"
     ],
     "tech" : ["react", "tailwind", "figma", "vite"],
     "features" : "",

@@ -174,7 +174,7 @@ function Hero() {
         >
           {/* Animated Gradient Title */}
           <h1 className="hero-title select-none">
-            <span className="gradient-text">Web Developer <span className="highlight-text">Full Stack</span></span>
+            <span className="gradient-text">Web Dev/ <span className="highlight-text">Alchemist</span></span>
           </h1>
 
           <motion.p

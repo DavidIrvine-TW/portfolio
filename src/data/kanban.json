@@ -4,12 +4,13 @@
     "type": "App",
     "nameIcon" :"/assets/task.png",
     "nameIconAlt" : "task icon",
-    "blurb" : "A full-stack task management application built with React and Redux.",
+    "blurb" : "Full-stack task management app built with React and Redux for state management. Styled with Tailwind CSS.",
     "keyFeatures": [
       "React, FirebaseAuth, Tailwind CSS, Redux, Vite",
-      "Firebase authentication and storage",
+      "Firebase authentication and data storage/retrieval",
       "Drag and drop with React DnD",
-      "Real-time state management"
+      "React Indiana for drag and scroll canvas",
+      "Light/dark mode toggle"
     ],
     "tech" : ["react", "firebase", "tailwind", "redux", "figma", "vite"],
     "features" : "",

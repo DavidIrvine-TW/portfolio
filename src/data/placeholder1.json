@@ -5,12 +5,13 @@
     "type": "E-Commerce",
     "nameIcon": "./assets/briefcase.png",
     "nameIconAlt": "briefcase icon",
-    "blurb": "A luxury fashion storefront built on a customized Shopify Impulse theme.",
+    "blurb": "A luxury fashion storefront built from a heavily customized Shopify Impulse theme.",
     "keyFeatures": [
       "HTML, CSS, JavaScript, Shopify Liquid, Figma",
       "Bespoke Liquid templates from Figma designs",
       "Advanced filtering and custom AJAX cart",
-      "Swiper.js galleries and custom CSS animations"
+      "Swiper.js galleries and custom CSS animations",
+      "Custom sections and pages"
     ],
     "tech": ["html", "css", "js", "figma"],
     "features": "",
