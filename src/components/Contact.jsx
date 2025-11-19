@@ -23,24 +23,35 @@ const Contact = () => {
     e.preventDefault();
     const { user_name, user_email, message } = e.target.elements;
 
+    let hasErrors = false;
+
     if (!user_name.value.trim()) {
       setUserNameErrorMsg("* Required");
+      hasErrors = true;
     } else {
       setUserNameErrorMsg("");
     }
 
     if (!user_email.value.trim()) {
       setUserEmailErrorMsg("* Required");
+      hasErrors = true;
     } else if (!/\S+@\S+\.\S+/.test(user_email.value)) {
       setUserEmailErrorMsg("* Invalid email address");
+      hasErrors = true;
     } else {
       setUserEmailErrorMsg("");
     }
 
     if (!message.value.trim()) {
       setUserMessageErrorMsg("* Required");
+      hasErrors = true;
     } else {
       setUserMessageErrorMsg("");
+    }
+
+    // Only send email if there are no validation errors
+    if (hasErrors) {
+      return;
     }
 
     emailjs
@@ -54,9 +65,17 @@ const Contact = () => {
         () => {
           setMessage("Message sent!");
           form.current.reset();
+          // Clear message after 5 seconds
+          setTimeout(() => {
+            setMessage("");
+          }, 5000);
         },
         () => {
           setMessage("Failed to send email. Please try again.");
+          // Clear error message after 5 seconds
+          setTimeout(() => {
+            setMessage("");
+          }, 5000);
         }
       );
   };

@@ -144,7 +144,7 @@ function Hero() {
   };
 
   return (
-    <section id="home" className={`hero-section ${isScrolled ? 'hero-section-scrolled' : ''}`}>
+    <section id="home" className="hero-section">
       {/* Background image wallpaper */}
       {/* <div className="hero-bg-image-container">
         <img

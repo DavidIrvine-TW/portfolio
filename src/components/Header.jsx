@@ -12,6 +12,7 @@ function Header({menu, setMenu}) {
   const [lastScrollY, setLastScrollY] = React.useState(0);
   const [scrollingDown, setScrollingDown] = React.useState(true);
   const [scrollY, setScrollY] = React.useState(0);
+  const [hideHeader, setHideHeader] = React.useState(false);
 
   const isOpen = menu ? "cross" : "";
   const menuClass = menu ? "left-0 opacity-100" : "-left-full opacity-0"
@@ -43,6 +44,14 @@ function Header({menu, setMenu}) {
               setIsWide(true);
             } else if (!isScrollingDown) {
               setIsWide(false);
+            }
+
+            // Hide header when scrolling down past hero section (100vh)
+            const heroHeight = window.innerHeight;
+            if (isScrollingDown && currentScrollY > heroHeight) {
+              setHideHeader(true);
+            } else if (!isScrollingDown) {
+              setHideHeader(false);
             }
           }
 
@@ -153,7 +162,7 @@ function Header({menu, setMenu}) {
   ];
 
   return (
-    <header className="header">
+    <header className={`header ${hideHeader ? 'header-hidden' : ''}`}>
       <div className={`header-wrapper ${isWide ? 'header-wide' : ''} ${isScrolled ? 'header-scrolled' : ''}`}>
         {/* Logo */}
         <motion.div

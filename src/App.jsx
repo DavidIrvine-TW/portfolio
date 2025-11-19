@@ -37,38 +37,42 @@ function App() {
       <Header menu={menu} setMenu={setMenu} />
 
       <main className="w-full">
-        <Hero />
-        <Suspense fallback={
-          <section className="projects-section">
-            <div className="projects-container">
+        {/* Wrapper for Hero and Projects with opaque background */}
+        <div className="hero-projects-wrapper">
+          <Hero />
+          <Suspense fallback={
+            <section className="projects-section">
+              <div className="projects-container">
 
-              {/* <div className="projects-header">
-                <h3 className="projects-heading section-heading">
-                  PORTFOLIO
-                  <img
-                    src={`${import.meta.env.BASE_URL}assets/briefcase.png`}
-                    alt="briefcase icon"
-                    className="projects-icon"
-                  />
-                </h3>
-                <h4 className="projects-subheading section-subheading">
-                  Featured projects
-                </h4>
-              </div> */}
+                {/* <div className="projects-header">
+                  <h3 className="projects-heading section-heading">
+                    PORTFOLIO
+                    <img
+                      src={`${import.meta.env.BASE_URL}assets/briefcase.png`}
+                      alt="briefcase icon"
+                      className="projects-icon"
+                    />
+                  </h3>
+                  <h4 className="projects-subheading section-subheading">
+                    Featured projects
+                  </h4>
+                </div> */}
 
-              <ProjectSkeleton align="left" />
-              <ProjectSkeleton align="left" />
-              <ProjectSkeleton align="right" />
-              <ProjectSkeleton align="right" />
-            </div>
-            <div className="projects-divider"></div>
-          </section>
-        }>
-          <Projects />
-          {/* Spacer for desktop fixed Contact section */}
-          <div className="w-full hidden lg:block lg:h-screen" aria-hidden="true"></div>
-          <Contact />
-        </Suspense>
+                <ProjectSkeleton align="left" />
+                <ProjectSkeleton align="left" />
+                <ProjectSkeleton align="right" />
+                <ProjectSkeleton align="right" />
+              </div>
+              <div className="projects-divider"></div>
+            </section>
+          }>
+            <Projects />
+          </Suspense>
+        </div>
+
+        {/* Spacer for desktop fixed Contact section */}
+        <div className="w-full hidden lg:block lg:h-screen" aria-hidden="true"></div>
+        <Contact />
       </main>
     </div>
   );

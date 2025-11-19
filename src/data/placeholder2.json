@@ -2,9 +2,16 @@
   {
     "id": "placeholder-2",
     "name": "My Portfolio [React]",
+    "type": "Website",
     "nameIcon": "./assets/briefcase.png",
     "nameIconAlt": "briefcase icon",
-    "blurb": "A modern single-page portfolio built with React and Vite showcasing advanced animation techniques. Features Framer Motion horizontal scrolling galleries, Lenis smooth scroll, custom hover interactions, and EmailJS integration. Demonstrates component-based architecture and sophisticated CSS animations optimized for mobile and desktop viewports.",
+    "blurb": "A modern single-page portfolio built with React and Vite showcasing advanced animations.",
+    "keyFeatures": [
+      "React, Tailwind CSS, Vite, Framer Motion",
+      "Horizontal scrolling galleries",
+      "Lenis smooth scroll",
+      "Custom hover interactions and EmailJS integration"
+    ],
     "tech": ["react", "tailwind", "vite"],
     "features": "",
     "livelink": "#",

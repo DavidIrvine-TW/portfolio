@@ -1,7 +1,6 @@
 .projects-section {
-  @apply  min-h-screen px-[10px] tb900:px-[1.75rem] pb-[4rem] relative bg-[#0A0A0A] to-slate-100;
+  @apply  min-h-screen px-[10px] tb900:px-[1.75rem] pb-[4rem] relative;
   z-index: 10;
-  transition: background-color 0.3s ease;
   overflow: visible;
 }
 
@@ -52,10 +51,6 @@
     opacity: 0.04;
     filter: blur(0.5px);
   }
-}
-
-.projects-section-scrolled {
-  background-color: #0A0A0A;
 }
 
 /* Desktop: Add bottom border */

@@ -1,9 +1,16 @@
 [{
     "id" : "project-koppla",
     "name" : "Koppla",
+    "type": "Website",
     "nameIcon" :"/assets/briefcase.png",
     "nameIconAlt" : "briefcase icon",
-    "blurb" : "A responsive corporate website for Koppla Technology, a Spanish dev house. Built using Figma's MCP server to automatically extract design specifications and assets, enabling pixel-perfect implementation across five pages. Developed in Next.js 15, then exported to static HTML/CSS/JS for traditional shared hosting. Features a PHP backend leveraging the hosting provider's mail server for contact form functionality, combining modern workflows with pragmatic deployment strategies.",
+    "blurb" : "A responsive corporate website for a Spanish development house.",
+    "keyFeatures": [
+      "HTML, CSS, JavaScript, PHP, Figma, MCP",
+      "Figma MCP server for design-to-code automation",
+      "Next.js 15 exported to static HTML/CSS/JS",
+      "PHP backend with mail server integration"
+    ],
     "tech" : ["html", "css", "js", "php", "figma", "mcp"],
     "features" : "",
     "livelink" : "https://kopplatechnology.com/",

@@ -105,21 +105,17 @@ const Projects = () => {
     () => ({
       height: '400vh',
       zIndex: 10,
-      backgroundColor: '#0A0A0A',
-      transition: 'background-color 0.3s ease',
     }),
-    [isScrolled]
+    []
   );
 
   const stickyContainerStyle = useMemo(
     () => ({
       zIndex: 10,
-      backgroundColor: '#0A0A0A',
       boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)',
-      transition: 'background-color 0.3s ease',
       borderBottom: '1px solid #404040',
     }),
-    [isScrolled]
+    []
   );
 
   // DESKTOP: Horizontal scroll layout
@@ -177,7 +173,7 @@ const Projects = () => {
 
               {/* Header inline with cards */}
               <div className="flex flex-col gap-[1rem] flex-shrink-0 w-[30vw] mr-[1rem]">
-                <h3 className="projects-heading section-heading select-none" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#F5F5F5' }}>Project <span style={{ color: '#FB923C' }}>Gallery</span></h3>
+                <h3 className="projects-heading section-heading select-none" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#F5F5F5' }}>Featured <span style={{ color: '#FB923C' }}>Projects</span></h3>
               </div>
 
               {/* Render projects */}
@@ -219,7 +215,7 @@ const Projects = () => {
 
   // MOBILE/TABLET: Original vertical layout
   return (
-    <section id="portfolio" className={`projects-section ${isScrolled ? 'projects-section-scrolled' : ''}`} ref={targetRef}>
+    <section id="portfolio" className="projects-section" ref={targetRef}>
       {/* Floating abstract shapes */}
       <div className="projects-floating-shapes">
         <div className="projects-shape projects-shape-1"></div>

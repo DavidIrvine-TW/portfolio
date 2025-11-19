@@ -1,10 +1,18 @@
 [{
     "id" : "project-vapester",
     "name": "Vapester [Shopify]",
+    "type": "E-Commerce",
     "nameIcon": "/assets/online-shopping.png",
     "nameIconAlt": "online shopping icon",
     "tech": ["html", "css", "js"],
-    "blurb": "A fully functional e-commerce storefront built on Shopify 2.0 featuring dynamic product collections, advanced search capabilities, multi-criteria filtering, and seamless checkout integration. Implements custom Liquid templates, AJAX cart functionality, interactive product galleries with Swiper.js, and geolocation features using Leaflet.js for store locator functionality.",
+    "blurb": "Custom (from scratch) vape store Shopify 2.0 theme.",
+    "keyFeatures": [
+      "HTML, CSS, JavaScript, Shopify Liquid",
+      "Multipage Shopify 2.0 theme",
+      "Product collections with advanced filtering",
+      "AJAX cart functionality",
+      "Leaflet.js for store geolocation"
+    ],
     "tags": ["#e-commerce", "#html", "#css", "#javascript", "#shopify", "#liquid", "#template", "#ajax", "#leafletjs", "#swiperjs", "#tilt"],
     "github": "https://github.com/DavidIrvine-TW/vapester",
     "livelink": "https://marvdev-newstore.myshopify.com",

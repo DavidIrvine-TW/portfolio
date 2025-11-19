@@ -20,9 +20,14 @@
 
 #root {
   position: relative;
-  background: #0A0A0A;
   min-height: 100vh;
+}
 
+/* Wrapper for Hero and Projects sections with opaque background */
+.hero-projects-wrapper {
+  position: relative;
+  background: #0A0A0A;
+  z-index: 10;
 }
 
 /* Custom scrollbar */

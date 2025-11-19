@@ -1,6 +1,6 @@
 .footer {
   @apply w-full tb900:absolute bottom-0 left-0 tb900:h-[78px];
-  background-color: #FB923C;
+  background-color: transparent;
   border-top: none;
 }
 
@@ -11,11 +11,11 @@
 
 .footer-logo a {
   @apply font-Rubik font-bold cursor-pointer transition-all duration-300;
-  color: #0A0A0A;
+  color: #FB923C;
 }
 
 .footer-logo a:hover {
-  color: #292524;
+  color: #FCA55C;
 }
 
 .footer-social-links {
@@ -32,7 +32,7 @@
 
 .footer-social-link {
   @apply transition-all duration-300;
-  color: #0A0A0A;
+  color: #FB923C;
 }
 
 .footer-social-link a {
@@ -40,11 +40,11 @@
 }
 
 .footer-social-link:hover {
-  color: #292524;
+  color: #FCA55C;
   transform: none;
 }
 
 .footer-copyright {
   @apply text-[.75rem];
-  color: #0A0A0A;
+  color: #FB923C;
 }

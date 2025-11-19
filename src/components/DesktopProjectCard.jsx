@@ -7,7 +7,9 @@ import "./DesktopProjectCard.css";
 const DesktopProjectCard = ({
   blurb,
   name,
+  type,
   tech,
+  keyFeatures,
   tags,
   livelink,
   github,
@@ -114,63 +116,6 @@ const DesktopProjectCard = ({
       animate="animate"
       transition={baseTransition}
     >
-      {/* Title above card with tech icons */}
-      <motion.div
-        className="desktop-project-card-title-container"
-        variants={titleVariants}
-        animate="animate"
-        transition={{ duration: 0.2 }}
-      >
-        <h4 className="desktop-project-card-title-above select-none">
-          {cleanTitle}
-        </h4>
-        {!showSkillIcons && tech && tech.length > 0 && (
-          <div className="desktop-project-card-title-tech">
-            {tech.filter(t => t !== 'mcp').map((techItem, idx) => (
-              <div key={idx} className="desktop-project-card-title-tech-icon-wrapper">
-                <img
-                  src={`https://skillicons.dev/icons?i=${techItem}`}
-                  alt={techItem}
-                  className="desktop-project-card-title-tech-icon select-none"
-                />
-                <span className="desktop-project-card-tech-tooltip">{techItem === 'js' ? 'JavaScript' : techItem === 'ts' ? 'TypeScript' : techItem}</span>
-              </div>
-            ))}
-            {tech.includes('mcp') && (
-              <div className="desktop-project-card-title-tech-icon-wrapper">
-                <img
-                  src={`${import.meta.env.BASE_URL}assets/mcp-server-stroke-rounded.svg`}
-                  alt="MCP"
-                  className="desktop-project-card-title-tech-icon select-none"
-                  style={{ filter: 'brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))' }}
-                />
-                <span className="desktop-project-card-tech-tooltip">MCP</span>
-              </div>
-            )}
-            {name.includes("Shopify") && (
-              <div className="desktop-project-card-title-tech-icon-wrapper">
-                <img
-                  src={`${import.meta.env.BASE_URL}assets/icon-shopify.svg`}
-                  alt="Shopify"
-                  className="desktop-project-card-title-tech-icon select-none"
-                />
-                <span className="desktop-project-card-tech-tooltip">Shopify</span>
-              </div>
-            )}
-            {(name.includes("Portfolio") || name.includes("Technyra") || name.includes("Koppla")) && (
-              <div className="desktop-project-card-title-tech-icon-wrapper">
-                <img
-                  src={`${import.meta.env.BASE_URL}assets/claude-ai-icon.svg`}
-                  alt="Claude AI"
-                  className="desktop-project-card-title-tech-icon select-none"
-                />
-                <span className="desktop-project-card-tech-tooltip">Claude AI</span>
-              </div>
-            )}
-          </div>
-        )}
-      </motion.div>
-
       <motion.div
         className={`desktop-project-card ${isEmpty && !alwaysShowContent ? 'desktop-project-card-empty' : ''}`}
         onMouseEnter={() => !isEmpty && setHoveredIndex(index)}
@@ -208,82 +153,114 @@ const DesktopProjectCard = ({
             animate="animate"
             transition={baseTransition}
           >
-            {/* Description */}
-            <motion.div
-              className="desktop-project-card-blurb-container"
-              variants={containerVariants}
-              animate="animate"
-              transition={{ duration: 0.2 }}
-            >
-              <motion.p
-                className="desktop-project-card-blurb select-none"
-                variants={contentVariants}
-                initial="initial"
-                animate="animate"
-                transition={{ duration: 0.2 }}
-              >
-                {blurb}
-              </motion.p>
-            </motion.div>
-
-            {/* Tech stack or Skill Icons Grid - only show for Tech used card */}
-            {showSkillIcons && (
+            {/* Upper Container - Title, Description, Skills, Tags */}
+            <div className="desktop-project-card-upper-container">
+              {/* Title */}
               <motion.div
-                className="desktop-project-card-tech-container"
+                className="desktop-project-card-title-inner-container"
                 variants={containerVariants}
                 animate="animate"
                 transition={{ duration: 0.2 }}
               >
                 <motion.div
-                  className="desktop-project-card-skills-grid"
+                  className="desktop-project-card-title-wrapper"
                   variants={contentVariants}
                   initial="initial"
                   animate="animate"
                   transition={{ duration: 0.2 }}
                 >
-                  {HeroSkillsData.skills.map((skill, idx) => (
-                    <div key={idx} className="desktop-project-card-tech-icon-wrapper">
-                      {!loadedSkills[skill] && skill !== 'claude' && skill !== 'mcp' && (
-                        <div className="skeleton skeleton-tech-icon"></div>
-                      )}
-                      <img
-                        src={skill === 'claude' ? `${import.meta.env.BASE_URL}assets/claude-ai-icon.svg` : skill === 'mcp' ? `${import.meta.env.BASE_URL}assets/mcp-server-stroke-rounded.svg` : `https://skillicons.dev/icons?i=${skill}`}
-                        alt={skill}
-                        loading="eager"
-                        onLoad={() => handleSkillLoad(skill)}
-                        style={{ display: loadedSkills[skill] || skill === 'claude' || skill === 'mcp' ? 'block' : 'none' }}
-                        className="desktop-project-card-tech-icon select-none"
-                      />
-                      <span className="desktop-project-card-tech-tooltip">{skill === 'js' ? 'JavaScript' : skill === 'ts' ? 'TypeScript' : skill === 'claude' ? 'Claude AI' : skill === 'mcp' ? 'MCP' : skill}</span>
-                    </div>
-                  ))}
+                  <h4 className="desktop-project-card-title-inner select-none">
+                    {cleanTitle}
+                  </h4>
+                  {!showSkillIcons && type && (
+                    <span className="desktop-project-card-type-flag select-none">
+                      {type}
+                    </span>
+                  )}
                 </motion.div>
               </motion.div>
-            )}
 
-            {/* Tags */}
-            <motion.div
-              className="desktop-project-card-tags-container"
-              variants={containerVariants}
-              animate="animate"
-              transition={{ duration: 0.2 }}
-            >
+              {/* Description */}
               <motion.div
-                className="desktop-project-card-tags"
-                variants={contentVariants}
-                initial="initial"
+                className="desktop-project-card-blurb-container"
+                variants={containerVariants}
                 animate="animate"
                 transition={{ duration: 0.2 }}
               >
-                {tags.map((tag, idx) => (
-                  <span key={idx} className="desktop-project-card-tag select-none">
-                    {tag}
-                  </span>
-                ))}
+                <motion.p
+                  className="desktop-project-card-blurb select-none"
+                  variants={contentVariants}
+                  initial="initial"
+                  animate="animate"
+                  transition={{ duration: 0.2 }}
+                >
+                  {blurb}
+                </motion.p>
               </motion.div>
-            </motion.div>
 
-            {/* Action buttons */}
+              {/* Key Features */}
+              {!showSkillIcons && keyFeatures && keyFeatures.length > 0 && (
+                <motion.div
+                  className="desktop-project-card-features-container"
+                  variants={containerVariants}
+                  animate="animate"
+                  transition={{ duration: 0.2 }}
+                >
+                  <motion.ul
+                    className="desktop-project-card-features select-none"
+                    variants={contentVariants}
+                    initial="initial"
+                    animate="animate"
+                    transition={{ duration: 0.2 }}
+                  >
+                    {keyFeatures.map((feature, idx) => (
+                      <li key={idx} className="desktop-project-card-feature">
+                        {feature}
+                      </li>
+                    ))}
+                  </motion.ul>
+                </motion.div>
+              )}
+
+              {/* Tech stack or Skill Icons Grid - only show for Tech used card */}
+              {showSkillIcons && (
+                <motion.div
+                  className="desktop-project-card-tech-container"
+                  variants={containerVariants}
+                  animate="animate"
+                  transition={{ duration: 0.2 }}
+                >
+                  <motion.div
+                    className="desktop-project-card-skills-grid"
+                    variants={contentVariants}
+                    initial="initial"
+                    animate="animate"
+                    transition={{ duration: 0.2 }}
+                  >
+                    {HeroSkillsData.skills.map((skill, idx) => (
+                      <div key={idx} className="desktop-project-card-tech-icon-wrapper">
+                        {!loadedSkills[skill] && skill !== 'claude' && skill !== 'mcp' && (
+                          <div className="skeleton skeleton-tech-icon"></div>
+                        )}
+                        <img
+                          src={skill === 'claude' ? `${import.meta.env.BASE_URL}assets/claude-ai-icon.svg` : skill === 'mcp' ? `${import.meta.env.BASE_URL}assets/mcp-server-stroke-rounded.svg` : `https://skillicons.dev/icons?i=${skill}`}
+                          alt={skill}
+                          loading="eager"
+                          onLoad={() => handleSkillLoad(skill)}
+                          style={{ display: loadedSkills[skill] || skill === 'claude' || skill === 'mcp' ? 'block' : 'none' }}
+                          className="desktop-project-card-tech-icon select-none"
+                        />
+                        <span className="desktop-project-card-tech-tooltip">{skill === 'js' ? 'JavaScript' : skill === 'ts' ? 'TypeScript' : skill === 'claude' ? 'Claude AI' : skill === 'mcp' ? 'MCP' : skill}</span>
+                      </div>
+                    ))}
+                  </motion.div>
+                </motion.div>
+              )}
+            </div>
+
+            {/* Lower Container - Buttons and Password */}
+            <div className="desktop-project-card-lower-container">
+              {/* Action buttons */}
             <motion.div
               className="desktop-project-card-buttons-container"
               variants={containerVariants}
@@ -325,31 +302,32 @@ const DesktopProjectCard = ({
               </motion.div>
             </motion.div>
 
-            {/* Password info - Vapester only */}
-            {name.includes("Vapester") && (
-              <motion.div
-                className="desktop-project-card-password-container"
-                variants={containerVariants}
-                animate="animate"
-                transition={{ duration: 0.2 }}
-              >
+              {/* Password info - Vapester only */}
+              {name.includes("Vapester") && (
                 <motion.div
-                  className="desktop-project-card-password"
-                  variants={contentVariants}
-                  initial="initial"
+                  className="desktop-project-card-password-container"
+                  variants={containerVariants}
                   animate="animate"
                   transition={{ duration: 0.2 }}
                 >
-                  <span className="desktop-project-card-password-label select-none">🔒 PASSWORD</span>
-                  <button
-                    className="desktop-project-card-password-btn"
-                    onClick={() => copyToClipboard("eamaos")}
+                  <motion.div
+                    className="desktop-project-card-password"
+                    variants={contentVariants}
+                    initial="initial"
+                    animate="animate"
+                    transition={{ duration: 0.2 }}
                   >
-                    COPY PASSWORD
-                  </button>
+                    <span className="desktop-project-card-password-label select-none">🔒 PASSWORD</span>
+                    <button
+                      className="desktop-project-card-password-btn"
+                      onClick={() => copyToClipboard("eamaos")}
+                    >
+                      COPY PASSWORD
+                    </button>
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-            )}
+              )}
+            </div>
           </motion.div>
         </div>
       </motion.div>
