@@ -55,13 +55,13 @@ const Projects = () => {
   // Consolidate all project data
   const allProjects = useMemo(
     () => [
+      ...technyraData,
+      ...kopplaData,
+      ...placeholder1Data,
       ...trailerviewData,
       ...vapesterData,
       ...kanbanData,
       ...photosnapData,
-      ...technyraData,
-      ...kopplaData,
-      ...placeholder1Data,
       ...placeholder2Data,
       ...placeholder3Data,
     ],
