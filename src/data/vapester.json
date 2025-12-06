@@ -2,10 +2,11 @@
     "id" : "project-vapester",
     "name": "Vapester [Shopify]",
     "type": "E-Commerce",
+    "year": "2023",
     "nameIcon": "/assets/online-shopping.png",
     "nameIconAlt": "online shopping icon",
     "tech": ["html", "css", "js"],
-    "blurb": "Custom (from scratch) vape store Shopify 2.0 theme.",
+    "blurb": "Custom (from scratch) vape store Shopify 2.0 theme. Multipage with product collections, advanced filtering, AJAX cart, and Leaflet.js store locator.",
     "keyFeatures": [
       "HTML, CSS, JavaScript, Liquid",
       "Multipage Shopify 2.0 theme",

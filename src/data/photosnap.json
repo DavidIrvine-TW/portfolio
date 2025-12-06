@@ -2,9 +2,10 @@
     "id" : "project-photosnap",
     "name" : "Photosnap [React]",
     "type": "Website",
+    "year": "2023",
     "nameIcon" :"/assets/photographer.png",
     "nameIconAlt" : "photographer icon",
-    "blurb" : "Photo-sharing blog style static website from a Figma design. Built using React and Tailwind CSS.",
+    "blurb" : "Photo-sharing blog style static website from a Figma design. Built with React and Tailwind CSS featuring CSS Grid galleries and smooth page transitions.",
     "keyFeatures": [
       "React, Tailwind CSS, Figma, Vite",
       "Responsive layouts for all screen sizes",

@@ -2,9 +2,10 @@
     "id" : "project-technyra",
     "name" : "Technyra [Nextjs]",
     "type": "Website",
+    "year": "2025",
     "nameIcon" :"/assets/briefcase.png",
     "nameIconAlt" : "briefcase icon",
-    "blurb" : "1.5 day build using Claude Code and Figma's MCP server. Framer Motion and GSAP for animations.",
+    "blurb" : "1.5 day build (including QA) using Claude Code and Figma's MCP server. Features custom email API with Cloudflare Turnstile protection, Framer Motion and GSAP animations.",
     "keyFeatures": [
       "Next.js 15, Tailwind CSS, Figma, MCP, Cloudflare",
       "Custom email API with Cloudflare Turnstile protection",
@@ -15,7 +16,7 @@
     "tech" : ["nextjs", "react", "tailwind", "figma", "mcp"],
     "features" : "",
     "livelink" : "https://technyra.tech",
-    "github" : "https://github.com/placeholder/technyra",
+    "github" : "private",
     "tags" : ["#nextjs", "#react", "#tailwind", "#figma", "#mcp", "#api", "#firebase", "#cloudflare", "#responsive"],
     "images": ["/assets/Technyra-Built-for-the-cloud-smart-era.png"],
     "align" : "left"

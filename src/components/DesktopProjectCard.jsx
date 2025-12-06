@@ -8,6 +8,7 @@ const DesktopProjectCard = ({
   blurb,
   name,
   type,
+  year,
   tech,
   keyFeatures,
   tags,
@@ -169,14 +170,21 @@ const DesktopProjectCard = ({
                   animate="animate"
                   transition={{ duration: 0.2 }}
                 >
-                  <h4 className="desktop-project-card-title-inner select-none">
-                    {cleanTitle}
-                  </h4>
-                  {!showSkillIcons && type && (
-                    <span className="desktop-project-card-type-flag select-none">
-                      {type}
+                  {!showSkillIcons && year && (
+                    <span className="desktop-project-card-year-flag select-none">
+                      {year}
                     </span>
                   )}
+                  <div className="desktop-project-card-title-row">
+                    <h4 className="desktop-project-card-title-inner select-none">
+                      {cleanTitle}
+                    </h4>
+                    {!showSkillIcons && type && (
+                      <span className="desktop-project-card-type-flag select-none">
+                        {type}
+                      </span>
+                    )}
+                  </div>
                 </motion.div>
               </motion.div>
 
@@ -198,8 +206,8 @@ const DesktopProjectCard = ({
                 </motion.p>
               </motion.div>
 
-              {/* Key Features */}
-              {!showSkillIcons && keyFeatures && keyFeatures.length > 0 && (
+              {/* Key Features - temporarily hidden */}
+              {/* {!showSkillIcons && keyFeatures && keyFeatures.length > 0 && (
                 <motion.div
                   className="desktop-project-card-features-container"
                   variants={containerVariants}
@@ -220,7 +228,7 @@ const DesktopProjectCard = ({
                     ))}
                   </motion.ul>
                 </motion.div>
-              )}
+              )} */}
 
               {/* Tech stack or Skill Icons Grid - only show for Tech used card */}
               {showSkillIcons && (
@@ -275,14 +283,20 @@ const DesktopProjectCard = ({
                 transition={{ duration: 0.2 }}
               >
                 {github && github !== "https://github.com" && github !== "#" && (
-                  <a
-                    href={github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="desktop-project-card-btn"
-                  >
-                    Code <Iconghub />
-                  </a>
+                  github === "private" ? (
+                    <span className="desktop-project-card-btn desktop-project-card-btn-disabled">
+                      Client Repo <Iconghub />
+                    </span>
+                  ) : (
+                    <a
+                      href={github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="desktop-project-card-btn"
+                    >
+                      Code <Iconghub />
+                    </a>
+                  )
                 )}
 
                 {livelink && livelink !== "https://example.com" && livelink !== "#" && (

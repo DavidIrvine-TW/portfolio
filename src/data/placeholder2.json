@@ -3,14 +3,14 @@
     "id": "placeholder-2",
     "name": "This Portfolio [React]",
     "type": "Website",
+    "year": "2025",
     "nameIcon": "./assets/briefcase.png",
     "nameIconAlt": "briefcase icon",
-    "blurb": "A single-page portfolio built with React and Vite. Framer Motion and GSAP for animations and interactions.",
+    "blurb": "A single-page portfolio built with React and Vite. Features horizontal gallery scrolling, Lenis smooth scroll, Framer Motion and GSAP animations, and EmailJS contact form.",
     "keyFeatures": [
       "React, Tailwind CSS, Vite, Framer Motion, GSAP, Lenis, EmailJS",
       "Horizontal scrolling of galleries",
       "Lenis smooth scroll",
-      "Custom hover interactions",
       "EmailJS integration",
       "Advanced HTML layout with Tailwind CSS"
     ],

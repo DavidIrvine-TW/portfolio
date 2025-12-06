@@ -113,7 +113,7 @@ const Projects = () => {
     () => ({
       zIndex: 10,
       boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)',
-      borderBottom: '1px solid #404040',
+      borderBottom: '20px solid #404040',
     }),
     []
   );

@@ -1,21 +1,22 @@
 .footer {
-  @apply w-full tb900:absolute bottom-0 left-0 tb900:h-[78px];
+  @apply w-full tb900:absolute bottom-0 left-0;
   background-color: transparent;
   border-top: none;
 }
 
 .footer-wrapper {
-  @apply px-[24px] max-w-[1400px] mx-auto flex flex-col tb900:flex-row justify-between items-center py-6 gap-[2rem] text-xl-dk tb900:h-[78px];
+  @apply px-[24px] max-w-[1400px] mx-auto flex flex-col tb900:flex-row justify-between items-center py-6 gap-[2rem] text-xl-dk;
   background-color: transparent;
 }
 
+
 .footer-logo a {
   @apply font-Rubik font-bold cursor-pointer transition-all duration-300;
-  color: #FB923C;
+  color: #0A0A0A;
 }
 
 .footer-logo a:hover {
-  color: #FCA55C;
+  color: #1A1A1A;
 }
 
 .footer-social-links {
@@ -24,9 +25,8 @@
 
 @media (min-width: 900px) {
   .footer-social-links {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: static;
+    transform: none;
   }
 }
 

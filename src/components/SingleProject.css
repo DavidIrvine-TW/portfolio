@@ -267,6 +267,22 @@
   height: 30px;
 }
 
+.single-project-year {
+  display: block;
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #888888;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+@media (min-width: 900px) {
+  .single-project-year {
+    text-align: left;
+  }
+}
+
 .single-project-details {
   font-family: 'Mulish', sans-serif;
   color: #999999;
@@ -534,4 +550,11 @@
 
 .single-project-link-btn-primary:hover img {
   filter: brightness(0) invert(1);
+}
+
+/* Disabled button variant */
+.single-project-link-btn-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }

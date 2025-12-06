@@ -2,9 +2,10 @@
     "id" : "project-kanban",
     "name" : "Kanban [React]",
     "type": "App",
+    "year": "2023",
     "nameIcon" :"/assets/task.png",
     "nameIconAlt" : "task icon",
-    "blurb" : "Full-stack task management app built with React and Redux for state management. Styled with Tailwind CSS.",
+    "blurb" : "Full-stack task management app built with React and Redux. Firebase authentication and storage, drag and drop with React DnD, and light/dark mode.",
     "keyFeatures": [
       "React, FirebaseAuth, Tailwind CSS, Redux, Vite",
       "Firebase authentication and data storage/retrieval",

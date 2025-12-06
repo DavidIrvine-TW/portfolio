@@ -2,9 +2,10 @@
     "id" : "project-koppla",
     "name" : "Koppla",
     "type": "Website",
+    "year": "2025",
     "nameIcon" :"/assets/briefcase.png",
     "nameIconAlt" : "briefcase icon",
-    "blurb" : "A responsive corporate website for a Spanish development house. 2 day build time using Claude Code and Figma's MCP server.",
+    "blurb" : "A responsive corporate website for a Spanish development house. Built in 2 days (including QA) using Claude Code and Figma's MCP server. Exported to static HTML/CSS/JS with PHP mail integration.",
     "keyFeatures": [
       "HTML, CSS, JavaScript, PHP, Figma, MCP, Next.js",
       "Figma MCP server for design-to-code automation",
@@ -14,7 +15,7 @@
     "tech" : ["html", "css", "js", "php", "figma", "mcp"],
     "features" : "",
     "livelink" : "https://kopplatechnology.com/",
-    "github" : "https://github.com/placeholder/koppla",
+    "github" : "private",
     "tags" : ["#html", "#css", "#js", "#php", "#figma", "#mcp", "#nextjs", "#responsive", "#corporate", "#figma-to-code"],
     "images": ["/assets/Koppla-End-to-End-Digital-Product-Development-min.png"],
     "align" : "right"

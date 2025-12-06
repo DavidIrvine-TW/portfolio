@@ -35,7 +35,7 @@
   height: 100%;
   object-fit: cover;
   object-position: top;
-  filter: brightness(1);
+  filter: brightness(0.7);
   opacity: 1;
 }
 
@@ -100,6 +100,12 @@
 
 .desktop-project-card-title-wrapper {
   display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.desktop-project-card-title-row {
+  display: flex;
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
@@ -118,12 +124,21 @@
   font-family: 'Rubik', sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #0A0A0A;
-  background: #FB923C;
+  color: #F5F5F5;
+  background: transparent;
   padding: 0.25rem 0.75rem;
   border-radius: 4px;
+  border: 1px solid #F5F5F5;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+.desktop-project-card-year-flag {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #888888;
+  letter-spacing: 0.03em;
 }
 
 .desktop-project-card-title-tech {
@@ -403,4 +418,11 @@
 
 .desktop-project-card-btn-primary:hover img {
   filter: brightness(0) invert(1);
+}
+
+/* Disabled button variant */
+.desktop-project-card-btn-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }

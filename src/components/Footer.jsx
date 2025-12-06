@@ -7,12 +7,6 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-wrapper">
 
-        <div className="footer-logo">
-          <a href="https://www.linkedin.com/in/david-irvine-b367b6248/" target="_blank" rel="noopener noreferrer">
-            David Irvine Portfolio
-          </a>
-        </div>
-
           <ul className="footer-social-links">
             <li className="footer-social-link">
               <a href="https://github.com/DavidIrvine-TW" target="_blank" rel="noreferrer">

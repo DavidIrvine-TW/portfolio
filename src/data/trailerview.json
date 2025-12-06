@@ -2,10 +2,11 @@
     "id" : "project-trailerview",
     "name" : "TrailerView [Nextjs]",
     "type": "App",
+    "year": "2023",
     "nameIcon" :"/assets/video.png",
     "nameIconAlt" : "project name icon",
     "tech" : ["nextjs", "mongodb", "tailwind", "nodejs", "vercel","materialui"],
-    "blurb" : "A full-stack entertainment app built with Next.js and powered by the TMDB API.",
+    "blurb" : "A full-stack entertainment app built with Next.js and powered by the TMDB API. Features NextAuth authentication, MongoDB storage for bookmarks, and movie/TV search.",
     "keyFeatures": [
       "Next.js | MongoDB | Tailwind CSS | Node.js | Material UI | NextAuth",
       "NextAuth for user authentication",

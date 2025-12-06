@@ -11,6 +11,8 @@ import "./SingleProject.css";
 const SingleProject = ({
   blurb,
   name,
+  type,
+  year,
   tech,
   tags,
   livelink,
@@ -101,6 +103,9 @@ const SingleProject = ({
 
       <div className="single-project-info-container">
         <div className="single-project-title-container">
+          {year && (
+            <span className="single-project-year select-none">{year}</span>
+          )}
           <h4 className="single-project-title select-none">
             {cleanTitle}
           </h4>
@@ -188,9 +193,15 @@ const SingleProject = ({
         <div className="single-project-links-container project-links-container">
           <div className="single-project-links">
             {github && github !== "https://github.com" && github !== "#" && (
-              <a href={github} target="_blank" rel="noreferrer" className="single-project-link-btn">
-                Code <Iconghub />{" "}
-              </a>
+              github === "private" ? (
+                <span className="single-project-link-btn single-project-link-btn-disabled">
+                  Client Repo <Iconghub />
+                </span>
+              ) : (
+                <a href={github} target="_blank" rel="noreferrer" className="single-project-link-btn">
+                  Code <Iconghub />
+                </a>
+              )
             )}
 
             {livelink && livelink !== "https://example.com" && livelink !== "#" && (
