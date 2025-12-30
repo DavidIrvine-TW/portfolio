@@ -227,25 +227,21 @@ function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.7 }}
           >
-            <motion.a
+            <a
               href="https://github.com/DavidIrvine-TW"
               target="_blank"
               rel="noreferrer"
-              whileHover={{ scale: 1.2, rotate: 5 }}
-              whileTap={{ scale: 0.9 }}
             >
               <IconGitHub />
-            </motion.a>
+            </a>
 
-            <motion.a
+            <a
               href="https://www.linkedin.com/in/david-irvine-b367b6248/"
               target="_blank"
               rel="noreferrer"
-              whileHover={{ scale: 1.2, rotate: -5 }}
-              whileTap={{ scale: 0.9 }}
             >
               <IconLinkedIn />
-            </motion.a>
+            </a>
           </motion.div>
 
           {/* Skill Badges - Mobile only (inside text container) */}

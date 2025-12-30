@@ -249,6 +249,10 @@
 }
 
 /* Desktop horizontal scroll container effects */
+.desktop-projects-container {
+  border-top: 20px solid #404040;
+}
+
 .desktop-projects-container::before {
   content: '';
   position: absolute;

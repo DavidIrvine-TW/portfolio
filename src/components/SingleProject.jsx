@@ -94,6 +94,7 @@ const SingleProject = ({
                   className="single-project-image"
                   src={`${import.meta.env.BASE_URL}${image.replace(/^\//, '')}`}
                   alt="porfolio image"
+                  loading="eager"
                 />
               </SwiperSlide>
             ))}
@@ -116,6 +117,7 @@ const SingleProject = ({
                   <img
                     src={`https://skillicons.dev/icons?i=${techItem}`}
                     alt={techItem}
+                    loading="eager"
                     className="single-project-title-tech-icon select-none"
                   />
                   <span className="single-project-skills-tooltip">{techItem === 'js' ? 'JavaScript' : techItem === 'ts' ? 'TypeScript' : techItem}</span>
@@ -126,6 +128,7 @@ const SingleProject = ({
                   <img
                     src={`${import.meta.env.BASE_URL}assets/mcp-server-stroke-rounded.svg`}
                     alt="MCP"
+                    loading="eager"
                     className="single-project-title-tech-icon select-none"
                     style={{ filter: 'brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))' }}
                   />
@@ -137,6 +140,7 @@ const SingleProject = ({
                   <img
                     src={`${import.meta.env.BASE_URL}assets/icon-shopify.svg`}
                     alt="Shopify"
+                    loading="eager"
                     className="single-project-title-tech-icon select-none"
                   />
                   <span className="single-project-skills-tooltip">Shopify</span>
@@ -147,6 +151,7 @@ const SingleProject = ({
                   <img
                     src={`${import.meta.env.BASE_URL}assets/claude-ai-icon.svg`}
                     alt="Claude AI"
+                    loading="eager"
                     className="single-project-title-tech-icon select-none"
                   />
                   <span className="single-project-skills-tooltip">Claude AI</span>

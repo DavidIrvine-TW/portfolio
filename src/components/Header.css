@@ -40,10 +40,6 @@
   }
 }
 
-.header-wrapper.header-wide {
-  max-width: 1400px;
-}
-
 .header-wrapper.header-scrolled {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);

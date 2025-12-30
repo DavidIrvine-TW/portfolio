@@ -6,7 +6,6 @@ import "./Header.css";
 
 function Header({menu, setMenu}) {
   const [isScrolled, setIsScrolled] = React.useState(false);
-  const [isWide, setIsWide] = React.useState(false);
   const [hoveredItem, setHoveredItem] = React.useState(null);
   const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
   const [lastScrollY, setLastScrollY] = React.useState(0);
@@ -38,13 +37,6 @@ function Header({menu, setMenu}) {
             const isScrollingDown = scrollDifference > 0;
             setScrollingDown(isScrollingDown);
             setLastScrollY(currentScrollY);
-
-            // Control width: expand when scrolling down, shrink when scrolling up
-            if (isScrollingDown && currentScrollY >= 20) {
-              setIsWide(true);
-            } else if (!isScrollingDown) {
-              setIsWide(false);
-            }
 
             // Hide header when scrolling down past hero section (100vh)
             const heroHeight = window.innerHeight;
@@ -158,12 +150,12 @@ function Header({menu, setMenu}) {
   const navItems = [
     { id: 'home', label: 'Top', icon: <IconArrowUp />, disabled: !isScrolled },
     { id: 'portfolio', label: 'Projects', icon: null, disabled: false },
-    { id: 'contact', label: 'Contact', icon: null, disabled: false, primary: true }
+    { id: 'contact', label: 'Contact', icon: null, disabled: false }
   ];
 
   return (
     <header className={`header ${hideHeader ? 'header-hidden' : ''}`}>
-      <div className={`header-wrapper ${isWide ? 'header-wide' : ''} ${isScrolled ? 'header-scrolled' : ''}`}>
+      <div className={`header-wrapper ${isScrolled ? 'header-scrolled' : ''}`}>
         {/* Logo */}
         <motion.div
           className="header-logo"

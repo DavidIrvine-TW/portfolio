@@ -125,9 +125,6 @@ const Contact = () => {
             <h3 className="contact-heading  section-heading select-none">
               Contact
             </h3>
-            <h4 className="contact-subheading section-subheading select-none">
-              I&apos;ll get back to you soon...
-            </h4>
           </div>
 
           <div className="contact-info-wrapper">

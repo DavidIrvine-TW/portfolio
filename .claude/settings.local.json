@@ -10,5 +10,10 @@
     ],
     "deny": [],
     "ask": []
-  }
+  },
+  "enabledMcpjsonServers": [
+    "figma",
+    "chrome-devtools"
+  ],
+  "enableAllProjectMcpServers": true
 }

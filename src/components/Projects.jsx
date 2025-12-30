@@ -3,11 +3,7 @@ import { motion, useTransform, useScroll, AnimatePresence } from "framer-motion"
 import vapesterData from "../data/vapester.json";
 import kanbanData from "../data/kanban.json";
 import trailerviewData from "../data/trailerview.json";
-import photosnapData from "../data/photosnap.json";
-import technyraData from "../data/technyra.json";
-import kopplaData from "../data/koppla.json";
 import placeholder1Data from "../data/placeholder1.json";
-import placeholder2Data from "../data/placeholder2.json";
 import placeholder3Data from "../data/placeholder3.json";
 
 import SingleProject from "./SingleProject";
@@ -55,14 +51,10 @@ const Projects = () => {
   // Consolidate all project data
   const allProjects = useMemo(
     () => [
-      ...technyraData,
-      ...kopplaData,
       ...placeholder1Data,
       ...trailerviewData,
       ...vapesterData,
       ...kanbanData,
-      ...photosnapData,
-      ...placeholder2Data,
       ...placeholder3Data,
     ],
     []

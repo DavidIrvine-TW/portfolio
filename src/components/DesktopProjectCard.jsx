@@ -135,6 +135,7 @@ const DesktopProjectCard = ({
             <img
               src={`${import.meta.env.BASE_URL}${images[0].replace(/^\//, '')}`}
               alt={name}
+              loading="eager"
               className="desktop-project-card-bg-image"
             />
             <motion.div
