@@ -5,7 +5,7 @@
     "year": "2025",
     "nameIcon" :"/assets/briefcase.png",
     "nameIconAlt" : "briefcase icon",
-    "blurb" : "A responsive corporate website for a Spanish development house. Built in 2 days (including QA) using Claude Code and Figma's MCP server. Exported to static HTML/CSS/JS with PHP mail integration.",
+    "blurb" : "A responsive corporate website for a Spanish development house. Built using Claude Code and Figma's MCP server. Exported to static HTML/CSS/JS with PHP mail integration.",
     "keyFeatures": [
       "HTML, CSS, JavaScript, PHP, Figma, MCP, Next.js",
       "Figma MCP server for design-to-code automation",

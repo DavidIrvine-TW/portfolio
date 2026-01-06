@@ -5,7 +5,7 @@
     "year": "2025",
     "nameIcon" :"/assets/briefcase.png",
     "nameIconAlt" : "briefcase icon",
-    "blurb" : "1.5 day build (including QA) using Claude Code and Figma's MCP server. Features custom email API with Cloudflare Turnstile protection, Framer Motion and GSAP animations.",
+    "blurb" : "Built using Claude Code and Figma's MCP server. Features custom email API with Cloudflare Turnstile protection, Framer Motion and GSAP animations.",
     "keyFeatures": [
       "Next.js 15, Tailwind CSS, Figma, MCP, Cloudflare",
       "Custom email API with Cloudflare Turnstile protection",

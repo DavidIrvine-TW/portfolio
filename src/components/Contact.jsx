@@ -110,9 +110,6 @@ const Contact = () => {
       <div className="contact-floating-shapes">
         <div className="contact-shape contact-shape-1"></div>
         <div className="contact-shape contact-shape-2"></div>
-        <div className="contact-shape contact-shape-3"></div>
-        <div className="contact-shape contact-shape-4"></div>
-        <div className="contact-shape contact-shape-5"></div>
       </div>
 
       <div className="contact-wrapper ">

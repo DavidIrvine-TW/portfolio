@@ -4,7 +4,6 @@ import vapesterData from "../data/vapester.json";
 import kanbanData from "../data/kanban.json";
 import trailerviewData from "../data/trailerview.json";
 import placeholder1Data from "../data/placeholder1.json";
-import placeholder3Data from "../data/placeholder3.json";
 
 import SingleProject from "./SingleProject";
 import DesktopProjectCard from "./DesktopProjectCard";
@@ -55,7 +54,6 @@ const Projects = () => {
       ...trailerviewData,
       ...vapesterData,
       ...kanbanData,
-      ...placeholder3Data,
     ],
     []
   );
@@ -105,7 +103,7 @@ const Projects = () => {
     () => ({
       zIndex: 10,
       boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)',
-      borderBottom: '20px solid #404040',
+      borderBottom: '4px solid #404040',
     }),
     []
   );
@@ -123,9 +121,6 @@ const Projects = () => {
         <div className="projects-floating-shapes">
           <div className="projects-shape projects-shape-1"></div>
           <div className="projects-shape projects-shape-2"></div>
-          <div className="projects-shape projects-shape-3"></div>
-          <div className="projects-shape projects-shape-4"></div>
-          <div className="projects-shape projects-shape-5"></div>
         </div>
 
         <div className="sticky top-0 left-0 h-screen overflow-hidden desktop-projects-container" style={stickyContainerStyle}>
@@ -169,32 +164,24 @@ const Projects = () => {
               </div>
 
               {/* Render projects */}
-              {allProjects.map((project, index) => {
-                const isThisCardHovered = hoveredIndex === index;
-                const isSomeCardHovered = hoveredIndex !== null;
-                const shouldBeVisible = !isSomeCardHovered || isThisCardHovered;
+              {allProjects.map((project, index) => (
+                <div
+                  key={project.id}
+                  className={`flex-shrink-0 w-[35vw] ${index > 0 ? 'ml-[3rem]' : ''}`}
+                >
+                  <DesktopProjectCard
+                    {...project}
+                    index={index}
+                    hoveredIndex={hoveredIndex}
+                    setHoveredIndex={setHoveredIndex}
+                  />
+                </div>
+              ))}
 
-                return (
-                  <motion.div
-                    key={project.id}
-                    className={`flex-shrink-0 w-[35vw] ${index > 0 ? 'ml-[3rem]' : ''}`}
-                    animate={{
-                      opacity: shouldBeVisible ? 1 : 0.5,
-                    }}
-                    transition={{
-                      duration: 0.4,
-                      ease: [0.25, 0.1, 0.25, 1],
-                    }}
-                  >
-                    <DesktopProjectCard
-                      {...project}
-                      index={index}
-                      hoveredIndex={hoveredIndex}
-                      setHoveredIndex={setHoveredIndex}
-                    />
-                  </motion.div>
-                );
-              })}
+              {/* Empty card at the end */}
+              <div className="flex-shrink-0 w-[35vw] ml-[3rem]">
+                <div className="empty-end-card" />
+              </div>
 
               {/* Spacer at the end */}
               <div className="w-[5vw] flex-shrink-0" />
@@ -212,9 +199,6 @@ const Projects = () => {
       <div className="projects-floating-shapes">
         <div className="projects-shape projects-shape-1"></div>
         <div className="projects-shape projects-shape-2"></div>
-        <div className="projects-shape projects-shape-3"></div>
-        <div className="projects-shape projects-shape-4"></div>
-        <div className="projects-shape projects-shape-5"></div>
       </div>
 
       <div className="projects-container">

@@ -11,9 +11,17 @@
     "deny": [],
     "ask": []
   },
+<<<<<<< Updated upstream
   "enabledMcpjsonServers": [
     "figma",
     "chrome-devtools"
   ],
   "enableAllProjectMcpServers": true
+=======
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "figma",
+    "chrome-devtools"
+  ]
+>>>>>>> Stashed changes
 }

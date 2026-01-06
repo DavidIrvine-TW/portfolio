@@ -159,9 +159,6 @@ function Hero() {
       <div className="hero-floating-shapes">
         <div className="hero-shape hero-shape-1"></div>
         <div className="hero-shape hero-shape-2"></div>
-        <div className="hero-shape hero-shape-3"></div>
-        <div className="hero-shape hero-shape-4"></div>
-        <div className="hero-shape hero-shape-5"></div>
       </div>
 
       <div className={`hero-content-wrapper ${fadeIn ? 'hero-fade-in' : 'hero-fade-out'}`}>

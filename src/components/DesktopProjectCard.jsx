@@ -35,13 +35,15 @@ const DesktopProjectCard = ({
     []
   );
 
-  // Wrapper animation for scale and opacity
+  // Wrapper animation for scale only (no opacity)
   const wrapperVariants = {
     animate: () => ({
       scale: hoveredIndex !== null && !isHovered ? 0.85 : 1,
-      opacity: hoveredIndex !== null && !isHovered ? 0.6 : 1,
     }),
   };
+
+  // Check if this card should show as transparent with border
+  const isInactive = hoveredIndex !== null && !isHovered;
 
   // Card animation (no scale here anymore)
   const cardVariants = {
@@ -58,7 +60,7 @@ const DesktopProjectCard = ({
 
   const bgVariants = {
     animate: () => ({
-      opacity: isHovered ? 0 : 1,
+      opacity: isHovered || isInactive ? 0 : 1,
     }),
   };
 
@@ -118,7 +120,7 @@ const DesktopProjectCard = ({
       transition={baseTransition}
     >
       <motion.div
-        className={`desktop-project-card ${isEmpty && !alwaysShowContent ? 'desktop-project-card-empty' : ''}`}
+        className={`desktop-project-card ${isEmpty && !alwaysShowContent ? 'desktop-project-card-empty' : ''} ${isInactive ? 'desktop-project-card-inactive' : ''}`}
         onMouseEnter={() => !isEmpty && setHoveredIndex(index)}
         onMouseLeave={() => !isEmpty && setHoveredIndex(null)}
         variants={cardVariants}

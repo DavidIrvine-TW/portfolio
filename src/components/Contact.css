@@ -4,6 +4,8 @@
   z-index: 1;
   background-color: #0A0A0A;
   overflow: hidden;
+  border-top: 4px solid #404040;
+  border-bottom: 4px solid #404040;
 }
 
 /* Floating Abstract Shapes */

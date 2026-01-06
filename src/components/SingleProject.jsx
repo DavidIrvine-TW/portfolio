@@ -94,7 +94,7 @@ const SingleProject = ({
                   className="single-project-image"
                   src={`${import.meta.env.BASE_URL}${image.replace(/^\//, '')}`}
                   alt="porfolio image"
-                  loading="eager"
+                  loading={index === 0 ? "eager" : "lazy"}
                 />
               </SwiperSlide>
             ))}
