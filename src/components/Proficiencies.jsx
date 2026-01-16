@@ -47,38 +47,21 @@ const Proficiencies = () => {
   };
 
   return (
-    <section className="proficiencies-section">
+    <section className="proficiencies-section hidden lg:block">
       <div className="proficiencies-container">
-        <motion.div
-          className="proficiencies-header"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="proficiencies-heading select-none">
-            Proficiencies
-          </h3>
-          <p className="proficiencies-subtext select-none">
-            Technologies and tools I work with
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="proficiencies-grid"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
+        <div className="proficiencies-grid">
           {HeroSkillsData.skills.map((skill, index) => (
             <motion.div
               key={skill}
               className="proficiency-item"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{
+                duration: 0.4,
+                ease: "easeOut",
+                delay: index * 0.05
+              }}
             >
               <div className="proficiency-icon-wrapper">
                 {!loadedSkills[skill] && skill !== 'claude' && skill !== 'mcp' && (
@@ -99,7 +82,7 @@ const Proficiencies = () => {
               <span className="proficiency-name select-none">{getSkillName(skill)}</span>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

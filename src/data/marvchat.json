@@ -1,0 +1,25 @@
+[
+  {
+    "id": "project-marvchat",
+    "name": "MarvChat",
+    "type": "App",
+    "year": "2026",
+    "nameIcon": "./assets/briefcase.png",
+    "nameIconAlt": "briefcase icon",
+    "blurb": "An AI-powered chatbot widget that can be embedded into any website. Features real-time conversations, customizable styling, and easy integration via a simple script tag.",
+    "keyFeatures": [
+      "React, TypeScript, Vercel",
+      "AI-powered conversational interface",
+      "Embeddable widget with single script tag",
+      "Real-time chat functionality",
+      "Customizable and responsive design"
+    ],
+    "tech": ["react", "ts", "vercel"],
+    "features": "",
+    "livelink": "https://chatbot-five-mu-76.vercel.app/",
+    "github": "https://github.com/DavidIrvine-TW/chatbot",
+    "tags": ["#ai", "#chatbot", "#react", "#typescript", "#vercel", "#widget", "#embeddable"],
+    "images": ["/assets/chatbot.webp"],
+    "align": "left"
+  }
+]

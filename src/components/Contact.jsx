@@ -1,12 +1,11 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import IconEmailAlt from "../icons/IconEmailAlt";
 import Footer from "./Footer";
 import "./Contact.css";
 
 const Contact = () => {
   const form = useRef();
-  
+
   // emailjs errormsg
   const [message, setMessage] = useState("");
   const [userNameErrorMsg, setUserNameErrorMsg] = useState("");
@@ -17,7 +16,6 @@ const Contact = () => {
   const serviceId = import.meta.env.VITE_EMAILJS_SERVICEID;
   const templateId = import.meta.env.VITE_EMAILJS_TEMPLATEID;
   const publicKey = import.meta.env.VITE_EMAILJS_PUBLICKEY;
-
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -49,41 +47,27 @@ const Contact = () => {
       setUserMessageErrorMsg("");
     }
 
-    // Only send email if there are no validation errors
     if (hasErrors) {
       return;
     }
 
     emailjs
-      .sendForm(
-        serviceId,
-        templateId,
-        form.current,
-        publicKey
-      )
+      .sendForm(serviceId, templateId, form.current, publicKey)
       .then(
         () => {
           setMessage("Message sent!");
           form.current.reset();
-          // Clear message after 5 seconds
-          setTimeout(() => {
-            setMessage("");
-          }, 5000);
+          setTimeout(() => setMessage(""), 5000);
         },
         () => {
-          setMessage("Failed to send email. Please try again.");
-          // Clear error message after 5 seconds
-          setTimeout(() => {
-            setMessage("");
-          }, 5000);
+          setMessage("Failed to send. Please try again.");
+          setTimeout(() => setMessage(""), 5000);
         }
       );
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-
-    // Remove error message when input field is not empty
     if (name === "user_name") {
       setUserNameErrorMsg(value.trim() ? "" : "* Required");
     } else if (name === "user_email") {
@@ -93,111 +77,84 @@ const Contact = () => {
     }
   };
 
-  const copyEmailToClipboard = (text) => {
-    navigator.clipboard
-      .writeText(text)
-      .then(() => {
-        alert("Email address copied to clipboard: ", text);
-      })
-      .catch((error) => {
-        console.error("Failed to copy email:", error);
-      });
-  };
-
   return (
-    <section id="contact" className="contact-section ">
+    <section id="contact" className="contact-section">
       {/* Floating abstract shapes */}
       <div className="contact-floating-shapes">
         <div className="contact-shape contact-shape-1"></div>
         <div className="contact-shape contact-shape-2"></div>
+        <div className="contact-shape contact-shape-3"></div>
       </div>
 
-      <div className="contact-wrapper ">
-
-        <div className="contact-container ">
-
-        <div className="contact-header-wrapper ">
-
-          <div className="contact-header-left ">
-            <h3 className="contact-heading  section-heading select-none">
-              Contact
-            </h3>
-          </div>
-
-          <div className="contact-info-wrapper">
-
-            <div className="contact-info-item">
-              <IconEmailAlt />
-              <div className="contact-info-text-wrapper">
-                <span
-                  onClick={() =>
-                    copyEmailToClipboard("marv@marv-dev.com")
-                  }
-                  className="contact-email"
-                >
+      <div className="contact-wrapper">
+        <div className="contact-container">
+          <div className="contact-grid">
+            {/* Left Column - Info */}
+            <div className="contact-info-column">
+              <h3 className="contact-heading select-none">
+                Let's work together
+              </h3>
+              <p className="contact-subtext select-none">
+                Have a project in mind? Send me a message and I'll get back to you soon.
+              </p>
+              <div className="contact-email-wrapper">
+                <span className="contact-email-label">Email</span>
+                <a href="mailto:marv@marv-dev.com" className="contact-email">
                   marv@marv-dev.com
-                </span>
+                </a>
               </div>
             </div>
 
-          </div>
+            {/* Right Column - Form */}
+            <div className="contact-form-column">
+              <form ref={form} onSubmit={sendEmail} className="contact-form">
+                <div className="contact-form-row">
+                  <div className="contact-input-group">
+                    <input
+                      onChange={handleInputChange}
+                      type="text"
+                      name="user_name"
+                      placeholder="Name"
+                      className="contact-input"
+                    />
+                    {userNameErrorMsg && <span className="contact-error">{userNameErrorMsg}</span>}
+                  </div>
+                  <div className="contact-input-group">
+                    <input
+                      onChange={handleInputChange}
+                      type="email"
+                      name="user_email"
+                      placeholder="Email"
+                      className="contact-input"
+                    />
+                    {userEmailErrorMsg && <span className="contact-error">{userEmailErrorMsg}</span>}
+                  </div>
+                </div>
 
+                <div className="contact-input-group">
+                  <textarea
+                    onChange={handleInputChange}
+                    name="message"
+                    className="contact-textarea"
+                    placeholder="Your message..."
+                    rows="5"
+                  />
+                  {userMessageErrorMsg && <span className="contact-error">{userMessageErrorMsg}</span>}
+                </div>
+
+                <div className="contact-submit-wrapper">
+                  <button type="submit" className="contact-submit-btn">
+                    Send Message
+                  </button>
+                  {message && <p className="contact-success-message">{message}</p>}
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
 
-        <form ref={form} onSubmit={sendEmail}>
-
-          <div className="contact-form-container ">
-
-            <div className="contact-form-inputs-wrapper">
-              <div className="contact-input-group">
-                <input
-                  onChange={handleInputChange}
-                  type="text"
-                  name="user_name"
-                  placeholder="Name"
-                  className="contact-input"
-                />
-                <span className="contact-error ">{userNameErrorMsg}</span>
-              </div>
-              <div className="contact-input-group">
-                <input
-                  onChange={handleInputChange}
-                  type="email"
-                  name="user_email"
-                  placeholder="Email"
-                  className="contact-input"
-                />
-                <span className="contact-error">{userEmailErrorMsg}</span>
-              </div>
-            </div>
-
-            <div className="contact-textarea-wrapper">
-              <textarea
-                onChange={handleInputChange}
-                name="message"
-                className="contact-textarea "
-                placeholder="Message..."
-              />
-              <span className="contact-error">{userMessageErrorMsg}</span>
-            </div>
-
-          </div>
-
-          <div className="contact-submit-wrapper">
-            <button type="submit" value="Send" className="contact-submit-btn btn-primary">
-              Send it
-            </button>
-            {message && <p className="contact-success-message">{message}</p>}
-          </div>
-
-        </form>
-
-        </div>
-
-       <Footer />
+        <Footer />
       </div>
-
-       
     </section>
   );
 };

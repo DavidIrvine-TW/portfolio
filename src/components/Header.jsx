@@ -38,9 +38,8 @@ function Header({menu, setMenu}) {
             setScrollingDown(isScrollingDown);
             setLastScrollY(currentScrollY);
 
-            // Hide header when scrolling down past hero section (100vh)
-            const heroHeight = window.innerHeight;
-            if (isScrollingDown && currentScrollY > heroHeight) {
+            // Hide header when scrolling down past 50px
+            if (isScrollingDown && currentScrollY > 50) {
               setHideHeader(true);
             } else if (!isScrollingDown) {
               setHideHeader(false);
@@ -164,7 +163,7 @@ function Header({menu, setMenu}) {
           transition={{ duration: 0.5 }}
         >
           <a href="/" onClick={(e) => { e.preventDefault(); window.location.reload(); }}>
-            <MarqueeText>Web Developer</MarqueeText>
+            <MarqueeText>Full Stack Web Developer</MarqueeText>
           </a>
         </motion.div>
 

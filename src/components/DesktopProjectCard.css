@@ -6,7 +6,7 @@
 .desktop-project-card {
   position: relative;
   width: 100%;
-  height: 60vh;
+  height: 55vh;
   max-height: 500px;
   border-radius: 4px;
   overflow: hidden;
@@ -22,7 +22,6 @@
 }
 
 .desktop-project-card-inactive {
-  border: 1px solid #333333;
   background: transparent;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
@@ -212,7 +211,7 @@
   content: '•';
   position: absolute;
   left: 0;
-  color: #FB923C;
+  color: #E09145;
   font-weight: bold;
 }
 

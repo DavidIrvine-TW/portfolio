@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
-import { motion, useTransform, useScroll, AnimatePresence } from "framer-motion";
+import { motion, useTransform, useScroll, useSpring, AnimatePresence } from "framer-motion";
 import vapesterData from "../data/vapester.json";
 import kanbanData from "../data/kanban.json";
 import trailerviewData from "../data/trailerview.json";
 import placeholder1Data from "../data/placeholder1.json";
+import marvchatData from "../data/marvchat.json";
 
 import SingleProject from "./SingleProject";
 import DesktopProjectCard from "./DesktopProjectCard";
@@ -38,7 +39,6 @@ const useMaxScroll = (scrollContainerRef, dependencies = []) => {
 };
 
 const Projects = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isDesktop, setIsDesktop] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -50,6 +50,7 @@ const Projects = () => {
   // Consolidate all project data
   const allProjects = useMemo(
     () => [
+      ...marvchatData,
       ...placeholder1Data,
       ...trailerviewData,
       ...vapesterData,
@@ -58,19 +59,11 @@ const Projects = () => {
     []
   );
 
-  // Track scroll position and screen size
+  // Track screen size
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 2);
     const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
-
-    handleScroll(); // Check initial scroll position
-    window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
-    };
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Refs for horizontal scroll (desktop only)
@@ -89,6 +82,20 @@ const Projects = () => {
 
   // Transform vertical scroll to horizontal movement
   const x = useTransform(scrollYProgress, [0, 1], [0, -maxScroll]);
+
+  // Calculate scroll progress for 200px fade (section is 400vh)
+  const fadeDistance = 200; // pixels
+  const fadeProgress = useMemo(() => {
+    if (typeof window !== 'undefined') {
+      const sectionHeight = 4 * window.innerHeight; // 400vh
+      return fadeDistance / sectionHeight;
+    }
+    return 0.025; // fallback
+  }, []);
+
+  // Title opacity - fade out as cards fade in (with smooth spring)
+  const titleOpacityRaw = useTransform(scrollYProgress, [0, fadeProgress], [1, 0]);
+  const titleOpacity = useSpring(titleOpacityRaw, { stiffness: 100, damping: 30 });
 
   // Memoize styles for performance
   const sectionStyle = useMemo(
@@ -123,7 +130,11 @@ const Projects = () => {
           <div className="projects-shape projects-shape-2"></div>
         </div>
 
-        <div className="sticky top-0 left-0 h-screen overflow-hidden desktop-projects-container" style={stickyContainerStyle}>
+        <div
+          className="sticky top-0 left-0 h-screen overflow-hidden desktop-projects-container"
+          style={stickyContainerStyle}
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
           {/* Full viewport background image wallpaper */}
           <AnimatePresence mode="wait">
             {hoveredImage && (
@@ -159,28 +170,38 @@ const Projects = () => {
               <div className="w-[5vw] flex-shrink-0" />
 
               {/* Header inline with cards */}
-              <div className="flex flex-col gap-[1rem] flex-shrink-0 w-[30vw] mr-[1rem]">
-                <h3 className="projects-heading section-heading select-none" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#F5F5F5' }}>Featured <span style={{ color: '#FB923C' }}>Projects</span></h3>
-              </div>
+              <motion.div
+                className="flex flex-col gap-[1rem] flex-shrink-0 w-[30vw] mr-[1rem]"
+                style={{ opacity: titleOpacity }}
+              >
+                <h3 className="projects-heading section-heading select-none" style={{ fontSize: '4.5rem', fontWeight: 300, color: '#E09145', fontFamily: "'Rubik', sans-serif", letterSpacing: '-0.03em' }}>
+                  Projects
+                </h3>
+              </motion.div>
 
               {/* Render projects */}
-              {allProjects.map((project, index) => (
-                <div
-                  key={project.id}
-                  className={`flex-shrink-0 w-[35vw] ${index > 0 ? 'ml-[3rem]' : ''}`}
-                >
-                  <DesktopProjectCard
-                    {...project}
-                    index={index}
-                    hoveredIndex={hoveredIndex}
-                    setHoveredIndex={setHoveredIndex}
-                  />
-                </div>
-              ))}
+              <div
+                className="flex items-center"
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                {allProjects.map((project, index) => (
+                  <div
+                    key={project.id}
+                    className={`flex-shrink-0 w-[40vw] ${index > 0 ? 'ml-[3rem]' : ''}`}
+                  >
+                    <DesktopProjectCard
+                      {...project}
+                      index={index}
+                      hoveredIndex={hoveredIndex}
+                      setHoveredIndex={setHoveredIndex}
+                    />
+                  </div>
+                ))}
 
-              {/* Empty card at the end */}
-              <div className="flex-shrink-0 w-[35vw] ml-[3rem]">
-                <div className="empty-end-card" />
+                {/* Empty card at the end */}
+                <div className="flex-shrink-0 w-[27vw] ml-[3rem]">
+                  <div className="empty-end-card" />
+                </div>
               </div>
 
               {/* Spacer at the end */}
@@ -204,7 +225,7 @@ const Projects = () => {
       <div className="projects-container">
         <div className="projects-header">
           <h3 className="projects-heading section-heading select-none">PORTFOLIO</h3>
-          <h4 className="projects-subheading section-subheading select-none">Featured <span style={{ color: '#FB923C' }}>projects</span></h4>
+          <h4 className="projects-subheading section-subheading select-none">Featured <span style={{ color: '#E09145' }}>projects</span></h4>
         </div>
 
         {/* Render all projects */}

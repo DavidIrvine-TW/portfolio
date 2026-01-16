@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import IconGitHub from "../icons/IconGitHub";
 import IconLinkedIn from "../icons/IconLinkedIn";
 import IconDownload from "../icons/IconDownload";
@@ -18,6 +18,12 @@ function Hero() {
 
   const imageRef = useRef(null);
   const skillIconsRef = useRef(null);
+  const heroRef = useRef(null);
+
+  // Scroll-based fade effect for hero content
+  const { scrollY } = useScroll();
+  const scrollOpacity = useTransform(scrollY, [50, 500], [1, 0]);
+  const heroTranslateY = useTransform(scrollY, [50, 500], [0, -30]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -161,7 +167,11 @@ function Hero() {
         <div className="hero-shape hero-shape-2"></div>
       </div>
 
-      <div className={`hero-content-wrapper ${fadeIn ? 'hero-fade-in' : 'hero-fade-out'}`}>
+      <motion.div
+        ref={heroRef}
+        className={`hero-content-wrapper ${fadeIn ? 'hero-visible' : 'hero-hidden'}`}
+        style={{ opacity: scrollOpacity, y: heroTranslateY }}
+      >
         {/* Split-screen: Text content (Left/Top) */}
         <motion.div
           className="hero-text-container"
@@ -328,7 +338,7 @@ function Hero() {
             </motion.div>
           </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Skill Badges - Desktop only (outside content wrapper for full width) */}
       <motion.div

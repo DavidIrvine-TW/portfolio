@@ -24,15 +24,16 @@
 
 .proficiencies-heading {
   font-family: 'Rubik', sans-serif;
-  font-weight: 700;
-  font-size: 2rem;
-  color: #F5F5F5;
+  font-weight: 300;
+  font-size: 3rem;
+  color: #E09145;
   margin-bottom: 0.75rem;
+  letter-spacing: -0.03em;
 }
 
 @media (min-width: 900px) {
   .proficiencies-heading {
-    font-size: 2.5rem;
+    font-size: 4.5rem;
   }
 }
 
@@ -40,6 +41,12 @@
   font-family: 'Mulish', sans-serif;
   font-size: 1rem;
   color: #666666;
+}
+
+@media (min-width: 1024px) {
+  .proficiencies-subtext {
+    font-size: 1.15rem;
+  }
 }
 
 .proficiencies-grid {
@@ -76,23 +83,23 @@
 }
 
 .proficiency-icon-wrapper {
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #141414;
   border: 1px solid #1A1A1A;
   border-radius: 8px;
-  padding: 8px;
+  padding: 10px;
   transition: all 0.3s ease;
 }
 
 @media (min-width: 900px) {
   .proficiency-icon-wrapper {
-    width: 56px;
-    height: 56px;
-    padding: 10px;
+    width: 72px;
+    height: 72px;
+    padding: 12px;
   }
 }
 
@@ -118,6 +125,12 @@
 @media (min-width: 900px) {
   .proficiency-name {
     font-size: 0.7rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .proficiency-name {
+    font-size: 0.8rem;
   }
 }
 

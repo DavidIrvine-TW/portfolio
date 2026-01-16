@@ -115,7 +115,7 @@
 
 @layer components {
   .btn-primary {
-  @apply transition duration-300 cursor-pointer items-center w-max px-[1rem] py-[.5rem] border font-bold rounded  bg-[#78716C] text-white hover:scale-105 tracking-[1px];
+  @apply transition duration-300 cursor-pointer items-center w-max px-[1rem] py-[.5rem] border font-bold rounded bg-[#78716C] text-white hover:scale-105 tracking-[1px];
   }
 }
 @layer components {
@@ -271,44 +271,60 @@
 /* contact */
 @layer components {
   .contact-container {
-  @apply  mx-auto px-[1rem] tb900:px-[2rem] py-[2rem] border-2 border-[#A8A29E] bg-[#FFFBF5]  rounded max-w-[445px] tb900:max-w-[1000px] transition-all duration-300 hover:shadow-md;
+  @apply  mx-auto px-[1rem] tb900:px-[2rem] py-[2rem] rounded max-w-[445px] tb900:max-w-[1000px] transition-all duration-300;
   }
 }
 @layer components {
   .contact-form-container {
-  @apply flex flex-col tb900:flex-row w-full gap-[2rem] tb900:gap-[3rem] mb-[2rem];
+  @apply flex flex-col w-full gap-[2rem] mb-[2rem];
   }
 }
 @layer components {
   .contact-input {
-  @apply p-[.5rem] border rounded text-[#F5F5F5];
-  background: rgba(255, 255, 255, 0.05);
-  border-color: #404040;
+  @apply py-[.75rem] px-0 text-[#F5F5F5];
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #333333;
+  border-radius: 0;
   transition: all 0.3s ease;
+  position: relative;
   }
   .contact-input:focus {
     outline: none;
-    border-color: #666666;
-    background: rgba(255, 255, 255, 0.08);
+    border-bottom-color: #E09145;
   }
   .contact-input::placeholder {
-    color: #666666;
+    color: #555555;
+  }
+  @media (min-width: 1024px) {
+    .contact-input {
+      font-size: 1.1rem;
+      padding: 1rem 0;
+    }
   }
 }
 @layer components {
   .contact-textarea {
-  @apply min-h-[200px] p-[.5rem] border rounded text-[#F5F5F5];
-  background: rgba(255, 255, 255, 0.05);
-  border-color: #404040;
+  @apply min-h-[200px] py-[.75rem] px-0 text-[#F5F5F5];
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #333333;
+  border-radius: 0;
   transition: all 0.3s ease;
+  resize: none;
   }
   .contact-textarea:focus {
     outline: none;
-    border-color: #666666;
-    background: rgba(255, 255, 255, 0.08);
+    border-bottom-color: #E09145;
   }
   .contact-textarea::placeholder {
-    color: #666666;
+    color: #555555;
+  }
+  @media (min-width: 1024px) {
+    .contact-textarea {
+      font-size: 1.1rem;
+      padding: 1rem 0;
+    }
   }
 }
 @layer components {
@@ -337,7 +353,7 @@
 
 
 .icon-link a svg:hover {
-  color: #EA580C;
+  color: #E09145;
 }
 .skill-icon-item {
   transition: .3s ease-in-out;

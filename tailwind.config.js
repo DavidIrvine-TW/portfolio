@@ -11,7 +11,7 @@ export default {
         "bgOffWhiteDark": "#EDE9E3",
         "header-txt": "#292524",
         "babyblue" : "#78716C",
-        "babybluelight": "#EA580C",
+        "babybluelight": "#E09145",
         // Dark moody color palette
         "dark": {
           50: "#2A2A2E",
@@ -178,7 +178,7 @@ export default {
         'glass-hover': '0 8px 32px 0 rgba(31, 38, 135, 0.25)',
         'neu-light': '8px 8px 16px #d1cdc7, -8px -8px 16px #ffffff',
         'neu-dark': 'inset 8px 8px 16px #d1cdc7, inset -8px -8px 16px #ffffff',
-        'glow': '0 0 20px rgba(234, 88, 12, 0.3)',
+        'glow': '0 0 20px rgba(224, 145, 69, 0.3)',
         'glow-cyan': '0 0 20px rgba(6, 182, 212, 0.3)',
         'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
         'elevated': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',

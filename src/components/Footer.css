@@ -32,7 +32,7 @@
 
 .footer-social-link {
   @apply transition-all duration-300;
-  color: #FB923C;
+  color: #E09145;
 }
 
 .footer-social-link a {
@@ -40,11 +40,11 @@
 }
 
 .footer-social-link:hover {
-  color: #FCA55C;
+  color: #EAA860;
   transform: none;
 }
 
 .footer-copyright {
   @apply text-[.75rem];
-  color: #FB923C;
+  color: #E09145;
 }
