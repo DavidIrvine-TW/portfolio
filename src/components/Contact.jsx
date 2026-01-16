@@ -6,13 +6,11 @@ import "./Contact.css";
 const Contact = () => {
   const form = useRef();
 
-  // emailjs errormsg
   const [message, setMessage] = useState("");
   const [userNameErrorMsg, setUserNameErrorMsg] = useState("");
   const [userEmailErrorMsg, setUserEmailErrorMsg] = useState("");
   const [userMessageErrorMsg, setUserMessageErrorMsg] = useState("");
 
-  // emailjs
   const serviceId = import.meta.env.VITE_EMAILJS_SERVICEID;
   const templateId = import.meta.env.VITE_EMAILJS_TEMPLATEID;
   const publicKey = import.meta.env.VITE_EMAILJS_PUBLICKEY;
@@ -83,74 +81,67 @@ const Contact = () => {
       <div className="contact-floating-shapes">
         <div className="contact-shape contact-shape-1"></div>
         <div className="contact-shape contact-shape-2"></div>
-        <div className="contact-shape contact-shape-3"></div>
       </div>
 
       <div className="contact-wrapper">
         <div className="contact-container">
-          <div className="contact-grid">
-            {/* Left Column - Info */}
-            <div className="contact-info-column">
-              <h3 className="contact-heading select-none">
-                Let's work together
-              </h3>
-              <p className="contact-subtext select-none">
-                Have a project in mind? Send me a message and I'll get back to you soon.
-              </p>
-              <div className="contact-email-wrapper">
-                <span className="contact-email-label">Email</span>
-                <a href="mailto:marv@marv-dev.com" className="contact-email">
-                  marv@marv-dev.com
-                </a>
+          {/* Header */}
+          <div className="contact-header">
+            <h3 className="contact-heading select-none">Contact</h3>
+            <p className="contact-subtext select-none">
+              Have a project in mind?
+            </p>
+          </div>
+
+          {/* Form */}
+          <form ref={form} onSubmit={sendEmail} className="contact-form">
+            <div className="contact-form-fields">
+              <div className="contact-input-group">
+                <input
+                  onChange={handleInputChange}
+                  type="text"
+                  name="user_name"
+                  placeholder="Name"
+                  className="contact-input"
+                />
+                {userNameErrorMsg && <span className="contact-error">{userNameErrorMsg}</span>}
+              </div>
+
+              <div className="contact-input-group">
+                <input
+                  onChange={handleInputChange}
+                  type="email"
+                  name="user_email"
+                  placeholder="Email"
+                  className="contact-input"
+                />
+                {userEmailErrorMsg && <span className="contact-error">{userEmailErrorMsg}</span>}
+              </div>
+
+              <div className="contact-input-group">
+                <textarea
+                  onChange={handleInputChange}
+                  name="message"
+                  className="contact-textarea"
+                  placeholder="Message"
+                  rows="4"
+                />
+                {userMessageErrorMsg && <span className="contact-error">{userMessageErrorMsg}</span>}
               </div>
             </div>
 
-            {/* Right Column - Form */}
-            <div className="contact-form-column">
-              <form ref={form} onSubmit={sendEmail} className="contact-form">
-                <div className="contact-form-row">
-                  <div className="contact-input-group">
-                    <input
-                      onChange={handleInputChange}
-                      type="text"
-                      name="user_name"
-                      placeholder="Name"
-                      className="contact-input"
-                    />
-                    {userNameErrorMsg && <span className="contact-error">{userNameErrorMsg}</span>}
-                  </div>
-                  <div className="contact-input-group">
-                    <input
-                      onChange={handleInputChange}
-                      type="email"
-                      name="user_email"
-                      placeholder="Email"
-                      className="contact-input"
-                    />
-                    {userEmailErrorMsg && <span className="contact-error">{userEmailErrorMsg}</span>}
-                  </div>
-                </div>
-
-                <div className="contact-input-group">
-                  <textarea
-                    onChange={handleInputChange}
-                    name="message"
-                    className="contact-textarea"
-                    placeholder="Your message..."
-                    rows="5"
-                  />
-                  {userMessageErrorMsg && <span className="contact-error">{userMessageErrorMsg}</span>}
-                </div>
-
-                <div className="contact-submit-wrapper">
-                  <button type="submit" className="contact-submit-btn">
-                    Send Message
-                  </button>
-                  {message && <p className="contact-success-message">{message}</p>}
-                </div>
-              </form>
+            <div className="contact-form-footer">
+              <a href="mailto:marv@marv-dev.com" className="contact-email">
+                marv@marv-dev.com
+              </a>
+              <div className="contact-submit-wrapper">
+                {message && <p className="contact-success-message">{message}</p>}
+                <button type="submit" className="contact-submit-btn">
+                  Send
+                </button>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
 
         <Footer />
