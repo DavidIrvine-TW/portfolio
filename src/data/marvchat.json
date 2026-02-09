@@ -1,12 +1,12 @@
 [
   {
     "id": "project-marvchat",
-    "name": "MarvChat",
+    "name": "AI Chatbot",
     "type": "App",
-    "year": "2026",
+    "year": "2025",
     "nameIcon": "./assets/briefcase.png",
     "nameIconAlt": "briefcase icon",
-    "blurb": "An AI-powered chatbot widget that can be embedded into any website. Features real-time conversations, customizable styling, and easy integration via a simple script tag.",
+    "blurb": "An AI-powered chatbot widget originally built to solve an internal business problem of managing 100+ AI chatbot subscriptions. Trained on custom content (in this case, my resume and LinkedIn), it features real-time conversations, customizable styling, and easy integration via a simple script tag for embedding into any website. ",
     "keyFeatures": [
       "React, TypeScript, Vercel",
       "AI-powered conversational interface",

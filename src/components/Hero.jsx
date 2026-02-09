@@ -1,11 +1,21 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 import IconGitHub from "../icons/IconGitHub";
 import IconLinkedIn from "../icons/IconLinkedIn";
 import IconDownload from "../icons/IconDownload";
 import HeroSkillsData from "../data/heroSkillsData.json";
 import "./Hero.css";
 import "./Skeleton.css";
+
+const heroSliderImages = [
+  "assets/HeroImgGray.jpg",
+  "assets/study.gif",
+  "assets/synth.gif",
+  "assets/dj.gif",
+  "assets/teacher.gif",
+];
 
 function Hero() {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -15,6 +25,12 @@ function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [marqueeOffset, setMarqueeOffset] = useState(0);
   const [skillIconsVisible, setSkillIconsVisible] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth >= 1024;
+    }
+    return false;
+  });
 
   const imageRef = useRef(null);
   const skillIconsRef = useRef(null);
@@ -31,6 +47,13 @@ function Hero() {
     }, 300);
 
     return () => clearTimeout(timer);
+  }, []);
+
+  // Track screen size for desktop detection
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Track scroll position for background darkening
@@ -292,7 +315,7 @@ function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Split-screen: Profile Image (Right/Bottom) with Subtle Parallax */}
+        {/* Split-screen: Profile Image Slider (Right/Bottom) with Subtle Parallax */}
         <motion.div
           className="hero-image-container"
           initial={{ opacity: 0, x: 50 }}
@@ -318,23 +341,48 @@ function Hero() {
               {!imageLoaded && (
                 <div className="skeleton skeleton-circle w-[280px] h-[280px] tb500:w-[350px] tb500:h-[350px]"></div>
               )}
-              {imageLoaded && (
-                <div className="hero-img-bg">
-                  <img
-                    src={`${import.meta.env.BASE_URL}assets/HeroImgGray.jpg`}
-                    alt="profile background"
-                    className="hero-img-bg-image select-none"
-                  />
-                  <div className="hero-img-overlay" />
-                </div>
+              {isDesktop ? (
+                <Swiper
+                  spaceBetween={10}
+                  slidesPerView={1}
+                  loop={false}
+                  grabCursor={true}
+                  className="hero-slider"
+                  style={{ opacity: imageLoaded ? 1 : 0 }}
+                >
+                  {heroSliderImages.map((image, index) => (
+                    <SwiperSlide key={index}>
+                      <div className="hero-img-bg">
+                        <img
+                          src={`${import.meta.env.BASE_URL}${image}`}
+                          alt={`Hero slide ${index + 1}`}
+                          className="hero-img-bg-image select-none"
+                          onLoad={index === 0 ? () => setImageLoaded(true) : undefined}
+                        />
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              ) : (
+                imageLoaded && (
+                  <div className="hero-img-bg">
+                    <img
+                      src={`${import.meta.env.BASE_URL}assets/HeroImgGray.jpg`}
+                      alt="profile background"
+                      className="hero-img-bg-image select-none"
+                    />
+                  </div>
+                )
               )}
+              {/* Hidden image to trigger load state */}
               <img
                 src={`${import.meta.env.BASE_URL}assets/HeroImgGray.jpg`}
                 alt="profile image"
                 loading="eager"
                 onLoad={() => setImageLoaded(true)}
-                style={{ opacity: 0, position: 'absolute' }}
+                style={{ opacity: 0, position: 'absolute', width: 1, height: 1 }}
               />
+              <div className="hero-img-overlay" />
             </motion.div>
           </motion.div>
         </motion.div>
